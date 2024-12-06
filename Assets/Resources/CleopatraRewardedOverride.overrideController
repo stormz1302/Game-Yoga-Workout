@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: "CleopatraRewardedOverride"
+  m_Controller: {fileID: 9100000, guid: 6ec68f64634e4655b006b9d5b6784e72, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ff99a9bf8ba543afa682e2ae3d0a3825, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff99a9bf8ba543afa682e2ae3d0a3825, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b8e9db25c4784266ba3ab1732cf6f71d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2ad268a141e24266bfabbf36124e8e5a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 729fd68792eb4ebb952cc0f55438c3fa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 729fd68792eb4ebb952cc0f55438c3fa, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e4813bd5cce5433393be059257beb612, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e4813bd5cce5433393be059257beb612, type: 2}
+  - m_OriginalClip: {fileID: 0}
+    m_OverrideClip: {fileID: 0}
+  - m_OriginalClip: {fileID: 0}
+    m_OverrideClip: {fileID: 0}
+  - m_OriginalClip: {fileID: 7400000, guid: 09ed8a0d3d724552952642e092f4fee6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 09ed8a0d3d724552952642e092f4fee6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: bc548b0b0f8f46ddbec327ba1414e292, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bc548b0b0f8f46ddbec327ba1414e292, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 541b3f0447c44b1bbe62f931e3437c3f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 541b3f0447c44b1bbe62f931e3437c3f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4293d497616d41689b91a239e6c920bf, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4293d497616d41689b91a239e6c920bf, type: 2}

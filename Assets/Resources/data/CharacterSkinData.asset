@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb85c08ce94569e47ae55aa562780252, type: 3}
+  m_Name: CharacterSkinData
+  m_EditorClassIdentifier: 
+  characterSkinData:
+  - name: skin_4
+    ID: 0
+    CharacterIcon: {fileID: 21300000, guid: da170de4458ea0547803aace201d6344, type: 3}
+    CharacterPrf: {fileID: 6079415293427045720, guid: 1cf8b3deb3715a14b9cdd793f2e84f00, type: 3}
+    Price: 0
+    isOwned: 1
+  - name: skin_1
+    ID: 1
+    CharacterIcon: {fileID: 21300000, guid: c8f50004ba8c6fb4aa0570e987f71da0, type: 3}
+    CharacterPrf: {fileID: 6192299761534658746, guid: 3dca23f2e08c45049ad84e69d27bd8a9, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_2
+    ID: 2
+    CharacterIcon: {fileID: 21300000, guid: fc86473a7500f794388fd386b9bf47fd, type: 3}
+    CharacterPrf: {fileID: 7057737040703346097, guid: daedf81541fc24f4298ab16e2328aed8, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_3
+    ID: 3
+    CharacterIcon: {fileID: 21300000, guid: 6711a493f381aed44a6ce32b90d70eda, type: 3}
+    CharacterPrf: {fileID: 1689117442784653974, guid: d3feb90a5ada7b54b951aa7e7f3fd032, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_5
+    ID: 4
+    CharacterIcon: {fileID: 21300000, guid: 3cdb0a22084de7944971fedabf8164a5, type: 3}
+    CharacterPrf: {fileID: 8874390914805939550, guid: 3abb8f6c6ea62f546ade4cd65e2adfe7, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_6
+    ID: 5
+    CharacterIcon: {fileID: 21300000, guid: 6d4c36c8d9d48bc4aa9a5e7311b66319, type: 3}
+    CharacterPrf: {fileID: 6944537001692074640, guid: 0066cd12efd96f34292d5c5c1b1e722a, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_7
+    ID: 6
+    CharacterIcon: {fileID: 21300000, guid: 19751586816c38143a3086d20597ee58, type: 3}
+    CharacterPrf: {fileID: 3737264583836899141, guid: 1ec783b0b6fb16846acbff74f9637c2b, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_8
+    ID: 7
+    CharacterIcon: {fileID: 21300000, guid: 6229d48b289ebeb4986583cbc9814161, type: 3}
+    CharacterPrf: {fileID: 6014841996209255339, guid: 7b79d9c266621d445824411f29cf0fe7, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_9
+    ID: 8
+    CharacterIcon: {fileID: 21300000, guid: 22fb09cb462f61640ba6f5ac0a5d419a, type: 3}
+    CharacterPrf: {fileID: 8242636479221177559, guid: d768492e5c17d1647a60a7afa9d18692, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_10
+    ID: 9
+    CharacterIcon: {fileID: 21300000, guid: c7bfa685f1e0bbc48835a6ec31c096e8, type: 3}
+    CharacterPrf: {fileID: 2247228946358802919, guid: 7db42fa0982761d438cdb7284ffabadb, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_11
+    ID: 10
+    CharacterIcon: {fileID: 21300000, guid: ca48e3b01fc2dfc46a5a7a093767daa9, type: 3}
+    CharacterPrf: {fileID: 8397850441397041423, guid: c677c5ce31bbf254e86ec2856138c117, type: 3}
+    Price: 10000
+    isOwned: 0
+  - name: skin_12
+    ID: 11
+    CharacterIcon: {fileID: 21300000, guid: b3b9bcb61d10e50458e38413bb77e991, type: 3}
+    CharacterPrf: {fileID: 6054141254522070653, guid: 5169b68dbcc511245a3a876a6563fc59, type: 3}
+    Price: 10000
+    isOwned: 0
