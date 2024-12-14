@@ -13,75 +13,81 @@ MonoBehaviour:
   m_Name: CharacterSkinData
   m_EditorClassIdentifier: 
   characterSkinData:
-  - name: skin_4
+  - name: animeGirl00
     ID: 0
-    CharacterIcon: {fileID: 21300000, guid: da170de4458ea0547803aace201d6344, type: 3}
-    CharacterPrf: {fileID: 6079415293427045720, guid: 1cf8b3deb3715a14b9cdd793f2e84f00, type: 3}
-    Price: 0
-    isOwned: 1
-  - name: skin_1
+    CharacterIcon: {fileID: 21300000, guid: 7a48cadeb8a7c344a97a195e5442422b, type: 3}
+    CharacterPrf: {fileID: 8170240833156213673, guid: e6ecd8edf2893f342bbe9034a29a9948, type: 3}
+    Price: 100000
+    isOwned: 0
+  - name: animeGirl01
     ID: 1
-    CharacterIcon: {fileID: 21300000, guid: c8f50004ba8c6fb4aa0570e987f71da0, type: 3}
-    CharacterPrf: {fileID: 6192299761534658746, guid: 3dca23f2e08c45049ad84e69d27bd8a9, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: 177572749cb4580488d8df72e9d0119c, type: 3}
+    CharacterPrf: {fileID: 5073061355636333963, guid: f95e4d93be8b83d4fbf1d345147b6b01, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_2
+  - name: animeGirl02
     ID: 2
-    CharacterIcon: {fileID: 21300000, guid: fc86473a7500f794388fd386b9bf47fd, type: 3}
-    CharacterPrf: {fileID: 7057737040703346097, guid: daedf81541fc24f4298ab16e2328aed8, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: 705a3ffb847a81b46b7fb3e53fc97e80, type: 3}
+    CharacterPrf: {fileID: 8275745008566296738, guid: ff2f4e907c8a60f4baf1223a0a918fc5, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_3
+  - name: animeGirl03
     ID: 3
-    CharacterIcon: {fileID: 21300000, guid: 6711a493f381aed44a6ce32b90d70eda, type: 3}
-    CharacterPrf: {fileID: 1689117442784653974, guid: d3feb90a5ada7b54b951aa7e7f3fd032, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: c7807276ba84f7843bc2c298d5bc267e, type: 3}
+    CharacterPrf: {fileID: 7208906349736484352, guid: 4bca13ce6c4583645a400724c9fa8a34, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_5
+  - name: animeGirl04
     ID: 4
-    CharacterIcon: {fileID: 21300000, guid: 3cdb0a22084de7944971fedabf8164a5, type: 3}
-    CharacterPrf: {fileID: 8874390914805939550, guid: 3abb8f6c6ea62f546ade4cd65e2adfe7, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: b347c8b40f69b794b96674c9815cba24, type: 3}
+    CharacterPrf: {fileID: 2092245626796258892, guid: 42586c14e906e3848b16adf61a08f658, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_6
+  - name: animeGirl05
     ID: 5
-    CharacterIcon: {fileID: 21300000, guid: 6d4c36c8d9d48bc4aa9a5e7311b66319, type: 3}
-    CharacterPrf: {fileID: 6944537001692074640, guid: 0066cd12efd96f34292d5c5c1b1e722a, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: cc358e642917cf84f933fb8608ee3069, type: 3}
+    CharacterPrf: {fileID: 3154349900910273501, guid: 356e32adc5562af429975c469bf997fc, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_7
+  - name: animeGirl06
     ID: 6
-    CharacterIcon: {fileID: 21300000, guid: 19751586816c38143a3086d20597ee58, type: 3}
-    CharacterPrf: {fileID: 3737264583836899141, guid: 1ec783b0b6fb16846acbff74f9637c2b, type: 3}
-    Price: 10000
-    isOwned: 0
-  - name: skin_8
+    CharacterIcon: {fileID: 21300000, guid: e97a8be889f1d264881788a34a93f10f, type: 3}
+    CharacterPrf: {fileID: 847803851747250229, guid: 062221d45f175984e9072fd80442e28c, type: 3}
+    Price: 100000
+    isOwned: 1
+  - name: animeGirl07
     ID: 7
-    CharacterIcon: {fileID: 21300000, guid: 6229d48b289ebeb4986583cbc9814161, type: 3}
-    CharacterPrf: {fileID: 6014841996209255339, guid: 7b79d9c266621d445824411f29cf0fe7, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: a939ed84ba7c8004497c9568f4c13894, type: 3}
+    CharacterPrf: {fileID: 4011735719378414349, guid: f81246ad7ecb1be4096f579f01e08ec8, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_9
+  - name: animeGirl08
     ID: 8
-    CharacterIcon: {fileID: 21300000, guid: 22fb09cb462f61640ba6f5ac0a5d419a, type: 3}
-    CharacterPrf: {fileID: 8242636479221177559, guid: d768492e5c17d1647a60a7afa9d18692, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: 13ebdeed10033074bb19a551352d9527, type: 3}
+    CharacterPrf: {fileID: 7359256271876025078, guid: c3fbe26065a09bc4b9f2d4a3ec138b20, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_10
+  - name: animeGirl09
     ID: 9
-    CharacterIcon: {fileID: 21300000, guid: c7bfa685f1e0bbc48835a6ec31c096e8, type: 3}
-    CharacterPrf: {fileID: 2247228946358802919, guid: 7db42fa0982761d438cdb7284ffabadb, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: 805f8941f91972c4b991bdae250ecbe6, type: 3}
+    CharacterPrf: {fileID: 2035632903440029535, guid: 6a0c3bbd4b6c2b3479b2ccdf20c51208, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_11
+  - name: animeGirl10
     ID: 10
-    CharacterIcon: {fileID: 21300000, guid: ca48e3b01fc2dfc46a5a7a093767daa9, type: 3}
-    CharacterPrf: {fileID: 8397850441397041423, guid: c677c5ce31bbf254e86ec2856138c117, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: db4022a38eace4d40a64f16c89856edd, type: 3}
+    CharacterPrf: {fileID: 8934926735133705527, guid: 53db06a07d353b745800a65d86739586, type: 3}
+    Price: 100000
     isOwned: 0
-  - name: skin_12
+  - name: animeGirl11
     ID: 11
-    CharacterIcon: {fileID: 21300000, guid: b3b9bcb61d10e50458e38413bb77e991, type: 3}
-    CharacterPrf: {fileID: 6054141254522070653, guid: 5169b68dbcc511245a3a876a6563fc59, type: 3}
-    Price: 10000
+    CharacterIcon: {fileID: 21300000, guid: 0a7765610be8c6c46b780e29eaf623ca, type: 3}
+    CharacterPrf: {fileID: 4250620794939896507, guid: 6e1f8da6363e3cd42b93b475e081fdfd, type: 3}
+    Price: 100000
+    isOwned: 0
+  - name: animeGirl12
+    ID: 12
+    CharacterIcon: {fileID: 21300000, guid: efc858d7b1b7c3b49ac05d185b6733bd, type: 3}
+    CharacterPrf: {fileID: 7724993607808288914, guid: 607d7b7d826dcfa4f99f247b7b5e6f6c, type: 3}
+    Price: 100000
     isOwned: 0

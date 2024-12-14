@@ -14,15 +14,16 @@ public class PlayerController : MonoBehaviour
     private float currentProgress = 0f;
     int animIndex;
     [SerializeField] private GameObject hitMoneyEfect;
-    [SerializeField] private GameObject hitThingsEfect;
+    [SerializeField] private GameObject foodClean;
     [SerializeField] private GameObject GoodEfect;
     [SerializeField] private GameObject BadEfect;
+    [SerializeField] private GameObject EndPoint;
     public bool isMatching = false;
     public bool isHit = false;
-    bool hitThings = false;
     bool canDrag;
     bool endGame = false;
     [SerializeField] private AnimatorController animatorController;
+    Collider stage;
 
     private void Awake()
     {
@@ -119,42 +120,53 @@ public class PlayerController : MonoBehaviour
         }
         if (other != null && other.gameObject.CompareTag("Money"))
         {
-            //Event bonus money
-            Debug.Log("hit Money");
-            GameManager.Instance.AddMoney(Random.Range(5, 8));
+            GameManager.Instance.AddMoney(Random.Range(3, 5));
             AudioManager.Instance.PlaySound("MoneyPickup");
             PlayerHit(hitMoneyEfect, other);
         }
         else if (other != null && other.gameObject.CompareTag("Things"))
         {
-            //event hit things
-            Debug.Log("hit Things");
             GameManager.Instance.LoadEndScreen();
         }
+        if (other != null && other.gameObject.CompareTag("Clean") && other != stage)
+        {
+            GameManager.Instance.AddScore(true);
+            AudioManager.Instance.PlaySound("GoodEffect");
+            foodClean.SetActive(true);
+            Invoke("Deactivate", 1f);
+            other.transform.GetChild(0).gameObject.SetActive(false);
+            stage = other;
+        }
+        if (other != null && other.gameObject.CompareTag("notClean") && other != stage)
+        {
+            GameManager.Instance.AddScore(false);
+            AudioManager.Instance.PlaySound("BadEffect");
+            BadEfect.SetActive(true);
+            Invoke("Deactivate", 1f);
+            other.transform.GetChild(0).gameObject.SetActive(false);
+            stage = other;
+        }
+
     }
     public void GoodEffect()
     {
         GoodEfect.SetActive(true);
         Invoke("Deactivate", 1f);
     }
-    
-
     private void OnTriggerExit(Collider other)
     {
-        if (other != null && other.gameObject.CompareTag("Stage"))
+        if (other != null && other.gameObject.CompareTag("Stage") && other != stage)
         {
-            if (!hitThings)
-            {
-                GameManager.Instance.AddScore(true);
-                AudioManager.Instance.PlaySound("GoodEffect");
-                Destroy(other.gameObject);
-            }else hitThings = false;
+            GameManager.Instance.AddScore(true);
+            AudioManager.Instance.PlaySound("GoodEffect");
+            Destroy(other.gameObject);
+            stage = other;
         }
     }
     private void Deactivate() 
     {
         hitMoneyEfect.SetActive(false);
-        hitThingsEfect.SetActive(false );
+        foodClean.SetActive(false );
         GoodEfect.SetActive(false);
         BadEfect.SetActive(false);
     }
@@ -167,7 +179,5 @@ public class PlayerController : MonoBehaviour
         Invoke("Deactivate", 1f);
         Destroy(other.gameObject);
     }
-
-
 
 }
