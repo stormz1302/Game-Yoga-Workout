@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -13,8 +14,8 @@ public class EndGame : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private GameObject Female;
     public Transform FinishPoint;
-    private Animator femaleAnimaotor;
-    private Animator maleAnimaotor;
+    private Animator femaleAnimator;
+    private Animator maleAnimator;
     [SerializeField] float maxHight = 40.6f;
     public GameObject finishBG;
     public GameObject[] male_Emojis;
@@ -58,7 +59,7 @@ public class EndGame : MonoBehaviour
             endGame = false;
             i = 0;
             endGame = false;
-            Male = GameObject.Find("Male");
+            Male = GameObject.Find("male00");
             moneyFinish = GameObject.Find("MoneyFinish").transform;
             FinishPoint = GameObject.Find("FinishPoint").transform;
             
@@ -74,20 +75,21 @@ public class EndGame : MonoBehaviour
             moneyEffect = moneyFinish.GetChild(0).gameObject;
             endGameEffect = Male.transform.GetChild(4).gameObject;
             if (endGameEffect.activeSelf) endGameEffect.SetActive(false);
-            femaleAnimaotor = Female.GetComponent<Animator>();
-            maleAnimaotor = Male.GetComponent<Animator>();
+            femaleAnimator = Female.GetComponent<Animator>();
+            maleAnimator = Male.GetComponent<Animator>();
             Invoke("RunState", 1f);
             SetTransForm();
             StopSpawning();
             CameraFollow( 0f, 3.5f, -4.5f );
-            femaleAnimaotor.SetTrigger("idle");
+            femaleAnimator.SetTrigger("idle");
             i++;
         }
     }
 
     private IEnumerator MoveFemaleToFinish()
     {
-        femaleAnimaotor.SetTrigger("run");
+        femaleAnimator.SetTrigger("run");
+        femaleAnimator.applyRootMotion = false;
         Vector3 finishPoint = FinishPoint.position;
         finishPoint.y += 0.15f;
         Vector3 targetPosition = finishPoint;
@@ -97,7 +99,8 @@ public class EndGame : MonoBehaviour
         {
             yield return null;
         }
-        CameraFollow(4.5f, 3.5f, -0.5f);
+        CameraFollow(5.5f, 4f, -0.5f);
+        femaleAnimator.applyRootMotion = true;
         navMeshAgent.isStopped = true;
         navMeshAgent.enabled = false;
         StartCoroutine(PlayEmojiThenCharacterAnim(_win));
@@ -143,15 +146,15 @@ public class EndGame : MonoBehaviour
             female_Emojis[state].SetActive(true);
             if (!isWin)
             {
-                maleAnimaotor.SetTrigger("angry");
-                femaleAnimaotor.SetTrigger("sad");
+                maleAnimator.SetTrigger("angry");
+                femaleAnimator.SetTrigger("sad");
             }
             else 
             {
                 endGameEffect.SetActive(true);
                 AudioManager.Instance.PlaySound("Cheers");
-                maleAnimaotor.SetTrigger("Surprised");
-                femaleAnimaotor.SetTrigger("happy");
+                maleAnimator.SetTrigger("Surprised");
+                femaleAnimator.SetTrigger("happy");
             }
             yield return new WaitForSeconds(3f); 
             male_Emojis[state].SetActive(false); 
@@ -162,17 +165,15 @@ public class EndGame : MonoBehaviour
         
         if (isWin)
         {
-            femaleAnimaotor.SetTrigger("kiss"); 
-            maleAnimaotor.SetTrigger("kiss");
+            femaleAnimator.SetTrigger("kiss"); 
+            maleAnimator.SetTrigger("kiss");
             yield return new WaitForSeconds(6f);
-            femaleAnimaotor.SetTrigger("Dance");
+            femaleAnimator.SetTrigger("Dance");
         }
         else
         {
-            maleAnimaotor.SetTrigger("kick");
-            yield return new WaitForSeconds(1.05f);
-            AudioManager.Instance.PlaySound("Kick");
-            femaleAnimaotor.SetTrigger("Floating");
+            GameManager.Instance.ShowPopupEndgame(false);
+            yield break;
         }
 
         finishBG.SetActive(true);
@@ -186,8 +187,8 @@ public class EndGame : MonoBehaviour
         }
         if (isWin) moneyEffect.SetActive(true);
         yield return new WaitForSeconds(3f);
-
-        SceneManager.LoadScene("Home");
+        // enable Popup end game(win)
+        GameManager.Instance.ShowPopupEndgame(true);
     }
 
     public void PushUp()
@@ -205,4 +206,6 @@ public class EndGame : MonoBehaviour
         }
 
     }
+
+
 }

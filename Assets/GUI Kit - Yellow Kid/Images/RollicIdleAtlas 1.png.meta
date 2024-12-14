@@ -1,0 +1,3132 @@
+fileFormatVersion: 2
+guid: d4897938e4a67144c80f6e5414648afa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_0
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2036
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdfb6366db373fd4e8fdab3fb3999bfc
+      internalID: 617585567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_1
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 2040
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a541618cb8e11fe4293d584ab850385c
+      internalID: -1441262752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_2
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 2040
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56054598d1f443498108002ac5339c0
+      internalID: 10220766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2040
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327a005eee9cf2e4ca665b5fcb2c6355
+      internalID: -455117735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_4
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 1926
+        width: 277
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33300d34765a82c4c858ffd73190bdd8
+      internalID: 1568424735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 2004
+        width: 60
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e414d1bf41ad2242aa2ef7583e3a87b
+      internalID: -1143442424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_6
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1771
+        width: 330
+        height: 269
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea2a6de10ef1a4419606e5fa7bd8503
+      internalID: -950108368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_7
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1770
+        width: 348
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738b9f8d8b1e7cc4c8e6f47c7d156802
+      internalID: -438096184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_8
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 1779
+        width: 232
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3605d06f82588c94f8ea68e37b88f476
+      internalID: 1388512843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_9
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 2010
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1840cdd9c703834983ad77ffe3a6a53
+      internalID: 1823096881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_10
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 2006
+        width: 42
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2654782573dca44a86f1f93703f034
+      internalID: 1389684125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_11
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1884
+        width: 147
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d18f86acf1b3d345acaf7a22b430069
+      internalID: -372249678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_12
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1986
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca77a9695a635447895d8894a287e83
+      internalID: 244487255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_13
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1938
+        width: 296
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6cbc4f198deba4b97d64b0894e95c6
+      internalID: -1275968403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_14
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1980
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcd1990c44cb22541ae9e394523e8462
+      internalID: -2008049549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_15
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1944
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1af19f03c0b064db3222357aef09c3
+      internalID: -920599030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_16
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1854
+        width: 313
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7671e1c9f55724ebeedc3a8d8cb21b
+      internalID: 2139495990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_17
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1924
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad17b7c306395254a85447ed50d811ae
+      internalID: 122545477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_18
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 1920
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be845940c9cd15b44910afad5800df4d
+      internalID: 1417876578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_19
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 1740
+        width: 241
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc47b873291fd9047a25807312a2720b
+      internalID: 1739264275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_20
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1866
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3a03109bb8e174790d32d40aeec74d
+      internalID: -922104040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_21
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1902
+        width: 36
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6aff90a0d917440a4b37f065f947e3
+      internalID: 1069286304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_22
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1866
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670ebd0cc31312f46ac8c8a623c1265c
+      internalID: -926387330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_23
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1884
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8a38ad6e2350c40ad6716205867594
+      internalID: -229972491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_24
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1854
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5dd1c820b5a5bf419e5e2ecbdcfb4f6
+      internalID: 25799493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_25
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1866
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f82c0e0a278baa4bbf089c47ae53685
+      internalID: -1799124745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_26
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1866
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be416e33acd91d046bfb62f2a0126793
+      internalID: -1438584607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_27
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1181
+        width: 568
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c64b4826664e940af60368a205ead6
+      internalID: -207708286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_28
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 1812
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8015873bbf4e1d64cbd91cc56f396723
+      internalID: -579140935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_29
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1770
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3bf044c84280449be5ebef54dd5de1
+      internalID: -143993630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_30
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 1770
+        width: 5
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2d017f725b0e54988039b9a5267653
+      internalID: 1672434894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_31
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1758
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7770fa31a25846149a8953523b0e942e
+      internalID: 1097083271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_32
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 1764
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5870d9777b2c3e14c90c68e04a06c939
+      internalID: 138181342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_33
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1479
+        width: 270
+        height: 291
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4317a0edd6681284e8cc4e2437f17d26
+      internalID: 1425228300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_34
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1764
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1799801af210746bd4e163fb0e5bf4
+      internalID: 1162233850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_35
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 1764
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d34ac74546717408964be23ffade44
+      internalID: 1880638766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_36
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1758
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7bdf0ce271e96749a77423e83f85e6a
+      internalID: -2017753487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_37
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 1758
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec98a11fdfacf3f4892f8be084569c1a
+      internalID: -1350810653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_38
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1758
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e61e77a8ddbac408a873c11fc4d755
+      internalID: 653426997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_39
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 1758
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e10f8c1871cf52449a0309c5975255c
+      internalID: -1588860765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_40
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 1749
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a933974d0417b9348aaa77223a58a741
+      internalID: 1681599865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_41
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 1722
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52626ace1b562bf489ac949890b44c7c
+      internalID: -150199967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_42
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 1716
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb370e52b7356f24995b37cb5492556f
+      internalID: 1891603084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_43
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 1470
+        width: 239
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9376d3eb823621a4abb79345bfe733e0
+      internalID: 194022860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_44
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 1472
+        width: 240
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd4eadd609f9e0942b94c4368a9230b5
+      internalID: -2001581869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_45
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1704
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1957ae1287e4a240ac4aa00d52e9084
+      internalID: -1544255389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_46
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 1656
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c265b1e121a947489012e0d3f7fe0f5
+      internalID: -465848815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_47
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 1488
+        width: 162
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1e4df21ae090642b34f77d4e40c402
+      internalID: -778413824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_48
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 1620
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4b85da9ead4b843bb6b3649b3af120
+      internalID: 1236517673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_49
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 1590
+        width: 5
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ebc0c4967e1824cb9a87ae0838a40d
+      internalID: 1221765547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_50
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 1566
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b34631f68d5bc4088c094887e205f7
+      internalID: -1205411127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_51
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 1530
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4aa320dd911a149bfa02f34a656870
+      internalID: -1679632512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_52
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 1518
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292c64c95c165064d8b9c1f372bbaee7
+      internalID: 1619366705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_53
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 1503
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55c41e84ddf9934c88ee6abf59b49d6
+      internalID: 1813005681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_54
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 1500
+        width: 84
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047bc7c126f3cab40bf63f1f1467e32b
+      internalID: 1591509955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_55
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1485
+        width: 78
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194b5abdeeca99243a16a315b32d0c29
+      internalID: -22968545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_56
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 984
+        width: 332
+        height: 515
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3748136cc0bd2144baecd1ce7a1a0a4
+      internalID: 58632346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_57
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 990
+        width: 236
+        height: 474
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8be7ba0c17e914587ab70673f63801
+      internalID: -208620924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_58
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 992
+        width: 233
+        height: 472
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f149fcbf1ea104e48a07e526f5375a38
+      internalID: 2125562917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_59
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1429
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67aa139f3d3ff64598a3bd2d6278e3b
+      internalID: -1849251673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_60
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 1404
+        width: 9
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ab30a4e8139b5498e4d982c66bafc8
+      internalID: -1863545136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_61
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1423
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b2b9ee3fa2ac24fa9c2588f5ea1e94
+      internalID: 457118594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_62
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 1282
+        width: 146
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f516b9a73886f14bba0ce1df63c4d04
+      internalID: 881585572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_63
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1414
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537b1adc9f8c3064c81a552153405786
+      internalID: 742844513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_64
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1408
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab45f89db27b0914eb654a21550f16bf
+      internalID: -1566982998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_65
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1396
+        width: 24
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ae96b3e243ce44b83d238f32e01162
+      internalID: -395989058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_66
+      rect:
+        serializedVersion: 2
+        x: 1932
+        y: 1332
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f218cfebc94a9704ab2d53277106e0ca
+      internalID: -456308702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_67
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 1022
+        width: 270
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630cdc590778aa942a085c67e9615fbb
+      internalID: 1005205850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_68
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 1272
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2b84d636f484e4097f503d46b87763
+      internalID: 1003648637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_69
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1044
+        width: 204
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a5fc128f298c441aaaa78f0595bb2c
+      internalID: 701617902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_70
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 1224
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49cba9ee1a2c384dbbe1c8848ba79ff
+      internalID: -1313500865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_71
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 1182
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abfe1c789974f7419ac04c6c99a98ef
+      internalID: 569817267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_72
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1152
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b7500cc3c5415489b99c5a461707f5
+      internalID: 105582346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_73
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1145
+        width: 42
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188118ed62f27e542be5c401e21501ce
+      internalID: -1583629609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_74
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1008
+        width: 265
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03abf1894615006439cef0400172e4e8
+      internalID: 294746427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_75
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 995
+        width: 348
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337437f8634770348958bb57ac90046c
+      internalID: -575328901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_76
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1135
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93187c45d03f8e04a901e75451913090
+      internalID: 681259455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_77
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1129
+        width: 18
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f60bf5067caab74a835a34a7057c626
+      internalID: -546689872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1076
+        width: 30
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6ecf6cd0b398441ab998bdddc524d7
+      internalID: -806568732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_79
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1008
+        width: 45
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 594983f1b8f42a64293f8086f2c9ed53
+      internalID: 2077686895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_80
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 1020
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9863cf02b35eca54bab8310a62c798ac
+      internalID: 1080558623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_81
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 1013
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b592db668846001439efa4e31dc2cde6
+      internalID: 2004141961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_82
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1012
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d9312a46abc3943a8c548847745e30
+      internalID: 1833175585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_83
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 990
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb75f60f243f4741823095633154a94
+      internalID: 307258244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_84
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 984
+        width: 6
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4787d240310b7841b35c5398e33af56
+      internalID: 1873203073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_85
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 996
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99bf0aa4caffdb4290b119e94274682
+      internalID: -1288255007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_86
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 16
+        width: 984
+        height: 975
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f71ad5d04a0894eb848c571b14e3f0
+      internalID: 1477100664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_87
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 990
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36bc719f98721d4d89c331bebe8b8ed
+      internalID: 793348748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_88
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 990
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14465912f3478214cbf014c0070ca313
+      internalID: -2137315058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_89
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 979
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b36b9c0fa5f263a49924d4d5a1057bfd
+      internalID: 1319821698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_90
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 960
+        width: 96
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e4308d72caf3c04289c5453e77c20b3
+      internalID: -1540199917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_91
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 508
+        width: 236
+        height: 464
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda5e76480830344db50673f0e758188
+      internalID: 183202592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_92
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 504
+        width: 231
+        height: 466
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bf34188d5e13345ad205cab88210d9
+      internalID: -1158119263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_93
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 894
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a0b4d6b3e659c448ac3e609f52df5b
+      internalID: 671915862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_94
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 924
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b420b5d25049b144a99b624b4c17badb
+      internalID: 978981052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_95
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 681
+        width: 236
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d63f3062bee5f429becff4f45c25f4
+      internalID: -1595220130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_96
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 900
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dff6d497ab3ed649aa8fb109b4b9651
+      internalID: 1900738361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_97
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 900
+        width: 84
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd38a62999a5b447a29753b44af9e9e
+      internalID: 488140098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 919
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49df2ceaa3ba3ad4da2137608dee1ef2
+      internalID: 2000264407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_99
+      rect:
+        serializedVersion: 2
+        x: 1806
+        y: 912
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2ff3e89f6665046adb25b4a462114b
+      internalID: -2092447709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_100
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 894
+        width: 39
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa064e0cf7a2374b83c3ea17640d35d
+      internalID: 1525675844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_101
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 696
+        width: 228
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 896832817a18f6d40b2fbec94b61b911
+      internalID: -2019313549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_102
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 873
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7142aafe3d0f448a801e14434b99be
+      internalID: 32519442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_103
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 842
+        width: 13
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7d26e80266065b43a86f309c739ffac
+      internalID: 707464474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_104
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 812
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08845cbe8db39364486948773cfe2782
+      internalID: 507012623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_105
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 788
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e97e57ceea23fa408f7633c310c64ec
+      internalID: -1158583282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_106
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 768
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521114066630be14788fe08f33ba4095
+      internalID: 1091387039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_107
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 742
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5fbc5f7d736b1488e607c1f799a5e9
+      internalID: -1697056095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_108
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 728
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0f34e1fd9b42646a8cca588a19311a
+      internalID: -1868176353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_109
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 678
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0ef3810a8b9bd43b0be98a75704f78
+      internalID: -822237524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_110
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 564
+        width: 192
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f353031a49ea7f45b4e73446005582f
+      internalID: -2123401123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_111
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 498
+        width: 154
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1045f0f90875db54bba8c44a34582df4
+      internalID: -1519041751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_112
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 498
+        width: 156
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aef085f78b0f3247a56f8d59d7b221e
+      internalID: -1422965076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_113
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 12
+        width: 474
+        height: 466
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9445e9dc02fcc4cbc0741d6fbc7150
+      internalID: 2033204934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_114
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 16
+        width: 250
+        height: 462
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f355851054a0e8146b6da1facedd2f6a
+      internalID: 1331069124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_115
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 425
+        width: 150
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd675d9436705344ca1ec36cef7d9290
+      internalID: 838304286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_116
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 425
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b640ca8ecb8169a43b4fb5f0a331185b
+      internalID: 1098741774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_117
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 426
+        width: 156
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b77ac5a0a123f4ba0c86263b09dfdd
+      internalID: -1916664938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_118
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 330
+        width: 210
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bcf71c16ec11a947b5ccfa8a93d8318
+      internalID: -1154975406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_119
+      rect:
+        serializedVersion: 2
+        x: 1886
+        y: 414
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ed69f555f42964095f168e1fbad3e7
+      internalID: -627240594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_120
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 378
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969d8f4b50ca3364690cb14a997b915c
+      internalID: 198103511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_121
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 366
+        width: 86
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caced6329d2d99c4bb2b5461b5c49d7f
+      internalID: -683303415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_122
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 234
+        width: 183
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3823a2fac4e21234b970b3300eed755b
+      internalID: -1492982780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_123
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 252
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450be7ee3d0e09748b570c82fcc33490
+      internalID: -1992741832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_124
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 246
+        width: 94
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9141be142b62b8419fe4137c4ea7c81
+      internalID: 1650571972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_125
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 216
+        width: 47
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4176857aad1bcc147bff77b459c26ddf
+      internalID: -1362239192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_126
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 0
+        width: 270
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8300b149e654fb4b9e0078849dfc864
+      internalID: 1447161355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_127
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 121
+        width: 270
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ddc19405934fb4482442580838745d
+      internalID: 99212820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_128
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 120
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2702a0b956f34344684e85de82fde98e
+      internalID: 35692041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_129
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 120
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362586abac07f5442a64218d51ddef32
+      internalID: -1151189030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_130
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 120
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f074ab1a50d3ea40b1c9f8e8be54502
+      internalID: -162692001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_131
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 108
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d411e09d2a4ad49b17746b56e4fe70
+      internalID: -1855635070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_132
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 0
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ae5bd91fb3a1546873b245f905b0dd
+      internalID: -2043299764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_133
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 0
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0b6c01987c1694193473ec6988ffd8
+      internalID: 862081519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_134
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 0
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00be18a62ce87514bb0c6a3a264b4306
+      internalID: 1913630479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RollicIdleAtlas 1_135
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 0
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef4e4db8473d1e4d90a5637aa3fac6b
+      internalID: -1604514733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      RollicIdleAtlas 1_0: 617585567
+      RollicIdleAtlas 1_1: -1441262752
+      RollicIdleAtlas 1_10: 1389684125
+      RollicIdleAtlas 1_100: 1525675844
+      RollicIdleAtlas 1_101: -2019313549
+      RollicIdleAtlas 1_102: 32519442
+      RollicIdleAtlas 1_103: 707464474
+      RollicIdleAtlas 1_104: 507012623
+      RollicIdleAtlas 1_105: -1158583282
+      RollicIdleAtlas 1_106: 1091387039
+      RollicIdleAtlas 1_107: -1697056095
+      RollicIdleAtlas 1_108: -1868176353
+      RollicIdleAtlas 1_109: -822237524
+      RollicIdleAtlas 1_11: -372249678
+      RollicIdleAtlas 1_110: -2123401123
+      RollicIdleAtlas 1_111: -1519041751
+      RollicIdleAtlas 1_112: -1422965076
+      RollicIdleAtlas 1_113: 2033204934
+      RollicIdleAtlas 1_114: 1331069124
+      RollicIdleAtlas 1_115: 838304286
+      RollicIdleAtlas 1_116: 1098741774
+      RollicIdleAtlas 1_117: -1916664938
+      RollicIdleAtlas 1_118: -1154975406
+      RollicIdleAtlas 1_119: -627240594
+      RollicIdleAtlas 1_12: 244487255
+      RollicIdleAtlas 1_120: 198103511
+      RollicIdleAtlas 1_121: -683303415
+      RollicIdleAtlas 1_122: -1492982780
+      RollicIdleAtlas 1_123: -1992741832
+      RollicIdleAtlas 1_124: 1650571972
+      RollicIdleAtlas 1_125: -1362239192
+      RollicIdleAtlas 1_126: 1447161355
+      RollicIdleAtlas 1_127: 99212820
+      RollicIdleAtlas 1_128: 35692041
+      RollicIdleAtlas 1_129: -1151189030
+      RollicIdleAtlas 1_13: -1275968403
+      RollicIdleAtlas 1_130: -162692001
+      RollicIdleAtlas 1_131: -1855635070
+      RollicIdleAtlas 1_132: -2043299764
+      RollicIdleAtlas 1_133: 862081519
+      RollicIdleAtlas 1_134: 1913630479
+      RollicIdleAtlas 1_135: -1604514733
+      RollicIdleAtlas 1_14: -2008049549
+      RollicIdleAtlas 1_15: -920599030
+      RollicIdleAtlas 1_16: 2139495990
+      RollicIdleAtlas 1_17: 122545477
+      RollicIdleAtlas 1_18: 1417876578
+      RollicIdleAtlas 1_19: 1739264275
+      RollicIdleAtlas 1_2: 10220766
+      RollicIdleAtlas 1_20: -922104040
+      RollicIdleAtlas 1_21: 1069286304
+      RollicIdleAtlas 1_22: -926387330
+      RollicIdleAtlas 1_23: -229972491
+      RollicIdleAtlas 1_24: 25799493
+      RollicIdleAtlas 1_25: -1799124745
+      RollicIdleAtlas 1_26: -1438584607
+      RollicIdleAtlas 1_27: -207708286
+      RollicIdleAtlas 1_28: -579140935
+      RollicIdleAtlas 1_29: -143993630
+      RollicIdleAtlas 1_3: -455117735
+      RollicIdleAtlas 1_30: 1672434894
+      RollicIdleAtlas 1_31: 1097083271
+      RollicIdleAtlas 1_32: 138181342
+      RollicIdleAtlas 1_33: 1425228300
+      RollicIdleAtlas 1_34: 1162233850
+      RollicIdleAtlas 1_35: 1880638766
+      RollicIdleAtlas 1_36: -2017753487
+      RollicIdleAtlas 1_37: -1350810653
+      RollicIdleAtlas 1_38: 653426997
+      RollicIdleAtlas 1_39: -1588860765
+      RollicIdleAtlas 1_4: 1568424735
+      RollicIdleAtlas 1_40: 1681599865
+      RollicIdleAtlas 1_41: -150199967
+      RollicIdleAtlas 1_42: 1891603084
+      RollicIdleAtlas 1_43: 194022860
+      RollicIdleAtlas 1_44: -2001581869
+      RollicIdleAtlas 1_45: -1544255389
+      RollicIdleAtlas 1_46: -465848815
+      RollicIdleAtlas 1_47: -778413824
+      RollicIdleAtlas 1_48: 1236517673
+      RollicIdleAtlas 1_49: 1221765547
+      RollicIdleAtlas 1_5: -1143442424
+      RollicIdleAtlas 1_50: -1205411127
+      RollicIdleAtlas 1_51: -1679632512
+      RollicIdleAtlas 1_52: 1619366705
+      RollicIdleAtlas 1_53: 1813005681
+      RollicIdleAtlas 1_54: 1591509955
+      RollicIdleAtlas 1_55: -22968545
+      RollicIdleAtlas 1_56: 58632346
+      RollicIdleAtlas 1_57: -208620924
+      RollicIdleAtlas 1_58: 2125562917
+      RollicIdleAtlas 1_59: -1849251673
+      RollicIdleAtlas 1_6: -950108368
+      RollicIdleAtlas 1_60: -1863545136
+      RollicIdleAtlas 1_61: 457118594
+      RollicIdleAtlas 1_62: 881585572
+      RollicIdleAtlas 1_63: 742844513
+      RollicIdleAtlas 1_64: -1566982998
+      RollicIdleAtlas 1_65: -395989058
+      RollicIdleAtlas 1_66: -456308702
+      RollicIdleAtlas 1_67: 1005205850
+      RollicIdleAtlas 1_68: 1003648637
+      RollicIdleAtlas 1_69: 701617902
+      RollicIdleAtlas 1_7: -438096184
+      RollicIdleAtlas 1_70: -1313500865
+      RollicIdleAtlas 1_71: 569817267
+      RollicIdleAtlas 1_72: 105582346
+      RollicIdleAtlas 1_73: -1583629609
+      RollicIdleAtlas 1_74: 294746427
+      RollicIdleAtlas 1_75: -575328901
+      RollicIdleAtlas 1_76: 681259455
+      RollicIdleAtlas 1_77: -546689872
+      RollicIdleAtlas 1_78: -806568732
+      RollicIdleAtlas 1_79: 2077686895
+      RollicIdleAtlas 1_8: 1388512843
+      RollicIdleAtlas 1_80: 1080558623
+      RollicIdleAtlas 1_81: 2004141961
+      RollicIdleAtlas 1_82: 1833175585
+      RollicIdleAtlas 1_83: 307258244
+      RollicIdleAtlas 1_84: 1873203073
+      RollicIdleAtlas 1_85: -1288255007
+      RollicIdleAtlas 1_86: 1477100664
+      RollicIdleAtlas 1_87: 793348748
+      RollicIdleAtlas 1_88: -2137315058
+      RollicIdleAtlas 1_89: 1319821698
+      RollicIdleAtlas 1_9: 1823096881
+      RollicIdleAtlas 1_90: -1540199917
+      RollicIdleAtlas 1_91: 183202592
+      RollicIdleAtlas 1_92: -1158119263
+      RollicIdleAtlas 1_93: 671915862
+      RollicIdleAtlas 1_94: 978981052
+      RollicIdleAtlas 1_95: -1595220130
+      RollicIdleAtlas 1_96: 1900738361
+      RollicIdleAtlas 1_97: 488140098
+      RollicIdleAtlas 1_98: 2000264407
+      RollicIdleAtlas 1_99: -2092447709
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8115759519510262732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59,15 +59,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.047169805, g: 0.047169805, b: 0.047169805, a: 0.52156866}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 87cda308426564e8f9a350fd4f04682c, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9ca85c8f568479147b8b78559083daf8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -111,7 +111,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8216562599194656780
 CanvasRenderer:
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 70098549583162918}
   - component: {fileID: 990358004721342361}
   - component: {fileID: 521856645944008951}
-  - component: {fileID: 1565681436310007306}
+  - component: {fileID: 5690492609260244761}
   m_Layer: 5
   m_Name: SkinView
   m_TagString: Untagged
@@ -191,7 +191,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 800}
+  m_SizeDelta: {x: 230, y: 345}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5288899672210441899
 CanvasRenderer:
@@ -221,8 +221,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b598f964ac69f466cb1c22a2a61ed702, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -825545725, guid: 9eaf796c9a54f9543873e45ca49cba46, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -305,7 +305,7 @@ MonoBehaviour:
   blockIcon: {fileID: 4557200702515365580}
   isOwned: 0
   skinID: 0
---- !u!114 &1565681436310007306
+--- !u!114 &5690492609260244761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,9 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.013132065, g: 0.01886791, b: 0, a: 0.6313726}
-  m_EffectDistance: {x: 20, y: 20}
-  m_UseGraphicAlpha: 0
+  m_EffectColor: {r: 1, g: 0, b: 0.083918095, a: 1}
+  m_EffectDistance: {x: 8, y: 8}
+  m_UseGraphicAlpha: 1
 --- !u!1 &7422762583092964453
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,10 +352,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2713559477061747441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 700}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 6}
+  m_SizeDelta: {x: -24, y: -28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4767304460940271618
 CanvasRenderer:
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8f50004ba8c6fb4aa0570e987f71da0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e97a8be889f1d264881788a34a93f10f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
