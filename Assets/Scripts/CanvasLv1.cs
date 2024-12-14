@@ -19,7 +19,7 @@ public class CanvasLv1 : MonoBehaviour
     [Header("Setting:")]
     [SerializeField] GameObject settingButton;
     [SerializeField] GameObject setting;
-    [SerializeField] Sprite[] soundOn;
+    [SerializeField] Sprite[] soundIcon;
     [SerializeField] Button MusicButton;
     [SerializeField] Button SoundButton;
     bool isOnMusic = true;
@@ -38,6 +38,23 @@ public class CanvasLv1 : MonoBehaviour
     [SerializeField] private TMP_Text bonusMoneyText;
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private GameObject playButton;
+
+    [Header("ComboPopupUI:")]
+    [SerializeField] private List<GameObject> comboPopupUI;
+    [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField] private float displayDuration = 1.5f;
+
+    [Header("EndGame Popup:")]
+    [SerializeField] private GameObject endGamePopup;
+    [SerializeField] private TMP_Text bonusMoneyRewardText;
+    [SerializeField] private TMP_Text levelEndGameText;
+    [SerializeField] private TMP_Text levelState;
+    [SerializeField] private Button nextLevel;
+    //[SerializeField] private Button Ads;
+    [SerializeField] private Button homeButton;
+
+
+    private Coroutine currentCoroutine;
 
     public static CanvasLv1 Instance;
 
@@ -65,16 +82,17 @@ public class CanvasLv1 : MonoBehaviour
     {
         playScreen.SetActive(false);
         Menu.SetActive(true);
-        playButtonAnimator = playButton.GetComponent<Animator>();
-        playButtonAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        //playButtonAnimator = playButton.GetComponent<Animator>();
+        //playButtonAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
         shopButton.GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
         isOnMusic = true;
         isOnSound = true;
+        endGamePopup.SetActive(false);
 
     }
     public void UpdateLevel(int level)
     {
-        levelText.text = "Level " + (level + 1);
+        levelText.text = (level + 1).ToString();
     }
 
     public void ReadyScreen()
@@ -84,6 +102,13 @@ public class CanvasLv1 : MonoBehaviour
         playScreen.SetActive(true);
         playButton.SetActive(true);
     }
+
+    public void LoadNextLevel()
+    {
+        AudioManager.Instance.PlaySound("PlayButton");
+        GameManager.Instance.ReStart();
+    }
+
     public void StartGame()
     {
         AudioManager.Instance.PlaySound("PlayButton");
@@ -108,13 +133,13 @@ public class CanvasLv1 : MonoBehaviour
         {
             if (isOnSound)
             {
-                SoundButton.image.sprite = soundOn[1];
+                SoundButton.image.sprite = soundIcon[1];
                 isOnSound = false;
                 AudioManager.Instance.SetVolume("Sounds", false);
             }
             else
             {
-                SoundButton.image.sprite = soundOn[0];
+                SoundButton.image.sprite = soundIcon[0];
                 isOnSound = true;
                 AudioManager.Instance.SetVolume("Sounds", true);
             }
@@ -123,13 +148,13 @@ public class CanvasLv1 : MonoBehaviour
         {
             if (isOnMusic)
             {
-                MusicButton.image.sprite = soundOn[1];
+                MusicButton.image.sprite = soundIcon[3];
                 isOnMusic = false;
                 AudioManager.Instance.SetVolume("Music", false);
             }
             else
             {
-                MusicButton.image.sprite = soundOn[0];
+                MusicButton.image.sprite = soundIcon[2];
                 isOnMusic = true;
                 AudioManager.Instance.SetVolume("Music", true);
             }
@@ -159,6 +184,7 @@ public class CanvasLv1 : MonoBehaviour
     public void OnClickReady()
     {
         AudioManager.Instance.PlaySound("PlayButton");
+        
         GameManager.Instance.LoadPlayScene();
     }
 
@@ -182,6 +208,7 @@ public class CanvasLv1 : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("MenuClose");
         pauseButton.SetActive(true);
+        
         GameManager.Instance.home();
         pauseScreen.SetActive(false);
         Menu.SetActive(true);
@@ -197,11 +224,97 @@ public class CanvasLv1 : MonoBehaviour
 
     public void UpdateMoneyInPlay(int value)
     {
-        bonusMoneyText.text = value.ToString();
+        bonusMoneyText.text = value.ToString("N0");
     }
 
     public void UpdateMoney(int value)
     {
-        moneyText.text = value.ToString();
+        moneyText.text = value.ToString("N0");
+    }
+
+    public void UpdateComboPopupUI(int comboIndex)
+    {
+        if (comboIndex < 0 || comboIndex >= comboPopupUI.Count)
+        {
+            Debug.LogWarning("Invalid combo index!");
+            return;
+        }
+        GameObject popup = comboPopupUI[comboIndex];
+
+        if (popup == null)
+        {
+            Debug.LogWarning("Popup at this index is missing!");
+            return;
+        }
+
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
+        AudioManager.Instance.PlaySound("Combo");
+        currentCoroutine = StartCoroutine(ShowPopupEffect(popup));
+    }
+
+    private IEnumerator ShowPopupEffect(GameObject popup)
+    {
+        Image image = popup.GetComponent<Image>();
+        if (image == null)
+        {
+            Debug.LogError("Popup does not have an Image component!");
+            yield break;
+        }
+
+        Color originalColor = image.color;
+        popup.SetActive(true);
+
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            float alpha = t / fadeDuration;
+            image.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+        image.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1);
+
+        yield return new WaitForSeconds(displayDuration);
+
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            float alpha = 1 - (t / fadeDuration);
+            image.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+        image.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+        popup.SetActive(false);
+    }
+
+    public void ShowPopup(int level, int rewardAmount, bool isWin)
+    {
+        endGamePopup.SetActive(true);
+        if (isWin) levelState.text = "Level complete";
+        else
+        {
+            levelState.text = "Level failed";
+            nextLevel.gameObject.SetActive(false);
+        }
+        levelEndGameText.text = "Level " + level;
+        StartCoroutine(UpdateBonusMoney(rewardAmount));
+
+    }
+
+    private IEnumerator UpdateBonusMoney(int targetAmount)
+    {
+        int currentAmount = 0;
+        float duration = 1.5f; 
+        float elapsed = 0;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            currentAmount = Mathf.RoundToInt(Mathf.Lerp(0, targetAmount, elapsed / duration));
+            bonusMoneyRewardText.text = currentAmount.ToString("N0");
+            yield return null;
+        }
+        bonusMoneyRewardText.text = targetAmount.ToString("N0");
     }
 }
+

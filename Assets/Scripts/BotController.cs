@@ -38,7 +38,8 @@ public class BotController : MonoBehaviour
         //Root_M.transform.position = gameObject.transform.position;
         float randomFrame = Random.Range(0, totalFrames);
         StopAtFrame(modelAnimator, randomFrame, totalFrames);
-        
+        Debug.Log("Anim index: " + animIndex);
+
     }
     private void Update()
     {

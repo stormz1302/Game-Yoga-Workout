@@ -26,7 +26,6 @@ public class SaveData
         money += GameManager.Instance.bonusMoney;
         PlayerPrefs.SetInt("Level", level);
         PlayerPrefs.SetInt("Money", money);
-
         PlayerPrefs.Save();
     }
 }

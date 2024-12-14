@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 
 public class Shop : MonoBehaviour
@@ -59,6 +60,7 @@ public class Shop : MonoBehaviour
         Skins = characterData.characterSkinData;
         SkinsManager.instance.LoadCharacterData();
         LoadSkins();
+        
         BuyButton.GetComponent<Button>().onClick.AddListener(() => BuySkin());
         SelectButton.GetComponent<Button>().onClick.AddListener(() => SelectSkin());
         BuyButton.SetActive(false);
@@ -99,7 +101,10 @@ public class Shop : MonoBehaviour
             return;
         }
 
-        foreach (Character skin in Skins)
+        List<Character> sortedSkins = Skins.OrderByDescending(skin => skin.isOwned).ToList();
+
+
+        foreach (Character skin in sortedSkins)
         {
             GameObject skinButton = Instantiate(skinPrefab, contentView);
             skinButton.GetComponent<SkinView>().skinSprite = skin.CharacterIcon;

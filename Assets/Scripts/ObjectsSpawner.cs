@@ -6,22 +6,30 @@ public class Objectspawner : MonoBehaviour
 {
     [Header("Spawn Settings")]
     [SerializeField] private List<GameObject> objects;
+    [SerializeField] private List<GameObject> foodObjects;
     public GameObject bot;
+    [SerializeField] private GameObject Shadow;
     public float spawnInterval = 1f;
     public Transform spawnTransform;
     public Transform EndPoint;
     public float duration;
-    float _randomIndex = -1;
+    public List<GameObject> spawnedObjects = new List<GameObject>();
     private bool endGame = false;
     [SerializeField] private GameObject finishBG;
+    PlayerController player;
 
     private void Start()
     {
         EndGame.Instance.finishBG = finishBG;
         finishBG.SetActive(false);
+        player = FindObjectOfType<PlayerController>();
     }
+
+
     public void StartSpawning()
     {
+        Shadow.SetActive(true);
+        StartCoroutine(UpdateShadowPosition());
         objects = GameManager.Instance.missions;
         if (objects[0] == null || objects[0].name != "Bot")
         {
@@ -33,26 +41,41 @@ public class Objectspawner : MonoBehaviour
 
     public void StopSpawning()
     {
-        CancelInvoke(nameof(SpawnObjects));
+        CancelInvoke(nameof(SpawnObjects)); 
+        Shadow.SetActive(false);
     }
     private void SpawnObjects()
     {
         Debug.Log("Spawn");
-        int randomIndex = Random.Range(0, objects.Count);
-        if (randomIndex == _randomIndex) return;
-        GameObject randomObject = objects[randomIndex];
+        List<GameObject> selectedList = (Random.Range(0, 2) == 0) ? foodObjects : objects;
+
+        int randomIndex = Random.Range(0, selectedList.Count);
+        GameObject randomObject = selectedList[randomIndex];
+        foreach (GameObject obj in spawnedObjects)
+        {
+            if (obj != null && obj == randomObject) return;
+        } 
         GameObject spawnedObject;
         Vector3 newPosition = spawnTransform.position;
-        if (randomIndex == 0)
-        {
-            spawnedObject = objects[0];
-            spawnedObject.SetActive(true);
-            _randomIndex = 0;
-            newPosition.x += 0.7f;
-        }
-        else spawnedObject = Instantiate(randomObject);
 
+        if (selectedList == foodObjects)
+        {
+            float randomX = Random.Range(-1f, 1f);
+            newPosition = new Vector3(randomX, newPosition.y, newPosition.z);
+            spawnedObject = Instantiate(randomObject);
+        }
+        else 
+        {
+            if (randomIndex == 0)
+            {
+                spawnedObject = objects[0];
+                spawnedObject.SetActive(true);
+                newPosition.x += 0.7f;
+            }
+            else spawnedObject = Instantiate(randomObject);
+        }
         spawnedObject.transform.position = newPosition;
+        spawnedObjects.Add(spawnedObject);
 
         StartCoroutine(MoveToPosition(newPosition, duration, spawnedObject));
     }
@@ -75,6 +98,7 @@ public class Objectspawner : MonoBehaviour
             endGame = GameManager.Instance.endGame;
             if (endGame)
             {
+                Shadow.SetActive(false);
                 Destroy(spawnedObject);
             }
             yield return null;
@@ -82,18 +106,42 @@ public class Objectspawner : MonoBehaviour
 
         // Đặt vị trí cuối cùng, đảm bảo chỉ trục Z thay đổi
         Vector3 finalPosition = new Vector3(startPosition.x, startPosition.y, EndPoint.transform.position.z);
-        
+
+        spawnedObjects.Remove(spawnedObject);
+
         if (spawnedObject != null)
         {
             spawnedObject.transform.position = finalPosition;
-
-            if (_randomIndex == 0)
+            Shadow.SetActive(true);
+            if (spawnedObject == bot)
             {
                 spawnedObject.SetActive(false);
-                _randomIndex = -1;
             }
             else
                 Destroy(spawnedObject);
         }
+    }
+
+    private IEnumerator UpdateShadowPosition()
+    {
+        while (true) 
+        {
+            if (spawnedObjects.Count > 0 && spawnedObjects[0] != null)
+            {
+                GameObject gameObject = spawnedObjects[0];
+                Shadow.transform.position = new Vector3(
+                    Shadow.transform.position.x,
+                    Shadow.transform.position.y,
+                    gameObject.transform.position.z
+                );
+            }
+
+            yield return null; 
+        }
+    }
+
+    public void DisableShadow()
+    {
+        Shadow.SetActive(false);
     }
 }

@@ -27,8 +27,8 @@ MonoBehaviour:
     - {fileID: 1791595112245488676, guid: 8c71025c397a40078c64548fb7e7c112, type: 3}
     - {fileID: 1791595112245488713, guid: 39326c69fac24f67bd128072c87ac5d1, type: 3}
     - {fileID: 1791595112245488741, guid: 3248b2d299ff46b08a40ad2d7e09c142, type: 3}
-    maxObject: 40
-    roadMaterial: {fileID: 2100000, guid: aa8d1cee2259cec47bbbd696dceed4d2, type: 2}
+    maxObject: 20
+    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
     skybox: {fileID: 2100000, guid: 9ca22510633fbfd4399f1704cd9d5c72, type: 2}
   - missions:
     - {fileID: 0}
@@ -42,8 +42,8 @@ MonoBehaviour:
     - {fileID: 1791595112245488713, guid: 39326c69fac24f67bd128072c87ac5d1, type: 3}
     - {fileID: 1791595112245488694, guid: a15566a8083c4fefb2c6a79b122330f1, type: 3}
     - {fileID: 1791595112245488775, guid: 05bd38f136654d5e89ab548a2b20d86b, type: 3}
-    maxObject: 50
-    roadMaterial: {fileID: 2100000, guid: df4bebe4fbfb7c344868c9cada419ac8, type: 2}
+    maxObject: 20
+    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
     skybox: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
   - missions:
     - {fileID: 0}
@@ -60,10 +60,11 @@ MonoBehaviour:
     - {fileID: 1791595112245488692, guid: d8c2f0739ae84aeeadd7bda345727daf, type: 3}
     - {fileID: 1791595112245488803, guid: 05fc7fb0a33d4253bb4fe86a94ea01ee, type: 3}
     - {fileID: 1791595112245488737, guid: 3801b90b3c4d4e4b8a0abda620cfe6b6, type: 3}
-    maxObject: 60
-    roadMaterial: {fileID: 2100000, guid: c8c5f86f3a7ff694faf5f45758f045de, type: 2}
+    maxObject: 26
+    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
     skybox: {fileID: 2100000, guid: 33ab377b49aa14f6fae6e5bac230a5d4, type: 2}
   - missions:
+    - {fileID: 0}
     - {fileID: 1791595112245488682, guid: b25eae53591c43d2b8332eec97a4d750, type: 3}
     - {fileID: 1791595112245488735, guid: b666bbfffc1b47ec848b3ef4f7c9e5d8, type: 3}
     - {fileID: 1791595112245488801, guid: c9fdabde0f9d458c93f2a49681b3e563, type: 3}
@@ -74,8 +75,8 @@ MonoBehaviour:
     - {fileID: 1791595112245488815, guid: 42196b8cd79c4599bff1e805f73a5220, type: 3}
     - {fileID: 1791595112245488764, guid: 0e2e95d6717a480687c6cdba3f586c0e, type: 3}
     - {fileID: 1791595112245488698, guid: a52845de80d243099df3e3707f12bdda, type: 3}
-    maxObject: 70
-    roadMaterial: {fileID: 2100000, guid: a5fb89a338069534188b51c3abb7a128, type: 2}
+    maxObject: 30
+    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
     skybox: {fileID: 2100000, guid: 123caa41e84e041d0bd65bb3ae888dd1, type: 2}
   - missions:
     - {fileID: 0}
@@ -100,8 +101,8 @@ MonoBehaviour:
     - {fileID: 1791595112245488757, guid: 695032197a2441889ff81d7181948671, type: 3}
     - {fileID: 1791595112245488759, guid: 8a1f09d8446443048583aafdc2edf7d7, type: 3}
     - {fileID: 1791595112245488691, guid: dda32480718f49b39e234aeef9380765, type: 3}
-    maxObject: 80
-    roadMaterial: {fileID: 2100000, guid: 666a9773a2ea0cc4c9d0c65884f33431, type: 2}
+    maxObject: 40
+    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
     skybox: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
   - missions:
     - {fileID: 1791595112245488682, guid: b25eae53591c43d2b8332eec97a4d750, type: 3}
@@ -118,8 +119,8 @@ MonoBehaviour:
     - {fileID: 1791595112245488689, guid: 69fce48e6ee146d68c247e435063fbec, type: 3}
     - {fileID: 1791595112245488694, guid: a15566a8083c4fefb2c6a79b122330f1, type: 3}
     - {fileID: 1791595112245488767, guid: 27a76cfc16874892afa1961711f3e2de, type: 3}
-    maxObject: 90
-    roadMaterial: {fileID: 2100000, guid: 139f4c1696c68e54390a5ad669273cab, type: 2}
+    maxObject: 50
+    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
     skybox: {fileID: 2100000, guid: d3823126980dd98479f7761e6d47338a, type: 2}
   - missions:
     - {fileID: 1791595112245488751, guid: 47ba897efcdd41d18a6d1e2f0da41486, type: 3}
@@ -132,6 +133,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488736, guid: 137e247cb95a49a48ee22dbe8d723060, type: 3}
     - {fileID: 1791595112245488795, guid: 9a2ce15c7ac448df9086d591fdfc9961, type: 3}
     - {fileID: 1791595112245488716, guid: c4c6f914966d4fdcaf2039bf319abd8a, type: 3}
-    maxObject: 100
-    roadMaterial: {fileID: 2100000, guid: a158e798978443b0ac5d0c664f5cd447, type: 2}
+    maxObject: 60
+    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
     skybox: {fileID: 2100000, guid: b141c8e4f6387ef45b13a68b10c88b7f, type: 2}

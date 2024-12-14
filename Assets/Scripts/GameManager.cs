@@ -30,15 +30,17 @@ public class GameManager : MonoBehaviour
     public SkinnedMeshRenderer hands;
     private float currentBlendShapeValue = 60f;
     [SerializeField] public Transform player;
-    int currentObject;
+    [SerializeField] int currentObject;
+    
 
-   
     public bool canDrag;
     int _score;
     int selectedSkinID;
     SaveData saveData;
     EndGame EndGame;
-
+    [SerializeField] int combo = 0;
+    [SerializeField] List<int> comboList = new List<int>();
+    int comboIndex = 0;
     public static GameManager Instance;
 
     private void Awake()
@@ -55,8 +57,6 @@ public class GameManager : MonoBehaviour
             
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
-        //PlayerPrefs.DeleteAll();
-        //PlayerPrefs.Save();
     }
     private void OnDestroy()
     {
@@ -123,7 +123,9 @@ public class GameManager : MonoBehaviour
         if (good)
         {
             currentObject++;
+
             score = maxScore * currentObject / maxObject;
+            AddCombo(true);
             if (score >= _score)
             {
                 if (_score > 0)
@@ -131,9 +133,9 @@ public class GameManager : MonoBehaviour
                     PlayerController playerController = FindObjectOfType<PlayerController>();
                     if (playerController != null) playerController.GoodEffect();
                     AudioManager.Instance.PlaySound("Transform");
-                    currentBlendShapeValue = Mathf.Clamp(currentBlendShapeValue - 15f, 0f, 100f);
+                    currentBlendShapeValue = Mathf.Clamp(currentBlendShapeValue - 50f, 0f, 100f);
                 }
-                _score += maxScore / 4;
+                _score += maxScore / 2;
             }
             SetBlendShape(currentBlendShapeValue);
             //UpdateScore(score);
@@ -145,11 +147,12 @@ public class GameManager : MonoBehaviour
         }
         else if (!good && score > 0) 
         {
+            AddCombo(false);
             currentObject -= maxObject / 4;
             if (currentObject < 0) currentObject = 0;
             score = maxScore * currentObject / maxObject;
-            _score -= maxScore / 4;
-            currentBlendShapeValue = Mathf.Clamp(currentBlendShapeValue + 15f, 0f, 100f);
+            if (currentObject < maxObject / 2) _score -= maxScore / 2;
+            currentBlendShapeValue = Mathf.Clamp(currentBlendShapeValue + 50f, 0f, 100f);
             SetBlendShape(currentBlendShapeValue);
             if (score < 0)
             {
@@ -165,9 +168,9 @@ public class GameManager : MonoBehaviour
         EndGame = GetComponent<EndGame>();
         EndGame.enabled = false;
         animationFrameChecker.enabled = false;
-        SaveData saveData = new SaveData();
-        saveData.LoadMoney();
-        saveData.LoadLevel();
+        //SaveData saveData = new SaveData();
+        //saveData.LoadMoney();
+        //saveData.LoadLevel();
         CanvasLv1.Instance.UpdateMoney(money);
         CanvasLv1.Instance.UpdateLevel(Level);
 
@@ -176,7 +179,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadPlayScene()
     {
-        SceneManager.LoadScene("Level01");
+        LoadingScreen loadingScreen = FindObjectOfType<LoadingScreen>();
+        loadingScreen.LoadScene("Level01");
     }
 
     public void LoadEndScreen()
@@ -189,7 +193,6 @@ public class GameManager : MonoBehaviour
         if (win && (Level - animIndex) < 1)
         {
             Debug.Log("You Win");
-            Level++;
             //SaveData saveData = new SaveData();
             //saveData.Save();
             //load end screen win
@@ -213,7 +216,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        currentBlendShapeValue = 60f;
+        currentBlendShapeValue = 100f;
         canDrag = true;
         PlayerController playerController = FindObjectOfType<PlayerController>();
         playerController.animator.speed = 1f;
@@ -227,7 +230,8 @@ public class GameManager : MonoBehaviour
 
     public void home()
     {
-        SceneManager.LoadScene("Home");
+        LoadingScreen loadingScreen = FindObjectOfType<LoadingScreen>();
+        loadingScreen.LoadScene("Home");
     } 
 
     public void ReStart()
@@ -246,14 +250,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    //public void ReStart()
-    //{
-        
-    //    canDrag = true;
-    //    Time.timeScale = 1;
-    //    score = 0;
-    //}
-
     public void UnActiveBot()
     {
         bot.SetActive(false);
@@ -261,7 +257,41 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int value)
     {
+        if (comboIndex > 0) value += comboIndex;
         bonusMoney += value;
         CanvasLv1.Instance.UpdateMoneyInPlay(bonusMoney);
+    }
+
+    private void AddCombo(bool addCombo)
+    {
+        Debug.Log("Add Combo: " + combo);
+        if (!addCombo)
+        {
+            combo = 0;
+            comboIndex = 0;
+        }
+        else
+        {
+            combo++;
+            if (comboIndex < comboList.Count && combo >= comboList[comboIndex])
+            {
+                CanvasLv1.Instance.UpdateComboPopupUI(comboIndex);
+                comboIndex++;
+                if (comboIndex >= comboList.Count)
+                {
+                    comboIndex = comboList.Count - 1;
+                    combo = comboList[comboIndex - 1];
+                }
+            }
+        }    
+    }
+
+    public void ShowPopupEndgame(bool win)
+    {
+        CanvasLv1.Instance.ShowPopup(Level, bonusMoney, win);
+        if (win)
+        {
+            Level ++;
+        }
     }
 }

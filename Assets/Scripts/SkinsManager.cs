@@ -41,7 +41,7 @@ public class SkinsManager : MonoBehaviour
         }
 
         // Lấy trạng thái trang bị từ PlayerPrefs
-        int equippedID = PlayerPrefs.GetInt(EquippedKey, 0); // -1 nếu không có nhân vật nào được trang bị
+        int equippedID = PlayerPrefs.GetInt(EquippedKey, 6); // -1 nếu không có nhân vật nào được trang bị
         Shop.instance.selectedSkinID = equippedID;
         Shop.instance.LoadModel(equippedID);
     }
