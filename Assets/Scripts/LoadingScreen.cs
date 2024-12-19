@@ -44,7 +44,6 @@ public class LoadingScreen : MonoBehaviour
 
             if (realProgress >= 0.9f && fakeProgress >= 1f)
             {
-                Debug.Log("Scene loaded! Activating...");
                 yield return new WaitForSeconds(0.5f);
                 operation.allowSceneActivation = true;
             }

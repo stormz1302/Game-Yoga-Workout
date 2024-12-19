@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int maxObject;
     public MissionListSO MissionListSO;
     public List<GameObject> missions = new List<GameObject>();
-    public int bonusMoney;
+    public int bonusMoney = 0;
     public int Level = 0;
     public int animIndex = 0;
     public GameObject bot;
@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
     public SkinnedMeshRenderer shoes;
     public SkinnedMeshRenderer hands;
     private float currentBlendShapeValue = 60f;
-    [SerializeField] public Transform player;
-    [SerializeField] int currentObject;
-    
+    public Transform player;
+
+    ScoreUI scoreUI;
 
     public bool canDrag;
     int _score;
@@ -69,24 +69,22 @@ public class GameManager : MonoBehaviour
         if (scene.name == "Level01")
         {
             selectedSkinID = Shop.instance.selectedSkinID;
-            Time.timeScale = 1;
             endGame = false;
-            currentObject = 0;
             bonusMoney = 0;
             _score = 0;
             saveData = new SaveData();
             saveData.LoadMoney();
             CanvasLv1.Instance.ReadyScreen();
             //UpdateScore(0);
-            //Level = PlayerPrefs.GetInt("Level", 0);
+            
             LoadAnim();
             Ready();
         }
         if (scene.name == "Home")
         {
             LoadHomeScene();
-            Debug.Log("Home Scene Loaded: " + Level);
         }
+
     }
 
     private void LoadModelInPlay()
@@ -109,23 +107,50 @@ public class GameManager : MonoBehaviour
     private void LoadAnim()
     {
         animIndex = Level;
-        Debug.Log("Anim Index: " + animIndex);
-        if (Level <= 6) maxObject = MissionListSO.missionLevels[animIndex].maxObject;
-        else
+        if (Level <= 6)
         {
-            animIndex = Random.Range(0, 6);
-            maxObject = 100;
+            SetDifficultyLevel(DifficultyLevel.Beginner);
+            animIndex = Level;
+        }
+        else if (6 < Level && Level <= 15)
+        {
+            SetDifficultyLevel(DifficultyLevel.Novice);
+        }
+        else if (15 < Level && Level <= 25)
+        {
+            SetDifficultyLevel(DifficultyLevel.Intermediate);
+        }
+        else if (25 < Level && Level <= 40)
+        {
+            SetDifficultyLevel(DifficultyLevel.Advanced);
+        }
+        else if (40 < Level && Level <= 60)
+        {
+            SetDifficultyLevel(DifficultyLevel.Expert);
+        }
+        else if (60 < Level)
+        {
+            SetDifficultyLevel(DifficultyLevel.Master);
         }
         missions = MissionListSO.missionLevels[animIndex].missions;   
     }
-    public void AddScore(bool good)
+
+    private void SetDifficultyLevel(DifficultyLevel difficultyLevel)
+    {
+        animIndex = Random.Range(0, 6);
+        MissionListSO.missionLevels[animIndex].difficultyLevel = difficultyLevel;
+        MissionListSO.missionLevels[animIndex].SetDifficulty();
+        maxObject = MissionListSO.missionLevels[animIndex].maxObject;
+    }
+
+    public void AddScore(bool good, int value)
     {
         if (good)
         {
-            currentObject++;
-
-            score = maxScore * currentObject / maxObject;
+            score += value;
+            scoreUI.IncreaseScore(score);
             AddCombo(true);
+            _score = Mathf.FloorToInt(maxScore * 0.6f);
             if (score >= _score)
             {
                 if (_score > 0)
@@ -135,7 +160,7 @@ public class GameManager : MonoBehaviour
                     AudioManager.Instance.PlaySound("Transform");
                     currentBlendShapeValue = Mathf.Clamp(currentBlendShapeValue - 50f, 0f, 100f);
                 }
-                _score += maxScore / 2;
+                _score = maxScore;
             }
             SetBlendShape(currentBlendShapeValue);
             //UpdateScore(score);
@@ -148,10 +173,10 @@ public class GameManager : MonoBehaviour
         else if (!good && score > 0) 
         {
             AddCombo(false);
-            currentObject -= maxObject / 4;
-            if (currentObject < 0) currentObject = 0;
-            score = maxScore * currentObject / maxObject;
-            if (currentObject < maxObject / 2) _score -= maxScore / 2;
+            score -= value;
+            scoreUI.IncreaseScore(score);
+            if (score < 0) score = 0;
+            if (score < maxScore * 0.6f) _score = Mathf.FloorToInt(maxScore * 0.6f);
             currentBlendShapeValue = Mathf.Clamp(currentBlendShapeValue + 50f, 0f, 100f);
             SetBlendShape(currentBlendShapeValue);
             if (score < 0)
@@ -168,13 +193,12 @@ public class GameManager : MonoBehaviour
         EndGame = GetComponent<EndGame>();
         EndGame.enabled = false;
         animationFrameChecker.enabled = false;
-        //SaveData saveData = new SaveData();
-        //saveData.LoadMoney();
-        //saveData.LoadLevel();
+        score = 0;
+        SaveData savedata = new SaveData();
+        savedata.LoadLevel();
+        savedata.LoadMoney();
         CanvasLv1.Instance.UpdateMoney(money);
         CanvasLv1.Instance.UpdateLevel(Level);
-
-        Time.timeScale = 1;
     }
 
     public void LoadPlayScene()
@@ -185,23 +209,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadEndScreen()
     {
-        bool win = score >= maxScore/2; 
+        bool win = score >= maxScore * 0.6f; 
         endGame = true;
         canDrag = false;
         EndGame.Instance.EndGameState(win, score);
-        //Save level, bonus money
-        if (win && (Level - animIndex) < 1)
-        {
-            Debug.Log("You Win");
-            //SaveData saveData = new SaveData();
-            //saveData.Save();
-            //load end screen win
-        }
-        else
-        {
-            Debug.Log("You Lose");
-            //load end screen lose
-        }
+        
     }
     
     public void Ready()
@@ -213,14 +225,19 @@ public class GameManager : MonoBehaviour
         playerController.animator.speed = 0f;
         playerController.enabled = false;
         CanvasLv1.Instance.UpdateMoneyInPlay(bonusMoney);
+        SetObjectInLevel setObjectInLevel = FindObjectOfType<SetObjectInLevel>();
+        setObjectInLevel.SetupLevel();
+        setObjectInLevel.AssignScoresToObjects();
+        playerController.LoadScore();
     }
     public void StartGame()
     {
+        scoreUI = FindObjectOfType<ScoreUI>();
+        scoreUI.SetMaxScore(maxScore);
         currentBlendShapeValue = 100f;
         canDrag = true;
         PlayerController playerController = FindObjectOfType<PlayerController>();
         playerController.animator.speed = 1f;
-        Debug.Log("Game Started: " + playerController.animator.speed);
         playerController.enabled = true;
         animationFrameChecker.enabled = true;
         Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
@@ -230,13 +247,20 @@ public class GameManager : MonoBehaviour
 
     public void home()
     {
+        Time.timeScale = 1;
+        Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
+        objectSpawner.StopSpawning();
         LoadingScreen loadingScreen = FindObjectOfType<LoadingScreen>();
         loadingScreen.LoadScene("Home");
     } 
 
     public void ReStart()
     {
-        SceneManager.LoadScene("Level01");
+        Time.timeScale = 1;
+        Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
+        objectSpawner.StopSpawning();
+        LoadingScreen loadingScreen = FindObjectOfType<LoadingScreen>();
+        loadingScreen.LoadScene("Level01");
     }
 
     public void PauseGame()
@@ -253,6 +277,8 @@ public class GameManager : MonoBehaviour
     public void UnActiveBot()
     {
         bot.SetActive(false);
+        SetObjectInLevel setObjectInLevel = FindObjectOfType<SetObjectInLevel>();
+        setObjectInLevel.SpawnedBot();
     }
 
     public void AddMoney(int value)
@@ -264,7 +290,6 @@ public class GameManager : MonoBehaviour
 
     private void AddCombo(bool addCombo)
     {
-        Debug.Log("Add Combo: " + combo);
         if (!addCombo)
         {
             combo = 0;
@@ -289,9 +314,13 @@ public class GameManager : MonoBehaviour
     public void ShowPopupEndgame(bool win)
     {
         CanvasLv1.Instance.ShowPopup(Level, bonusMoney, win);
-        if (win)
+        endGame = (!endGame) ? true : endGame;
+        //Save level, bonus money
+        if (win && (Level - animIndex) < 1)
         {
-            Level ++;
+            Level++;
         }
+        SaveData savedata = new SaveData();
+        savedata.Save();
     }
 }

@@ -11,6 +11,8 @@ public class AnimationFrameChecker : MonoBehaviour
     [SerializeField] float tolerance = 1;
     PlayerController playerController;  
     public static AnimationFrameChecker Instance;
+    public bool isMatching;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,22 +35,22 @@ public class AnimationFrameChecker : MonoBehaviour
     {
         if (bot != null)
         {
-            if (bot.activeSelf && AreFramesMatching(playerAnimator, modelAnimator, totalFrames))
+            isMatching = AreFramesMatching(playerAnimator, modelAnimator, totalFrames);
+            if (bot.activeSelf && isMatching)
             {
-                Debug.Log("Matching");
+               // Debug.Log("Matching");
                 playerController.isMatching = true;
             }
             else playerController.isMatching = false;
         }
     }
 
-    bool AreFramesMatching(Animator playerAnimator, Animator modelAnimator, float totalFrames)
+    private bool AreFramesMatching(Animator playerAnimator, Animator modelAnimator, float totalFrames)
     {
-        Debug.Log("Bot is not null" + bot.activeSelf);
         float playerFrame = Mathf.Floor(playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime * totalFrames);
         float modelFrame = Mathf.Floor(modelAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime * totalFrames);
-        Debug.Log("Player Frame: " + playerFrame + " Model Frame: " + modelFrame);
-        Debug.Log(Mathf.Abs(playerFrame - modelFrame) + " / " + tolerance);
+        //Debug.Log("Player Frame: " + playerFrame + " Model Frame: " + modelFrame);
+        //Debug.Log(Mathf.Abs(playerFrame - modelFrame) + " / " + tolerance);
         return Mathf.Abs(playerFrame - modelFrame) < tolerance;
              
     }  

@@ -25,8 +25,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private List<GameObject> skinButtons = new List<GameObject>();
     public GameObject currentModel;
     private int currentSkinID;
+    int currentClickedID = -1;
 
-    
 
     public static Shop instance;
 
@@ -97,7 +97,6 @@ public class Shop : MonoBehaviour
 
         if (Skins == null || Skins.Count == 0)
         {
-            Debug.Log("No Skins Found");
             return;
         }
 
@@ -127,19 +126,16 @@ public class Shop : MonoBehaviour
         currentModel.transform.localPosition = Vector3.zero;
         currentSkinID = skinID;
         AudioManager.Instance.PlaySound("SwicthSkin");
-        checkOutLine(skinID);
+        checkOwnedSkin(skinID);
         //PlayerPrefs.SetInt("CurrentSkin", currentSkinID);
     }
 
-    
-
-    int currentID = -1;
-    private void checkOutLine(int skinID)
+    private void checkOwnedSkin(int skinID)
     {
-        if (currentID != skinID)
+        if (currentClickedID != skinID)
         {
-            if (currentID != -1) skinButtons[currentID].GetComponent<Outline>().enabled = false;
-            currentID = skinID;
+            //if (currentID != -1) skinButtons[currentID].GetComponent<Outline>().enabled = false;
+            currentClickedID = skinID;
         }
         if (!Skins[skinID].isOwned)
         {
@@ -152,6 +148,10 @@ public class Shop : MonoBehaviour
             CheckSelectSkin(); 
             BuyButton.SetActive(false);
         }
+    }
+    public bool CheckSkin(int skinID)
+    {
+        return currentClickedID == skinID;
     }
 
     private void CheckSelectSkin()

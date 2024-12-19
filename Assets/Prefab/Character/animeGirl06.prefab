@@ -681,6 +681,7 @@ GameObject:
   - component: {fileID: 8077753062485338854}
   - component: {fileID: 4250222654224756828}
   - component: {fileID: 4967065089132083827}
+  - component: {fileID: 8356639634684285619}
   m_Layer: 6
   m_Name: animeGirl06
   m_TagString: Untagged
@@ -745,10 +746,10 @@ Animator:
   m_GameObject: {fileID: 847803851747250229}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b4a4897057d5f2e419d3b1dc3aadc645, type: 2}
-  m_Controller: {fileID: 9100000, guid: f4cd494af0e44b6191e8d1e5c6d4e595, type: 2}
+  m_Controller: {fileID: 22100000, guid: c526809eddb3da646a1979c03632d68f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -984,6 +985,19 @@ MonoBehaviour:
   pants: {fileID: 0}
   shoes: {fileID: 0}
   hands: {fileID: 0}
+--- !u!114 &8356639634684285619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847803851747250229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b15ad047d5349ba253dc4b4f401d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &889406538853386021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041484687648548326}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0000000011295931, y: 0.07381618, z: 0.0095699895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5543,7 +5557,64 @@ SkinnedMeshRenderer:
   - {fileID: 2659009675156433858}
   - {fileID: 8175924108209231016}
   - {fileID: 7278437064834974638}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 100
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   m_RootBone: {fileID: 5989002332869709643}
   m_AABB:
     m_Center: {x: 0.000000022351742, y: 1.533646, z: 0.018020673}

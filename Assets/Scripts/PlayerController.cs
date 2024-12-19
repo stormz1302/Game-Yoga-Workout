@@ -25,6 +25,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AnimatorController animatorController;
     Collider stage;
 
+    [SerializeField] int botScorePerObject;
+    [SerializeField] int goodFoodScorePerObject;
+    [SerializeField] int trapScorePerObject;
+    [SerializeField] int badFoodPenaltyPerObject;
+    [SerializeField] int notMatchingPenaltyPerObject;
+
+
+ 
     private void Awake()
     {
         GameManager.Instance.player = gameObject.transform;
@@ -37,7 +45,20 @@ public class PlayerController : MonoBehaviour
         navMeshAgent.enabled = true;
         animationName = animatorController.animationName;
         animIndex = GameManager.Instance.animIndex;
-        animator.Play(animationName[animIndex]); 
+        animator.Play(animationName[animIndex]);
+
+    }
+
+
+    public void LoadScore()
+    {
+        SetObjectInLevel setObjectInLevel = FindObjectOfType<SetObjectInLevel>();
+        setObjectInLevel.AssignScoresToObjects();
+        botScorePerObject = setObjectInLevel.botScorePerObject;
+        goodFoodScorePerObject = setObjectInLevel.goodFoodScorePerObject;
+        trapScorePerObject = setObjectInLevel.trapScorePerObject;
+        badFoodPenaltyPerObject = setObjectInLevel.badFoodPenaltyPerObject;
+        notMatchingPenaltyPerObject = setObjectInLevel.notMatchingPenaltyPerObject;
     }
 
     void Update()
@@ -76,7 +97,11 @@ public class PlayerController : MonoBehaviour
                 isDragging = false;
             }
         }
+
+        
     }
+
+    
 
     //private void SetTranform()
     //{
@@ -98,21 +123,18 @@ public class PlayerController : MonoBehaviour
         if (other != null && other.gameObject.CompareTag("Bot"))
         {
             isHit = true;
-            Debug.Log("hit Bot: " + isMatching);
             if (isMatching)
             {
-                Debug.Log("hit Bot matching");
                 GoodEfect.SetActive(true);
                 AudioManager.Instance.PlaySound("GoodEffect");
-                GameManager.Instance.AddScore(true);
+                GameManager.Instance.AddScore(true, botScorePerObject);
                 Invoke("Deactivate", 1f);
             }
             else
             {
-                Debug.Log("hit Bot not matching");
                 BadEfect.SetActive(true);
                 AudioManager.Instance.PlaySound("BadEffect");
-                GameManager.Instance.AddScore(false);
+                GameManager.Instance.AddScore(false, notMatchingPenaltyPerObject);
                 Invoke("Deactivate", 1f);
             }
             isHit = false;
@@ -120,17 +142,17 @@ public class PlayerController : MonoBehaviour
         }
         if (other != null && other.gameObject.CompareTag("Money"))
         {
-            GameManager.Instance.AddMoney(Random.Range(3, 5));
+            GameManager.Instance.AddMoney(Random.Range(10, 15));
             AudioManager.Instance.PlaySound("MoneyPickup");
             PlayerHit(hitMoneyEfect, other);
         }
         else if (other != null && other.gameObject.CompareTag("Things"))
         {
-            GameManager.Instance.LoadEndScreen();
+            GameManager.Instance.ShowPopupEndgame(false);
         }
         if (other != null && other.gameObject.CompareTag("Clean") && other != stage)
         {
-            GameManager.Instance.AddScore(true);
+            GameManager.Instance.AddScore(true, goodFoodScorePerObject);
             AudioManager.Instance.PlaySound("GoodEffect");
             foodClean.SetActive(true);
             Invoke("Deactivate", 1f);
@@ -139,7 +161,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other != null && other.gameObject.CompareTag("notClean") && other != stage)
         {
-            GameManager.Instance.AddScore(false);
+            GameManager.Instance.AddScore(false, badFoodPenaltyPerObject);
             AudioManager.Instance.PlaySound("BadEffect");
             BadEfect.SetActive(true);
             Invoke("Deactivate", 1f);
@@ -157,7 +179,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other != null && other.gameObject.CompareTag("Stage") && other != stage)
         {
-            GameManager.Instance.AddScore(true);
+            GameManager.Instance.AddScore(true, trapScorePerObject);
             AudioManager.Instance.PlaySound("GoodEffect");
             Destroy(other.gameObject);
             stage = other;

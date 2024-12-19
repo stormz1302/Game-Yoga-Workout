@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 70098549583162918}
   - component: {fileID: 990358004721342361}
   - component: {fileID: 521856645944008951}
-  - component: {fileID: 5690492609260244761}
+  - component: {fileID: 801229655003040617}
   m_Layer: 5
   m_Name: SkinView
   m_TagString: Untagged
@@ -274,19 +274,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 70098549583162918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 521856645944008951}
-        m_TargetAssemblyTypeName: SkinView, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &521856645944008951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +293,7 @@ MonoBehaviour:
   blockIcon: {fileID: 4557200702515365580}
   isOwned: 0
   skinID: 0
---- !u!114 &5690492609260244761
+--- !u!114 &801229655003040617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0.083918095, a: 1}
+  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 8, y: 8}
   m_UseGraphicAlpha: 1
 --- !u!1 &7422762583092964453

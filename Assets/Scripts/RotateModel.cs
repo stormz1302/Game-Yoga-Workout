@@ -30,7 +30,7 @@ public class RotateModel : MonoBehaviour
 
     private void DragRotate()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Input.touchCount != 2)
         {
             // Kiểm tra nếu raycast trúng mô hình
             if (IsPointerOverModel())
@@ -44,8 +44,6 @@ public class RotateModel : MonoBehaviour
         {
             Vector3 deltaMousePosition = Input.mousePosition - previousMousePosition;
             previousMousePosition = Input.mousePosition;
-
-            Debug.Log("Drag Rotating");
             SpawnCharacter.transform.Rotate(Vector3.up, -deltaMousePosition.x * 0.5f, Space.World);
         }
 
@@ -63,14 +61,10 @@ public class RotateModel : MonoBehaviour
 
             if (Camera.main == null) Debug.LogError("Main Camera is missing!");
 
-            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green, 2f);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~0, QueryTriggerInteraction.Collide))
             {
-                
-                Debug.Log("Raycast hit: " + hit.collider.name);
                 if (hit.collider.gameObject == SpawnCharacter || hit.collider.transform.IsChildOf(SpawnCharacter.transform))
                 {
-                    Debug.Log($"Raycast hit: {hit.collider.name}");
                     return true;
                 }
             }
@@ -78,22 +72,14 @@ public class RotateModel : MonoBehaviour
         }
         else
         {
-            // Tạo danh sách để lưu kết quả raycast UI
             PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
             {
                 position = Input.mousePosition // Vị trí chuột
             };
-
-            // Danh sách kết quả raycast
             var results = new System.Collections.Generic.List<RaycastResult>();
-
-            // Lấy GraphicRaycaster từ Canvas
             GraphicRaycaster raycaster = dragZone.canvas.GetComponent<GraphicRaycaster>();
-
-            // Gọi raycast trên UI
             raycaster.Raycast(pointerEventData, results);
 
-            // Kiểm tra xem raycast có trúng RawImage (dragZone) hay không
             foreach (var result in results)
             {
                 if (result.gameObject == dragZone.gameObject)
