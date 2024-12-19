@@ -4937,7 +4937,64 @@ SkinnedMeshRenderer:
   - {fileID: 1863556748930655784}
   - {fileID: 7784686636684595653}
   - {fileID: 7641493912755318855}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 100
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   m_RootBone: {fileID: 7903130098180396039}
   m_AABB:
     m_Center: {x: 0.000000052154064, y: 1.5454538, z: 0.018020706}
@@ -4960,6 +5017,7 @@ GameObject:
   - component: {fileID: 932789286908889619}
   - component: {fileID: 7810258673176320280}
   - component: {fileID: 7333466331843107634}
+  - component: {fileID: -6538105972420574982}
   m_Layer: 6
   m_Name: animeGirl02
   m_TagString: Untagged
@@ -5263,6 +5321,19 @@ MonoBehaviour:
   pants: {fileID: 0}
   shoes: {fileID: 0}
   hands: {fileID: 0}
+--- !u!114 &-6538105972420574982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275745008566296738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b15ad047d5349ba253dc4b4f401d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &8376906436669404061
 GameObject:
   m_ObjectHideFlags: 0

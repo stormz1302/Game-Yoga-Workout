@@ -1,27 +1,32 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class LoadBG : MonoBehaviour
 {
-    [SerializeField] private GameObject road;
-    [SerializeField] private Material roadMaterial;
-    [SerializeField] private Material skybox;
-    private MissionListSO missionListSO;
-    int mapIndex = 0;
+    [SerializeField] List<Sprite> backGrounds = new List<Sprite>();
+    [SerializeField] GameObject backGround;
+    [SerializeField] Background bgList;
+    [SerializeField] int  LevelPoint= 0;
+    [SerializeField] int Level;
 
-    private void Start()
+    void Start()
     {
-        mapIndex = GameManager.Instance.animIndex;
-        missionListSO = GameManager.Instance.MissionListSO;
-        LoadMaterial();
+        Level = GameManager.Instance.Level;
+        int backGroundIndex = (Level + 1) / 5;
+        LevelPoint = backGroundIndex * 5;
+        backGrounds = bgList.backGrounds;
+        LoadBGround(Level);
     }
 
-    private void LoadMaterial()
+    private void LoadBGround(int level)
     {
-        roadMaterial = missionListSO.missionLevels[mapIndex].roadMaterial;
-        skybox = missionListSO.missionLevels[mapIndex].skybox;
-        road.GetComponent<MeshRenderer>().material = roadMaterial;
-        RenderSettings.skybox = skybox;
+        if (level >= LevelPoint)
+        {
+            int backGroundIndex = (level + 1) / 5;
+            LevelPoint = backGroundIndex * 5;
+            backGround.GetComponent<SpriteRenderer>().sprite = backGrounds[LevelPoint];
+        }
     }
 }

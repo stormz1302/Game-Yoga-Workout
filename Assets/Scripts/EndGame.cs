@@ -61,14 +61,13 @@ public class EndGame : MonoBehaviour
             endGame = false;
             Male = GameObject.Find("male00");
             moneyFinish = GameObject.Find("MoneyFinish").transform;
-            FinishPoint = GameObject.Find("FinishPoint").transform;
-            
+            //FinishPoint = GameObject.Find("FinishPoint").transform;
+            FinishPoint = Male.transform;
         }
     }
 
     private void Update()
     {
-        if (!endGame) endGame = GameManager.Instance.endGame;
         if (endGame && i == 0)
         {
             Female = Player.transform.GetChild(0).gameObject;
@@ -91,20 +90,20 @@ public class EndGame : MonoBehaviour
         femaleAnimator.SetTrigger("run");
         femaleAnimator.applyRootMotion = false;
         Vector3 finishPoint = FinishPoint.position;
-        finishPoint.y += 0.15f;
+        finishPoint.z += -0.25f;
         Vector3 targetPosition = finishPoint;
         navMeshAgent = Player.GetComponent<NavMeshAgent>();
         navMeshAgent.SetDestination(targetPosition);
-        while (Vector3.Distance(Player.transform.position, finishPoint) > navMeshAgent.stoppingDistance)
+        while (Player.transform.position.z < targetPosition.z)
         {
             yield return null;
         }
-        CameraFollow(5.5f, 4f, -0.5f);
-        femaleAnimator.applyRootMotion = true;
-        navMeshAgent.isStopped = true;
+        //navMeshAgent.isStopped = true;
         navMeshAgent.enabled = false;
+        Player.transform.GetChild(0).transform.position = targetPosition;
+        CameraFollow(3f, 2f, -2f);
+        CanvasLv1.Instance.PauseButtonUnActive();
         StartCoroutine(PlayEmojiThenCharacterAnim(_win));
-        
     }
     
     private void RunState()
@@ -132,6 +131,7 @@ public class EndGame : MonoBehaviour
     }
     public void EndGameState(bool win, float score)
     {
+        endGame = true;
         _win = win;
         maxY = score >= 100 ? maxHight : (score >= 75 ? (float)(0.75f * maxHight) : (float)(0.5f * maxHight));
     }
@@ -168,6 +168,7 @@ public class EndGame : MonoBehaviour
             femaleAnimator.SetTrigger("kiss"); 
             maleAnimator.SetTrigger("kiss");
             yield return new WaitForSeconds(6f);
+            femaleAnimator.applyRootMotion = true;
             femaleAnimator.SetTrigger("Dance");
         }
         else

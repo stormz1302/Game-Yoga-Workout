@@ -14,7 +14,6 @@ public class SkinView : MonoBehaviour
 
     private void Start()
     {
-        gameObject.GetComponent<Outline>().enabled = false;
         if (isOwned)
         {
             panel.SetActive(false);
@@ -24,6 +23,11 @@ public class SkinView : MonoBehaviour
         {
             panel.SetActive(true);
             blockIcon.SetActive(true);
+        }
+        bool isSelect = Shop.instance.CheckSkin(skinID);
+        if (isSelect)
+        {
+            gameObject.GetComponent<Outline>().enabled = true;
         }
     }
 
@@ -43,11 +47,19 @@ public class SkinView : MonoBehaviour
             panel.SetActive(true);
             blockIcon.SetActive(true);
         }
+        bool isSelect = Shop.instance.CheckSkin(skinID);
+        if (isSelect)
+        {
+            gameObject.GetComponent<Outline>().enabled = true;
+        }
+        else
+        {
+            gameObject.GetComponent<Outline>().enabled = false;
+        }
     }
-
-    public void OnClick()
-    {
-        gameObject.GetComponent<Outline> ().enabled = true;
-    }
+    //public void OnClick()
+    //{
+    //    gameObject.GetComponent<Outline> ().enabled = true;
+    //}
     
 }
