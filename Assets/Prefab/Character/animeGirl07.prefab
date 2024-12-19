@@ -2057,6 +2057,7 @@ GameObject:
   - component: {fileID: 8056160145218612243}
   - component: {fileID: 1562706375879014933}
   - component: {fileID: 7320557077989920612}
+  - component: {fileID: 8362163263310241913}
   m_Layer: 6
   m_Name: animeGirl07
   m_TagString: Untagged
@@ -2360,6 +2361,19 @@ MonoBehaviour:
   pants: {fileID: 0}
   shoes: {fileID: 0}
   hands: {fileID: 0}
+--- !u!114 &8362163263310241913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011735719378414349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831b15ad047d5349ba253dc4b4f401d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &4039259715015242752
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,7 +3221,64 @@ SkinnedMeshRenderer:
   - {fileID: 189153008425943889}
   - {fileID: 495578709058632497}
   - {fileID: 6995221070421712288}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 100
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   m_RootBone: {fileID: 1672634442297652680}
   m_AABB:
     m_Center: {x: 0.000000022351742, y: 1.533646, z: 0.018020675}

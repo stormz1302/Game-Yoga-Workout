@@ -47,8 +47,6 @@ public class IconRenderer : MonoBehaviour
         model.SetActive(false);
 
         renderCamera.targetTexture = null;
-
-        Debug.Log($"Saved icon for {iconName} at {savePath}");
     }
 
     private void SaveRenderTextureAsPNG(RenderTexture rt, string path)
@@ -70,7 +68,5 @@ public class IconRenderer : MonoBehaviour
 
         byte[] bytes = texture.EncodeToPNG();
         System.IO.File.WriteAllBytes(path, bytes);
-
-        Debug.Log($"Image saved at: {path}");
     }
 }

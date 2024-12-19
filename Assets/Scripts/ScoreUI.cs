@@ -5,14 +5,34 @@ using UnityEngine.UI;
 
 public class ScoreUI : MonoBehaviour
 {
-    [SerializeField] private Image FillBar;
-    private void Start()
+    [SerializeField] Slider scoreBar;          
+    [SerializeField] float increaseDuration = 1.0f;
+
+    
+    public void IncreaseScore(float amount)
     {
-        FillBar.fillAmount = 0;
+        StartCoroutine(IncreaseScoreBar(amount));
     }
-    public void UpdateScoreBar(float fillAmount)
+
+    IEnumerator IncreaseScoreBar(float targetValue)
     {
-        Debug.Log("Fill amount: " + fillAmount);
-        FillBar.fillAmount = fillAmount;
+        float startValue = scoreBar.value;         
+        float elapsedTime = 0f;
+
+        while (elapsedTime < increaseDuration)
+        {
+            scoreBar.value = Mathf.Lerp(startValue, targetValue, elapsedTime / increaseDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        scoreBar.value = targetValue; 
+    }
+
+    public void SetMaxScore(float maxScore)
+    {
+        scoreBar.maxValue = maxScore;
+
+        scoreBar.value = 0; 
     }
 }

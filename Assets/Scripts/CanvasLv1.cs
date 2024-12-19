@@ -38,6 +38,7 @@ public class CanvasLv1 : MonoBehaviour
     [SerializeField] private TMP_Text bonusMoneyText;
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private GameObject playButton;
+    [SerializeField] private GameObject scoreBar;
 
     [Header("ComboPopupUI:")]
     [SerializeField] private List<GameObject> comboPopupUI;
@@ -49,7 +50,7 @@ public class CanvasLv1 : MonoBehaviour
     [SerializeField] private TMP_Text bonusMoneyRewardText;
     [SerializeField] private TMP_Text levelEndGameText;
     [SerializeField] private TMP_Text levelState;
-    [SerializeField] private Button nextLevel;
+    //[SerializeField] private Button nextLevel;
     //[SerializeField] private Button Ads;
     [SerializeField] private Button homeButton;
 
@@ -101,6 +102,7 @@ public class CanvasLv1 : MonoBehaviour
         Menu.SetActive(false);
         playScreen.SetActive(true);
         playButton.SetActive(true);
+        scoreBar.SetActive(false);
     }
 
     public void LoadNextLevel()
@@ -111,9 +113,10 @@ public class CanvasLv1 : MonoBehaviour
 
     public void StartGame()
     {
+        scoreBar.SetActive(true);
+        playButton.SetActive(false);
         AudioManager.Instance.PlaySound("PlayButton");
         GameManager.Instance.StartGame(); 
-        playButton.SetActive(false);
     }
 
     public void OpenSetting()
@@ -294,9 +297,11 @@ public class CanvasLv1 : MonoBehaviour
         else
         {
             levelState.text = "Level failed";
-            nextLevel.gameObject.SetActive(false);
+            //nextLevel.gameObject.SetActive(false);
         }
         levelEndGameText.text = "Level " + level;
+        GachaUIController gachaUIController = FindObjectOfType<GachaUIController>();
+        gachaUIController.OnLoadEndGamePopup();
         StartCoroutine(UpdateBonusMoney(rewardAmount));
 
     }
@@ -315,6 +320,11 @@ public class CanvasLv1 : MonoBehaviour
             yield return null;
         }
         bonusMoneyRewardText.text = targetAmount.ToString("N0");
+    }
+
+    public void PauseButtonUnActive()
+    {
+        pauseButton.SetActive(false);
     }
 }
 
