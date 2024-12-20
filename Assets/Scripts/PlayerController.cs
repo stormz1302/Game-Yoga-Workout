@@ -128,23 +128,24 @@ public class PlayerController : MonoBehaviour
                 GoodEfect.SetActive(true);
                 AudioManager.Instance.PlaySound("GoodEffect");
                 GameManager.Instance.AddScore(true, botScorePerObject);
-                Invoke("Deactivate", 1f);
+                Invoke("Deactivate", 0.5f);
             }
             else
             {
                 BadEfect.SetActive(true);
                 AudioManager.Instance.PlaySound("BadEffect");
                 GameManager.Instance.AddScore(false, notMatchingPenaltyPerObject);
-                Invoke("Deactivate", 1f);
+                Invoke("Deactivate", 0.5f);
             }
             isHit = false;
             GameManager.Instance.UnActiveBot();
         }
-        if (other != null && other.gameObject.CompareTag("Money"))
+        if (other != null && other.gameObject.CompareTag("Money") && other != stage)
         {
-            GameManager.Instance.AddMoney(Random.Range(10, 15));
+            GameManager.Instance.AddMoney();
             AudioManager.Instance.PlaySound("MoneyPickup");
             PlayerHit(hitMoneyEfect, other);
+            stage = other;
         }
         else if (other != null && other.gameObject.CompareTag("Things"))
         {
@@ -155,7 +156,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.AddScore(true, goodFoodScorePerObject);
             AudioManager.Instance.PlaySound("GoodEffect");
             foodClean.SetActive(true);
-            Invoke("Deactivate", 1f);
+            Invoke("Deactivate", 0.5f);
             other.transform.GetChild(0).gameObject.SetActive(false);
             stage = other;
         }
@@ -164,7 +165,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.AddScore(false, badFoodPenaltyPerObject);
             AudioManager.Instance.PlaySound("BadEffect");
             BadEfect.SetActive(true);
-            Invoke("Deactivate", 1f);
+            Invoke("Deactivate", 0.5f);
             other.transform.GetChild(0).gameObject.SetActive(false);
             stage = other;
         }
@@ -173,7 +174,7 @@ public class PlayerController : MonoBehaviour
     public void GoodEffect()
     {
         GoodEfect.SetActive(true);
-        Invoke("Deactivate", 1f);
+        Invoke("Deactivate", 0.5f);
     }
     private void OnTriggerExit(Collider other)
     {
@@ -198,7 +199,7 @@ public class PlayerController : MonoBehaviour
         gameOb.SetActive(true);
         gameOb.transform.position = other.transform.position;
         
-        Invoke("Deactivate", 1f);
+        Invoke("Deactivate", 0.5f);
         Destroy(other.gameObject);
     }
 

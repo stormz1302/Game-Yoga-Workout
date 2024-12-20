@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
     public Image progressBar; 
+    public List<Sprite> backGrounds = new List<Sprite>();
     public GameObject loadingScreen;
 
     private void Start()
@@ -15,6 +16,8 @@ public class LoadingScreen : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        Image loadingBG = loadingScreen.GetComponent<Image>();
+        loadingBG.sprite = backGrounds[Random.Range(0, backGrounds.Count)];
         StartCoroutine(LoadSceneAsync(sceneName));
     }
 

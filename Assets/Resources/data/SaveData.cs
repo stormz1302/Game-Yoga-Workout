@@ -28,4 +28,14 @@ public class SaveData
         PlayerPrefs.SetInt("Money", money);
         PlayerPrefs.Save();
     }
+
+    public void SetLevelBonus(bool levelBonus)
+    {
+        PlayerPrefs.SetInt("LevelBonus", levelBonus ? 1 : 0);
+    }
+
+    public bool GetLevelBonus()
+    { 
+        return PlayerPrefs.GetInt("LevelBonus", 0) == 1;
+    }
 }

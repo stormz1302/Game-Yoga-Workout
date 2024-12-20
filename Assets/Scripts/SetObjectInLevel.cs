@@ -25,6 +25,8 @@ public class SetObjectInLevel : MonoBehaviour
     [SerializeField] private float ratioCountTrap;
     [SerializeField] private float MAX_TRAP_SCORE = 0.3f;
 
+    [Header("Level Bonus Money")]
+    public List<GameObject> bonusPrefab;
     [Header("OBJECT COUNT:")]
     public int maxObjectInLevel;
     int remainingObjects;
@@ -47,34 +49,40 @@ public class SetObjectInLevel : MonoBehaviour
     [SerializeField] FoodObjects foodObjects;
 
     bool botIsSpawning = false;
+    bool _levelBonus = false;
 
-    private void Update()
+
+    public void SetupLevel(bool levelBonus)
     {
-        
-    }
+        if (levelBonus)
+        {
+            _levelBonus = levelBonus;
+            maxObjectInLevel += 30;
+            bonusPrefab = GameManager.Instance.missions;
+        }
+        else
+        {
+            int Level = 0;
+            trapPrefabs = GameManager.Instance.missions;
+            maxObjectInLevel = GameManager.Instance.maxObject;
+            Level = GameManager.Instance.animIndex;
+            goodFoodPrefabs = foodObjects.goodFoodPrefabs;
+            badFoodPrefabs = foodObjects.badFoodPrefabs;
+            ratioCountBot = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountBot;
+            ratioCountGoodFood = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountGoodFood;
+            ratioCountBadFood = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountBadFood;
+            ratioCountTrap = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountTrap;
 
-    public void SetupLevel()
-    {
-        int Level = 0;
-        trapPrefabs = GameManager.Instance.missions;
-        maxObjectInLevel = GameManager.Instance.maxObject;
-        Level = GameManager.Instance.animIndex;
-        goodFoodPrefabs = foodObjects.goodFoodPrefabs;
-        badFoodPrefabs = foodObjects.badFoodPrefabs;
-        ratioCountBot = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountBot;
-        ratioCountGoodFood = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountGoodFood;
-        ratioCountBadFood = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountBadFood;
-        ratioCountTrap = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountTrap;
+            MAX_BOT_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_BOT_SCORE;
+            MAX_NOT_MATCHING_BOT_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_NOT_MATCHING_BOT_SCORE;
+            MAX_GOOD_FOOD_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_GOOD_FOOD_SCORE;
+            MAX_BAD_FOOD_PENALTY = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_BAD_FOOD_PENALTY;
+            MAX_TRAP_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_TRAP_SCORE;
 
-        MAX_BOT_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_BOT_SCORE;
-        MAX_NOT_MATCHING_BOT_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_NOT_MATCHING_BOT_SCORE;
-        MAX_GOOD_FOOD_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_GOOD_FOOD_SCORE;
-        MAX_BAD_FOOD_PENALTY = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_BAD_FOOD_PENALTY;
-        MAX_TRAP_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_TRAP_SCORE;
-
-        totalTimer = GameManager.Instance.MissionListSO.missionLevels[Level].totalTimer;
-        variation = GameManager.Instance.MissionListSO.missionLevels[Level].variation;
-        InitializeSpawnCounts();
+            totalTimer = GameManager.Instance.MissionListSO.missionLevels[Level].totalTimer;
+            variation = GameManager.Instance.MissionListSO.missionLevels[Level].variation;
+            InitializeSpawnCounts();
+        }
     }
 
     private void InitializeSpawnCounts()
@@ -98,6 +106,12 @@ public class SetObjectInLevel : MonoBehaviour
             }
 
             // Chọn ngẫu nhiên loại object để spawn 
+            if (_levelBonus)
+            {
+                objectSpawned = bonusPrefab[Random.Range(0, bonusPrefab.Count)];
+                i++;
+                return objectSpawned;
+            }
             string objectType = GetRandomObjectType();
 
             switch (objectType)
