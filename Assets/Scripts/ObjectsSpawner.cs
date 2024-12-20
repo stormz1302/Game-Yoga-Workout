@@ -11,16 +11,19 @@ public class Objectspawner : MonoBehaviour
     public Transform spawnTransform;
     public Transform EndPoint;
     public float duration;
+    private GameObject Money;
+    public int moneyValue;
     public List<GameObject> spawnedObjects = new List<GameObject>();
     private bool endGame = false;
     [SerializeField] private GameObject finishBG;
-    PlayerController player;
+    [SerializeField] private MoneySO moneySO;
 
     private void Start()
     {
         EndGame.Instance.finishBG = finishBG;
         finishBG.SetActive(false);
-        player = FindObjectOfType<PlayerController>();
+        Money = moneySO.Money;
+        moneyValue = moneySO.moneyValue;
     }
 
 
@@ -40,20 +43,21 @@ public class Objectspawner : MonoBehaviour
     private IEnumerator SpawnObjects()
     {
         endGame = GameManager.Instance.endGame;
-        if (endGame) yield break;  // Stop spawning if the game is over
+        if (endGame) yield break;
         SetObjectInLevel setObjectInLevel = FindObjectOfType<SetObjectInLevel>();
         GameObject spawnedObject = null;
         GameObject randomObject = null;
 
-        while (!endGame) // This loop continues until the game ends
+        while (!endGame) 
         {
             float spawnInterval = setObjectInLevel.SetSpawnRate();
+            float elapsedTime = 0f;
+            //spawn object
             randomObject = setObjectInLevel.SpawnObjects();
-
-            Vector3 newPosition = spawnTransform.position;
-
             if (randomObject != null)
             {
+                Vector3 newPosition = spawnTransform.position;
+
                 if (randomObject.name == "Bot")
                 {
                     spawnedObject = randomObject;
@@ -73,15 +77,33 @@ public class Objectspawner : MonoBehaviour
 
                 spawnedObject.transform.position = newPosition;
                 spawnedObjects.Add(spawnedObject);
-                StartCoroutine(MoveToPosition(newPosition, duration, spawnedObject));
+                StartCoroutine(MoveToPosition(newPosition, duration, spawnedObject, false));
             }
 
-            yield return new WaitForSeconds(spawnInterval);  // Wait before the next spawn
+            yield return new WaitForSeconds(0.75f);
+            //Spawn money
+            while (elapsedTime < spawnInterval - 0.75f && !endGame)
+            {
+                GameObject fixedObject = Money;
+                if (fixedObject != null)
+                {
+                    Vector3 newPosition = spawnTransform.position + new Vector3(Random.Range(-1f, 1f), 0, 0);
+                    GameObject fixedSpawned = Instantiate(fixedObject, newPosition, Quaternion.identity);
+
+                    StartCoroutine(MoveToPosition(newPosition, duration, fixedSpawned, true));
+                }
+                if (spawnInterval - elapsedTime > 1f)
+                    yield return new WaitForSeconds(1f);
+                else yield return new WaitForSeconds(spawnInterval - elapsedTime);
+                elapsedTime += 1f;
+            }
+
+            yield return null;
         }
     }
 
 
-    IEnumerator MoveToPosition(Vector3 startPosition, float duration, GameObject spawnedObject)
+    IEnumerator MoveToPosition(Vector3 startPosition, float duration, GameObject spawnedObject, bool isMoney)
     {
         float elapsedTime = 0f;
         Vector3 destination = EndPoint.transform.position;
@@ -107,7 +129,7 @@ public class Objectspawner : MonoBehaviour
 
         // Đặt vị trí cuối cùng, đảm bảo chỉ trục Z thay đổi
         Vector3 finalPosition = new Vector3(startPosition.x, startPosition.y, EndPoint.transform.position.z);
-        spawnedObjects.Remove(spawnedObject);
+        if (!isMoney) spawnedObjects.Remove(spawnedObject);
         if (spawnedObjects.Count == 0 && !endGame) GameManager.Instance.LoadEndScreen();
 
         if (spawnedObject != null)

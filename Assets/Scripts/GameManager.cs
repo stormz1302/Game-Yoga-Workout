@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int maxScore;
     public int maxObject;
     public MissionListSO MissionListSO;
+    public BonusMission bonusMission;
     public List<GameObject> missions = new List<GameObject>();
     public int bonusMoney = 0;
     public int Level = 0;
@@ -18,10 +19,11 @@ public class GameManager : MonoBehaviour
     public GameObject bot;
     public bool endGame = false;
     AnimationFrameChecker animationFrameChecker;
+    bool levelBonus = false;
 
     [Header("Main")]
     public int money;
-
+   
     [Header("Player")]
     public SkinnedMeshRenderer body;
     public SkinnedMeshRenderer dress;
@@ -66,13 +68,14 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         animationFrameChecker = GetComponent<AnimationFrameChecker>();
+        saveData = new SaveData();
+        levelBonus = saveData.GetLevelBonus();
         if (scene.name == "Level01")
         {
             selectedSkinID = Shop.instance.selectedSkinID;
             endGame = false;
             bonusMoney = 0;
             _score = 0;
-            saveData = new SaveData();
             saveData.LoadMoney();
             CanvasLv1.Instance.ReadyScreen();
             //UpdateScore(0);
@@ -107,32 +110,40 @@ public class GameManager : MonoBehaviour
     private void LoadAnim()
     {
         animIndex = Level;
-        if (Level <= 6)
+        if (!levelBonus) 
         {
-            SetDifficultyLevel(DifficultyLevel.Beginner);
-            animIndex = Level;
+            if (Level <= 6)
+            {
+                SetDifficultyLevel(DifficultyLevel.Beginner);
+                animIndex = Level;
+            }
+            else if (6 < Level && Level <= 15)
+            {
+                SetDifficultyLevel(DifficultyLevel.Novice);
+            }
+            else if (15 < Level && Level <= 25)
+            {
+                SetDifficultyLevel(DifficultyLevel.Intermediate);
+            }
+            else if (25 < Level && Level <= 40)
+            {
+                SetDifficultyLevel(DifficultyLevel.Advanced);
+            }
+            else if (40 < Level && Level <= 60)
+            {
+                SetDifficultyLevel(DifficultyLevel.Expert);
+            }
+            else if (60 < Level)
+            {
+                SetDifficultyLevel(DifficultyLevel.Master);
+            }
+            missions = MissionListSO.missionLevels[animIndex].missions;
         }
-        else if (6 < Level && Level <= 15)
+        else
         {
-            SetDifficultyLevel(DifficultyLevel.Novice);
+            missions = bonusMission.missions;
         }
-        else if (15 < Level && Level <= 25)
-        {
-            SetDifficultyLevel(DifficultyLevel.Intermediate);
-        }
-        else if (25 < Level && Level <= 40)
-        {
-            SetDifficultyLevel(DifficultyLevel.Advanced);
-        }
-        else if (40 < Level && Level <= 60)
-        {
-            SetDifficultyLevel(DifficultyLevel.Expert);
-        }
-        else if (60 < Level)
-        {
-            SetDifficultyLevel(DifficultyLevel.Master);
-        }
-        missions = MissionListSO.missionLevels[animIndex].missions;   
+        
     }
 
     private void SetDifficultyLevel(DifficultyLevel difficultyLevel)
@@ -198,7 +209,11 @@ public class GameManager : MonoBehaviour
         savedata.LoadLevel();
         savedata.LoadMoney();
         CanvasLv1.Instance.UpdateMoney(money);
-        CanvasLv1.Instance.UpdateLevel(Level);
+        if (levelBonus)
+        {
+            CanvasLv1.Instance.UpdateLevel(Level, true);
+        }
+        else CanvasLv1.Instance.UpdateLevel(Level, false);
     }
 
     public void LoadPlayScene()
@@ -226,9 +241,16 @@ public class GameManager : MonoBehaviour
         playerController.enabled = false;
         CanvasLv1.Instance.UpdateMoneyInPlay(bonusMoney);
         SetObjectInLevel setObjectInLevel = FindObjectOfType<SetObjectInLevel>();
-        setObjectInLevel.SetupLevel();
-        setObjectInLevel.AssignScoresToObjects();
-        playerController.LoadScore();
+        if (levelBonus)
+        {
+            setObjectInLevel.SetupLevel(true);
+        }
+        else
+        {
+            setObjectInLevel.SetupLevel(false);
+            setObjectInLevel.AssignScoresToObjects();
+            playerController.LoadScore();
+        }
     }
     public void StartGame()
     {
@@ -281,8 +303,10 @@ public class GameManager : MonoBehaviour
         setObjectInLevel.SpawnedBot();
     }
 
-    public void AddMoney(int value)
+    public void AddMoney()
     {
+        Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
+        int value = objectSpawner.moneyValue;
         if (comboIndex > 0) value += comboIndex;
         bonusMoney += value;
         CanvasLv1.Instance.UpdateMoneyInPlay(bonusMoney);
@@ -318,9 +342,17 @@ public class GameManager : MonoBehaviour
         //Save level, bonus money
         if (win && (Level - animIndex) < 1)
         {
-            Level++;
+            if (!levelBonus && (Level +1)% 5 == 0)
+            {
+                levelBonus = true;
+            }
+            else
+            {
+                Level++;
+                levelBonus = false;
+            }
+            saveData.SetLevelBonus(levelBonus);
         }
-        SaveData savedata = new SaveData();
-        savedata.Save();
+        saveData.Save();
     }
 }

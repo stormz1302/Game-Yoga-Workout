@@ -20,12 +20,14 @@ public class Shop : MonoBehaviour
     [SerializeField] private TMP_Text PriceText;
     [SerializeField] private GameObject BuyButton;
     [SerializeField] private GameObject SelectButton;
+    [SerializeField] private RawImage characterIcon;
     public List<Character> Skins = new List<Character>();
     [HideInInspector] public int selectedSkinID;
     [SerializeField] private List<GameObject> skinButtons = new List<GameObject>();
     public GameObject currentModel;
     private int currentSkinID;
     int currentClickedID = -1;
+    public float delayBeforeShow = 0.2f;
 
 
     public static Shop instance;
@@ -116,18 +118,33 @@ public class Shop : MonoBehaviour
 
     public void LoadModel(int skinID)
     {
-        Character skin = Skins[skinID];
-        foreach (Transform child in SpawnCharacter)
+        if (currentSkinID != skinID)
         {
-            Destroy(child.gameObject);
+            if (currentModel != null)
+                Destroy(currentModel);
+
+            Character skin = Skins[skinID];
+            foreach (Transform child in SpawnCharacter)
+            {
+                Destroy(child.gameObject);
+            }
+            StartCoroutine(LoadPrefabModel(skin));
+            Physics.SyncTransforms();
+            currentModel.transform.localPosition = Vector3.zero;
+            currentSkinID = skinID;
+            AudioManager.Instance.PlaySound("SwicthSkin");
+            checkOwnedSkin(skinID);
+            //PlayerPrefs.SetInt("CurrentSkin", currentSkinID);
         }
+    }
+
+    IEnumerator LoadPrefabModel(Character skin)
+    {
         currentModel = Instantiate(skin.CharacterPrf, SpawnCharacter);
-        Physics.SyncTransforms();
-        currentModel.transform.localPosition = Vector3.zero;
-        currentSkinID = skinID;
-        AudioManager.Instance.PlaySound("SwicthSkin");
-        checkOwnedSkin(skinID);
-        //PlayerPrefs.SetInt("CurrentSkin", currentSkinID);
+        characterIcon.gameObject.SetActive(false);
+        yield return null;
+        yield return new WaitForSeconds(delayBeforeShow);
+        characterIcon.gameObject.SetActive(true);
     }
 
     private void checkOwnedSkin(int skinID)

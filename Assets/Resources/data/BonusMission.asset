@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7703732e43ed7e74abd9425c14a5b26d, type: 3}
+  m_Name: BonusMission
+  m_EditorClassIdentifier: 
+  missions:
+  - {fileID: 1791595112245488811, guid: 9034e7a591f84df28140cd074ef381d1, type: 3}
+  - {fileID: 1791595112245488685, guid: 3c5639386aaa4d6caa275d770e108ee0, type: 3}
+  - {fileID: 1791595112245488821, guid: 580cb2e9eb314981a2a62457c82544cc, type: 3}
+  - {fileID: 1791595112245488696, guid: b05742c340ee467c8b042ea4c069fa7e, type: 3}
+  - {fileID: 1791595112245488672, guid: 7ebf04d3f79c45f284b0ab1d2727866e, type: 3}
+  - {fileID: 1791595112245488697, guid: 4f3c77d61d424c8d857116b8a1ee5d71, type: 3}
+  - {fileID: 1791595112245488708, guid: 739c69278a8f474da4ffb227ea7f27a2, type: 3}
+  - {fileID: 1791595112245488789, guid: b44f87ac27fd4ecba25641cd73694acb, type: 3}
+  - {fileID: 1791595112245488820, guid: d677aeade82540b884c9407c1f35f2d9, type: 3}

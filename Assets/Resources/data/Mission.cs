@@ -34,18 +34,18 @@ public class Mission
                 maxObject = 10;
                 totalTimer = 30;
                 ratioCountBot = 0.1f;       // 10% bots
-                ratioCountGoodFood = 0.7f;  // 70% good food
-                ratioCountBadFood = 0.1f;   // 10% bad food
-                ratioCountTrap = 0.1f;     // 10% traps
+                ratioCountGoodFood = 0.5f;  // 50% good food
+                ratioCountBadFood = 0.2f;   // 20% bad food
+                ratioCountTrap = 0.2f;     // 20% traps
                 break;
 
             case DifficultyLevel.Novice:
                 maxObject = 20;
                 totalTimer = 50;
                 ratioCountBot = 0.1f;       // 10% bots
-                ratioCountGoodFood = 0.55f;  // 55% good food
-                ratioCountBadFood = 0.2f;   // 20% bad food
-                ratioCountTrap = 0.15f;      // 15% traps
+                ratioCountGoodFood = 0.4f;  // 40% good food
+                ratioCountBadFood = 0.3f;   // 30% bad food
+                ratioCountTrap = 0.2f;      // 20% traps
                 break;
 
             case DifficultyLevel.Intermediate:
@@ -69,17 +69,17 @@ public class Mission
             case DifficultyLevel.Expert:
                 maxObject = 50;
                 totalTimer = 90;
-                ratioCountBot = 0.4f;       // 40% bots
-                ratioCountGoodFood = 0.2f;  // 20% good food
-                ratioCountBadFood = 0.3f;   // 30% bad food
+                ratioCountBot = 0.2f;       // 20% bots
+                ratioCountGoodFood = 0.25f;  // 25% good food
+                ratioCountBadFood = 0.25f;   // 25% bad food
                 ratioCountTrap = 0.3f;      // 30% traps
                 break;
             case DifficultyLevel.Master:
                 maxObject = 80;
                 totalTimer = 130;
-                ratioCountBot = 0.4f;       // 40% bots
+                ratioCountBot = 0.3f;       // 30% bots
                 ratioCountGoodFood = 0.2f;  // 20% good food
-                ratioCountBadFood = 0.3f;   // 30% bad food
+                ratioCountBadFood = 0.2f;   // 20% bad food
                 ratioCountTrap = 0.3f;      // 30% traps
                 break;
         }

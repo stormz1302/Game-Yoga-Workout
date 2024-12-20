@@ -7,26 +7,24 @@ public class LoadBG : MonoBehaviour
 {
     [SerializeField] List<Sprite> backGrounds = new List<Sprite>();
     [SerializeField] GameObject backGround;
-    [SerializeField] Background bgList;
-    [SerializeField] int  LevelPoint= 0;
     [SerializeField] int Level;
+    [SerializeField] Background background;
 
     void Start()
     {
+        backGrounds = background.backGrounds;
         Level = GameManager.Instance.Level;
-        int backGroundIndex = (Level + 1) / 5;
-        LevelPoint = backGroundIndex * 5;
-        backGrounds = bgList.backGrounds;
         LoadBGround(Level);
     }
 
     private void LoadBGround(int level)
     {
-        if (level >= LevelPoint)
+        int backGroundIndex = (level + 1) / 5;
+        if (backGroundIndex >= backGrounds.Count)
         {
-            int backGroundIndex = (level + 1) / 5;
-            LevelPoint = backGroundIndex * 5;
-            backGround.GetComponent<SpriteRenderer>().sprite = backGrounds[LevelPoint];
+            backGroundIndex = Random.Range(0, backGrounds.Count);
         }
+        backGround.GetComponent<SpriteRenderer>().sprite = backGrounds[backGroundIndex];
+        Debug.Log("Load BG: " + backGrounds[backGroundIndex]);
     }
 }

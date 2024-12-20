@@ -12,7 +12,7 @@ public class CanvasLv1 : MonoBehaviour
     [Header("Menu:")]
     [SerializeField] GameObject playScreen;
     [SerializeField] TMP_Text moneyText;
-
+    [SerializeField] private Image fadeImage;
     [SerializeField] GameObject Menu;
     Animator playButtonAnimator;
 
@@ -85,15 +85,21 @@ public class CanvasLv1 : MonoBehaviour
         Menu.SetActive(true);
         //playButtonAnimator = playButton.GetComponent<Animator>();
         //playButtonAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
-        shopButton.GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
         isOnMusic = true;
         isOnSound = true;
         endGamePopup.SetActive(false);
-
+        StartCoroutine(FadeIn());
     }
-    public void UpdateLevel(int level)
+    public void UpdateLevel(int level, bool levelBonus)
     {
-        levelText.text = (level + 1).ToString();
+        if (levelBonus)
+        {
+            levelText.text = "Level Bonus";
+        }
+        else
+        {
+            levelText.text = "Level " + (level + 1).ToString();
+        }
     }
 
     public void ReadyScreen()
@@ -182,7 +188,8 @@ public class CanvasLv1 : MonoBehaviour
         playButton.SetActive(true);
         settingButton.SetActive(true);
         SkinsManager.instance.LoadCharacterData();
-    }
+        StartCoroutine(FadeIn());
+    }  
 
     public void OnClickReady()
     {
@@ -211,11 +218,10 @@ public class CanvasLv1 : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("MenuClose");
         pauseButton.SetActive(true);
-        
-        GameManager.Instance.home();
         pauseScreen.SetActive(false);
         Menu.SetActive(true);
         playScreen.SetActive(false);
+        GameManager.Instance.home();
     }
 
     public void ReStart()
@@ -325,6 +331,29 @@ public class CanvasLv1 : MonoBehaviour
     public void PauseButtonUnActive()
     {
         pauseButton.SetActive(false);
+    }
+
+    private IEnumerator FadeIn()
+    {
+        if (fadeImage == null)
+        {
+            Debug.LogError("fadeImage null.");
+            yield break;
+        }
+        fadeImage.gameObject.SetActive(true);
+        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 1f);
+        Color originalColor = fadeImage.color;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            fadeImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+        fadeImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
+        fadeImage.gameObject.SetActive(false);
     }
 }
 

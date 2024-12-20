@@ -69,17 +69,18 @@ public class EndGame : MonoBehaviour
     private void Update()
     {
         if (endGame && i == 0)
+
         {
             Female = Player.transform.GetChild(0).gameObject;
             moneyEffect = moneyFinish.GetChild(0).gameObject;
-            endGameEffect = Male.transform.GetChild(4).gameObject;
+            endGameEffect = Male.transform.GetChild(6).gameObject;
             if (endGameEffect.activeSelf) endGameEffect.SetActive(false);
             femaleAnimator = Female.GetComponent<Animator>();
             maleAnimator = Male.GetComponent<Animator>();
             Invoke("RunState", 1f);
             SetTransForm();
             StopSpawning();
-            CameraFollow( 0f, 3.5f, -4.5f );
+            CameraFollow( 0f, 3f, -4.2f );
             femaleAnimator.SetTrigger("idle");
             i++;
         }
