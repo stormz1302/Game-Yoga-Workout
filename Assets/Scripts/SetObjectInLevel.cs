@@ -51,13 +51,15 @@ public class SetObjectInLevel : MonoBehaviour
     bool botIsSpawning = false;
     bool _levelBonus = false;
 
+    int i = 0;
 
     public void SetupLevel(bool levelBonus)
     {
         if (levelBonus)
         {
             _levelBonus = levelBonus;
-            maxObjectInLevel += 30;
+            totalTimer = GameManager.Instance.bonusTime;
+            maxObjectInLevel = GameManager.Instance.bonusCount;
             bonusPrefab = GameManager.Instance.missions;
         }
         else
@@ -97,21 +99,21 @@ public class SetObjectInLevel : MonoBehaviour
     public GameObject SpawnObjects()
     {
         GameObject objectSpawned;
-        int i = 0;
         if (i < maxObjectInLevel)
         {
-            if (botSpawned >= botCount && goodFoodSpawned >= goodFoodCount && badFoodSpawned >= badFoodCount && trapSpawned >= trapCount)
-            {
-                return null;
-            }
-
-            // Chọn ngẫu nhiên loại object để spawn 
             if (_levelBonus)
             {
                 objectSpawned = bonusPrefab[Random.Range(0, bonusPrefab.Count)];
                 i++;
                 return objectSpawned;
             }
+            else if(botSpawned >= botCount && goodFoodSpawned >= goodFoodCount && badFoodSpawned >= badFoodCount && trapSpawned >= trapCount)
+            {
+                return null;
+            }
+
+            // Chọn ngẫu nhiên loại object để spawn 
+
             string objectType = GetRandomObjectType();
 
             switch (objectType)

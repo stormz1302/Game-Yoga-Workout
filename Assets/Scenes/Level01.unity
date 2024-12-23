@@ -7535,7 +7535,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backGrounds: []
   backGround: {fileID: 1935900384}
-  LevelPoint: 0
   Level: 0
   background: {fileID: 11400000, guid: ba3b316db8d44fe419887a1d3f49557e, type: 2}
 --- !u!114 &1794396463646859796

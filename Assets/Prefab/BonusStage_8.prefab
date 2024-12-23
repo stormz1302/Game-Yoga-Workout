@@ -118,7 +118,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553470
 Animator:
@@ -9614,7 +9614,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245486501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9828,7 +9828,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553468
 Animator:
@@ -19382,7 +19382,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553591
 Animator:
@@ -24350,7 +24350,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553709
 Animator:
@@ -24433,7 +24433,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245487425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.976, y: 0, z: -0.282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24621,7 +24621,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245487693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.687, y: 0, z: -1.018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29516,7 +29516,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553645
 Animator:
@@ -34274,7 +34274,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553808
 Animator:
@@ -34351,7 +34351,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553807
 Animator:
@@ -39422,7 +39422,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553783
 Animator:
@@ -39562,7 +39562,7 @@ GameObject:
   - component: {fileID: 1791595113319236264}
   m_Layer: 0
   m_Name: BonusStage_8
-  m_TagString: Stage
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

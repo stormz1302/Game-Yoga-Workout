@@ -34,22 +34,24 @@ public class SkinsManager : MonoBehaviour
     {
         foreach (var character in Shop.instance.Skins)
         {
-            if (!character.isOwned)
-            {
-                character.isOwned = PlayerPrefs.GetInt(OwnedKey + character.ID, 0) == 1;
-            }
+            character.isOwned = PlayerPrefs.GetInt(OwnedKey + character.ID, 0) == 1;
+            
         }
 
         // Lấy trạng thái trang bị từ PlayerPrefs
         int equippedID = PlayerPrefs.GetInt(EquippedKey, 6); // -1 nếu không có nhân vật nào được trang bị
         PlayerPrefs.SetInt(EquippedKey, equippedID);
-        Shop.instance.selectedSkinID = equippedID;
+        Shop.instance.equipedSkinID = equippedID;
         Shop.instance.LoadModel(equippedID);
     }
 
     public void EquipCharacter(int id)
     {
         PlayerPrefs.SetInt(EquippedKey, id);
+    }
+    public int GetEquippedCharacter()
+    {
+        return PlayerPrefs.GetInt(EquippedKey, 6);
     }
 
     //Buy skin
