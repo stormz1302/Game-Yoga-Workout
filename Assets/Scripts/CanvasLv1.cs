@@ -39,6 +39,7 @@ public class CanvasLv1 : MonoBehaviour
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject scoreBar;
+    bool lvelBonus = false;
 
     [Header("ComboPopupUI:")]
     [SerializeField] private List<GameObject> comboPopupUI;
@@ -90,6 +91,11 @@ public class CanvasLv1 : MonoBehaviour
         endGamePopup.SetActive(false);
         StartCoroutine(FadeIn());
     }
+
+    public void LoadLevelUI(bool levelBonus)
+    {
+        lvelBonus = levelBonus;
+    }
     public void UpdateLevel(int level, bool levelBonus)
     {
         if (levelBonus)
@@ -119,7 +125,7 @@ public class CanvasLv1 : MonoBehaviour
 
     public void StartGame()
     {
-        scoreBar.SetActive(true);
+        scoreBar.SetActive(!lvelBonus);
         playButton.SetActive(false);
         AudioManager.Instance.PlaySound("PlayButton");
         GameManager.Instance.StartGame(); 

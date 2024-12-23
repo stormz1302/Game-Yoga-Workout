@@ -19,10 +19,12 @@ public class Shop : MonoBehaviour
     public RawImage character;
     [SerializeField] private TMP_Text PriceText;
     [SerializeField] private GameObject BuyButton;
+    [SerializeField] private GameObject BuyAdsButton;
     [SerializeField] private GameObject SelectButton;
     [SerializeField] private RawImage characterIcon;
+    [SerializeField] private TMP_Text moneyText;
     public List<Character> Skins = new List<Character>();
-    [HideInInspector] public int selectedSkinID;
+    [HideInInspector] public int equipedSkinID;
     [SerializeField] private List<GameObject> skinButtons = new List<GameObject>();
     public GameObject currentModel;
     private int currentSkinID;
@@ -66,8 +68,14 @@ public class Shop : MonoBehaviour
         BuyButton.GetComponent<Button>().onClick.AddListener(() => BuySkin());
         SelectButton.GetComponent<Button>().onClick.AddListener(() => SelectSkin());
         BuyButton.SetActive(false);
+        BuyAdsButton.SetActive(false);
+        UpdateMoneyText();
     }
     
+    void UpdateMoneyText()
+    {
+        moneyText.text = GameManager.Instance.money.ToString("N0");
+    }
 
     private void BuySkin()
     {
@@ -75,18 +83,23 @@ public class Shop : MonoBehaviour
         {
             SkinsManager.instance.UnlockCharacter(currentSkinID);
             GameManager.Instance.money -= Skins[currentSkinID].Price;
+            CanvasLv1.Instance.UpdateMoney(GameManager.Instance.money);
             SaveData saveData = new SaveData();
             saveData.Save();
             skinButtons[currentSkinID].GetComponent<SkinView>().isOwned = true;
             AudioManager.Instance.PlaySound("BuySkin");
             BuyButton.SetActive(false);
+            BuyAdsButton.SetActive(false);
             SelectButton.SetActive(true);
+            LoadModel(currentSkinID);
+            UpdateMoneyText();
         }
     }
 
     private void SelectSkin()
     {
         SkinsManager.instance.EquipCharacter(currentSkinID);
+        AudioManager.Instance.PlaySound("MenuClose");
         SelectButton.SetActive(false);
     }
 
@@ -157,29 +170,27 @@ public class Shop : MonoBehaviour
         if (!Skins[skinID].isOwned)
         {
             BuyButton.SetActive(true);
+            BuyAdsButton.SetActive(true);
             SelectButton.SetActive(false);
             PriceText.text = Skins[skinID].Price.ToString() + "$";
         }
         else
         {
-            CheckSelectSkin(); 
+            int equipSkinID = SkinsManager.instance.GetEquippedCharacter();
+            bool isEquiped = equipSkinID == skinID;
+            SelectButton.SetActive(!isEquiped);
+            Debug.Log("Skin: " + skinID + " isEquiped: " + isEquiped);
             BuyButton.SetActive(false);
+            BuyAdsButton.SetActive(false);
         }
+    }
+
+    public bool SkinOwned(int skinID)
+    {
+        return Skins[skinID].isOwned;
     }
     public bool CheckSkin(int skinID)
     {
         return currentClickedID == skinID;
-    }
-
-    private void CheckSelectSkin()
-    {
-        if (currentSkinID == selectedSkinID)
-        {
-            SelectButton.SetActive(false);
-        }
-        else
-        {
-            SelectButton.SetActive(true);
-        }
     }
 }

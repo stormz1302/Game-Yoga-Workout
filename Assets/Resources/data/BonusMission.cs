@@ -6,4 +6,6 @@ using UnityEngine;
 public class BonusMission : ScriptableObject
 {
     public List<GameObject> missions = new List<GameObject>();
+    public int missionCount;
+    public float missionTime;
 }

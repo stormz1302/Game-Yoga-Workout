@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1791595112295820970}
   - component: {fileID: 1791595112782364538}
   - component: {fileID: 1791595112614590387}
+  - component: {fileID: 6004648601101041841}
   m_Layer: 0
   m_Name: polySurface4
-  m_TagString: 
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,12 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791595112245486084}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.850069, y: 0.00000002980233, z: 0.00000002235174, w: 0.5266714}
-  m_LocalPosition: {x: -0.198, y: 0.539, z: 0.454}
+  m_LocalRotation: {x: 0.85006905, y: 0.000000029802322, z: 0.000000029802322, w: 0.5266714}
+  m_LocalPosition: {x: -0.19800001, y: 0.5390002, z: 0.454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1791595112295821991}
+  m_Father: {fileID: 1791595112295822844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1791595112782364538
 MeshFilter:
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6004648601101041841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791595112245486084}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.62195, y: 0.07042878, z: 0.47631904}
+  m_Center: {x: 0.18506852, y: 0.031532947, z: 0.23782456}
 --- !u!1 &1791595112245486143
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +159,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553515
 Animator:
@@ -257,7 +279,7 @@ GameObject:
   - component: {fileID: 1791595113319235714}
   m_Layer: 0
   m_Name: hopqua
-  m_TagString: 
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245486211}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0, z: -1.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -402,7 +424,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553503
 Animator:
@@ -562,7 +584,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553487
 Animator:
@@ -610,7 +632,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245486544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.663, y: 0, z: 0}
+  m_LocalPosition: {x: 1.99, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1057,7 +1079,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553530
 Animator:
@@ -1134,7 +1156,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2806236, y: 0.09542133, z: 0.148005}
+  m_Size: {x: 0.4, y: 0.15, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1791595113822553532
 Animator:
@@ -1186,7 +1208,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1791595112295820970}
   - {fileID: 1791595112295822844}
   m_Father: {fileID: 1791595112295821570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10577,7 +10598,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245487689}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.416, y: 0, z: 0}
+  m_LocalPosition: {x: -1.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10598,7 +10619,7 @@ GameObject:
   - component: {fileID: 1791595113319235942}
   m_Layer: 0
   m_Name: vali_tien18_arrayGizmo_Money
-  m_TagString: 
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10615,7 +10636,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1791595112295820970}
   m_Father: {fileID: 1791595112295821991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1791595112782363831
@@ -10703,7 +10725,7 @@ GameObject:
   - component: {fileID: 1791595113319236133}
   m_Layer: 0
   m_Name: tien
-  m_TagString: 
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10717,7 +10739,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245487871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.838, y: 0, z: -0.483}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24881,7 +24903,7 @@ GameObject:
   - component: {fileID: 1791595113319236376}
   m_Layer: 0
   m_Name: BonusStage_10
-  m_TagString: Stage
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

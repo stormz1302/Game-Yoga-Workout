@@ -31,8 +31,10 @@ public class SkinView : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
+        isOwned = Shop.instance.SkinOwned(skinID);
         if (skinSprite != null && SkinIcon.sprite != skinSprite)
         {
             SkinIcon.sprite = skinSprite;
@@ -48,14 +50,8 @@ public class SkinView : MonoBehaviour
             blockIcon.SetActive(true);
         }
         bool isSelect = Shop.instance.CheckSkin(skinID);
-        if (isSelect)
-        {
-            gameObject.GetComponent<Outline>().enabled = true;
-        }
-        else
-        {
-            gameObject.GetComponent<Outline>().enabled = false;
-        }
+        gameObject.GetComponent<Outline>().enabled = isSelect;
+        
     }
     //public void OnClick()
     //{

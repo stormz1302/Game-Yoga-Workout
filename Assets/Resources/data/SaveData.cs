@@ -23,6 +23,7 @@ public class SaveData
     public void Save()
     {
         level = GameManager.Instance.Level;
+        money = GameManager.Instance.money;
         money += GameManager.Instance.bonusMoney;
         PlayerPrefs.SetInt("Level", level);
         PlayerPrefs.SetInt("Money", money);
