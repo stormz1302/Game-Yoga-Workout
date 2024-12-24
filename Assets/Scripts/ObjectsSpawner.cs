@@ -75,6 +75,12 @@ public class Objectspawner : MonoBehaviour
                     newPosition = new Vector3(randomX, newPosition.y, newPosition.z);
                 }
 
+                if (randomObject.name == "AdsPoint")
+                {
+                    float randomX = Random.Range(-1f, 1f);
+                    newPosition = new Vector3(randomX, newPosition.y, newPosition.z);
+                }
+
                 spawnedObject.transform.position = newPosition;
                 spawnedObjects.Add(spawnedObject);
                 StartCoroutine(MoveToPosition(newPosition, duration, spawnedObject, false));

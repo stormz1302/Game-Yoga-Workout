@@ -169,7 +169,13 @@ public class PlayerController : MonoBehaviour
             other.transform.GetChild(0).gameObject.SetActive(false);
             stage = other;
         }
-
+        if (other != null && other.gameObject.CompareTag("AdsPoint") && other != stage)
+        {
+            Debug.Log("=======Ads========");
+            CanvasLv1.Instance.ShowAdsPopup();
+            AudioManager.Instance.PlaySound("UnlockGift");
+            stage = other;
+        }
     }
     public void GoodEffect()
     {

@@ -63,9 +63,9 @@ public class GachaUIController : MonoBehaviour
 
             yield return null; // Đợi một frame tiếp theo
         }
-        AdsButton.gameObject.SetActive(true);
-        rewardText.text = (GameManager.Instance.bonusMoney * selectedPoints[currentTargetIndex]).ToString();
         // Đảm bảo đối tượng dừng tại vị trí chính xác trên trục X
         objectToMove.localPosition = new Vector3(targetX, startY, startZ);
+        AdsButton.gameObject.SetActive(true);
+        rewardText.text = (GameManager.Instance.bonusMoney * selectedPoints[currentTargetIndex]).ToString();
     }
 }
