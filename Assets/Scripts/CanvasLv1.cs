@@ -15,6 +15,7 @@ public class CanvasLv1 : MonoBehaviour
     [SerializeField] private Image fadeImage;
     [SerializeField] GameObject Menu;
     Animator playButtonAnimator;
+    [SerializeField] private GameObject rewardSlider;
 
     [Header("Setting:")]
     [SerializeField] GameObject settingButton;
@@ -55,6 +56,8 @@ public class CanvasLv1 : MonoBehaviour
     //[SerializeField] private Button Ads;
     [SerializeField] private Button homeButton;
 
+    [Header("Ads Popup:")]
+    [SerializeField] private GameObject adsPopup;
 
     private Coroutine currentCoroutine;
 
@@ -101,6 +104,7 @@ public class CanvasLv1 : MonoBehaviour
         if (levelBonus)
         {
             levelText.text = "Level Bonus";
+            rewardSlider.SetActive(false);
         }
         else
         {
@@ -311,7 +315,7 @@ public class CanvasLv1 : MonoBehaviour
             levelState.text = "Level failed";
             //nextLevel.gameObject.SetActive(false);
         }
-        levelEndGameText.text = "Level " + level;
+        levelEndGameText.text = "Level " + (level + 1f).ToString();
         GachaUIController gachaUIController = FindObjectOfType<GachaUIController>();
         gachaUIController.OnLoadEndGamePopup();
         StartCoroutine(UpdateBonusMoney(rewardAmount));
@@ -360,6 +364,17 @@ public class CanvasLv1 : MonoBehaviour
         }
         fadeImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
         fadeImage.gameObject.SetActive(false);
+    }
+
+    public void ShowAdsPopup()
+    {
+        Time.timeScale = 0;
+        adsPopup.SetActive(true);
+    }
+    public void CloseAdsPopup()
+    {
+        Time.timeScale = 1;
+        adsPopup.SetActive(false);
     }
 }
 

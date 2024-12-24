@@ -12,6 +12,9 @@ TagManager:
   - Clean
   - notClean
   - Things
+  - winpanel
+  - StageWall
+  - AdsPoint
   layers:
   - Default
   - TransparentFX

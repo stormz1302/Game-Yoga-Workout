@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -69,8 +70,13 @@ public class GameManager : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        //==========Set full money (test shop)===============================================================
+        money = PlayerPrefs.GetInt("Money");
+        if (money <= 100000)
+            PlayerPrefs.SetInt("Money", 200000);
+        //===================================================================================================
+
         animationFrameChecker = GetComponent<AnimationFrameChecker>();
-        
         saveData = new SaveData();
         levelBonus = saveData.GetLevelBonus();
         if (scene.name == "Level01")
@@ -91,9 +97,10 @@ public class GameManager : MonoBehaviour
             LoadHomeScene();
         }
         AchievementReward achievementReward = FindObjectOfType<AchievementReward>();
-        achievementReward.UpdateRewardBar();
+        if (achievementReward != null) achievementReward.UpdateRewardBar();
 
     }
+
 
     private void LoadModelInPlay()
     {

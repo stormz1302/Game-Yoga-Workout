@@ -10,6 +10,10 @@ public class SetObjectInLevel : MonoBehaviour
     [SerializeField] private float MAX_BOT_SCORE = 0.4f;    // Bot chiếm tối đa 40% tổng điểm
     [SerializeField] private float MAX_NOT_MATCHING_BOT_SCORE = -0.3f; // Các vật phẩm khác trừ tối đa 30% tổng điểm
 
+    [Header("Prefab AdsPoint")]
+    public GameObject adsPointPrefab;
+    int adsPointCount = 1;
+
     [Header("Prefab Good Food")]
     public List<GameObject> goodFoodPrefabs; // Danh sách prefab cho Good Food
     [SerializeField] private float ratioCountGoodFood;
@@ -37,7 +41,7 @@ public class SetObjectInLevel : MonoBehaviour
 
     public Transform spawnPoint;
 
-    private int botSpawned = 0, goodFoodSpawned = 0, badFoodSpawned = 0, trapSpawned = 0;
+    private int adsPointSpawned = 0, botSpawned = 0, goodFoodSpawned = 0, badFoodSpawned = 0, trapSpawned = 0;
     private int botCount, goodFoodCount, badFoodCount, trapCount;
 
     [HideInInspector] public int botScorePerObject;
@@ -99,7 +103,7 @@ public class SetObjectInLevel : MonoBehaviour
     public GameObject SpawnObjects()
     {
         GameObject objectSpawned;
-        if (i < maxObjectInLevel)
+        if (i < maxObjectInLevel + 1f)
         {
             if (_levelBonus)
             {
@@ -118,6 +122,15 @@ public class SetObjectInLevel : MonoBehaviour
 
             switch (objectType)
             {
+                case "AdsPoint":
+                    if (adsPointSpawned < adsPointCount)
+                    {
+                        objectSpawned = adsPointPrefab;
+                        adsPointSpawned++;
+                        i++;
+                        return objectSpawned;
+                    }
+                    break;
                 case "Bot":
                     
                     if (botSpawned < botCount)
@@ -179,6 +192,7 @@ public class SetObjectInLevel : MonoBehaviour
         List<string> availableTypes = new List<string>();
 
         if (botSpawned < botCount) availableTypes.Add("Bot");
+        if (adsPointSpawned < adsPointCount) availableTypes.Add("AdsPoint");
         if (goodFoodSpawned < goodFoodCount) availableTypes.Add("GoodFood");
         if (badFoodSpawned < badFoodCount) availableTypes.Add("BadFood");
         if (trapSpawned < trapCount) availableTypes.Add("Trap");

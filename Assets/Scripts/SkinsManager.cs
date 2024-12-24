@@ -7,6 +7,7 @@ public class SkinsManager : MonoBehaviour
     private const string OwnedKey = "CharacterOwned_";  // Key cho trạng thái sở hữu
     private const string EquippedKey = "CharacterEquipped";  // Key cho trạng thái trang bị
     public static SkinsManager instance;
+    public int defaultSkinID = 9;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class SkinsManager : MonoBehaviour
 
     public void LoadCharacterData()
     {
+        PlayerPrefs.SetInt(OwnedKey + defaultSkinID, 1);
         foreach (var character in Shop.instance.Skins)
         {
             character.isOwned = PlayerPrefs.GetInt(OwnedKey + character.ID, 0) == 1;
@@ -39,7 +41,7 @@ public class SkinsManager : MonoBehaviour
         }
 
         // Lấy trạng thái trang bị từ PlayerPrefs
-        int equippedID = PlayerPrefs.GetInt(EquippedKey, 6); // -1 nếu không có nhân vật nào được trang bị
+        int equippedID = PlayerPrefs.GetInt(EquippedKey, defaultSkinID); // -1 nếu không có nhân vật nào được trang bị
         PlayerPrefs.SetInt(EquippedKey, equippedID);
         Shop.instance.equipedSkinID = equippedID;
         Shop.instance.LoadModel(equippedID);
@@ -51,7 +53,7 @@ public class SkinsManager : MonoBehaviour
     }
     public int GetEquippedCharacter()
     {
-        return PlayerPrefs.GetInt(EquippedKey, 6);
+        return PlayerPrefs.GetInt(EquippedKey, defaultSkinID);
     }
 
     //Buy skin
