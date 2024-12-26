@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Cinemachine;
+using Unity.VisualScripting;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -33,5 +34,11 @@ public class CameraFollow : MonoBehaviour
     {
         var framingTransposer = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
         framingTransposer.m_TrackedObjectOffset = new Vector3(x, y, z);
+    }
+
+    public void SetAim(float screenX)
+    {
+        var body = vcam.GetCinemachineComponent<CinemachineComposer>();
+        body.m_ScreenX = screenX;
     }
 }

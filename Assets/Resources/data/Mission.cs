@@ -31,56 +31,56 @@ public class Mission
         switch (difficultyLevel)
         {
             case DifficultyLevel.Beginner:
-                maxObject = 10;
+                maxObject = 15;
                 totalTimer = 30;
                 ratioCountBot = 0.1f;       // 10% bots
-                ratioCountGoodFood = 0.5f;  // 50% good food
+                ratioCountGoodFood = 0.3f;  // 30% good food
                 ratioCountBadFood = 0.2f;   // 20% bad food
-                ratioCountTrap = 0.2f;     // 20% traps
+                ratioCountTrap = 0.4f;     // 40% traps
                 break;
 
             case DifficultyLevel.Novice:
                 maxObject = 20;
                 totalTimer = 50;
-                ratioCountBot = 0.1f;       // 10% bots
-                ratioCountGoodFood = 0.4f;  // 40% good food
-                ratioCountBadFood = 0.3f;   // 30% bad food
-                ratioCountTrap = 0.2f;      // 20% traps
+                ratioCountBot = 0.15f;       // 15% bots
+                ratioCountGoodFood = 0.25f;  // 25% good food
+                ratioCountBadFood = 0.2f;   // 20% bad food
+                ratioCountTrap = 0.4f;      // 40% traps
                 break;
 
             case DifficultyLevel.Intermediate:
                 maxObject = 20;
                 totalTimer = 45;
-                ratioCountBot = 0.15f;       // 15% bots
-                ratioCountGoodFood = 0.4f;  // 40% good food
-                ratioCountBadFood = 0.25f;   // 25% bad food
-                ratioCountTrap = 0.2f;      // 20% traps
+                ratioCountBot = 0.2f;       // 20% bots
+                ratioCountGoodFood = 0.2f;  // 20% good food
+                ratioCountBadFood = 0.2f;   // 20% bad food
+                ratioCountTrap = 0.4f;      // 40% traps
                 break;
 
             case DifficultyLevel.Advanced:
                 maxObject = 30;
                 totalTimer = 60;
-                ratioCountBot = 0.15f;       // 15% bots
-                ratioCountGoodFood = 0.3f;  // 30% good food
-                ratioCountBadFood = 0.3f;   // 30% bad food
-                ratioCountTrap = 0.25f;      // 25% traps
+                ratioCountBot = 0.2f;       // 15% bots
+                ratioCountGoodFood = 0.15f;  // 30% good food
+                ratioCountBadFood = 0.15f;   // 30% bad food
+                ratioCountTrap = 0.5f;      // 50% traps
                 break;
 
             case DifficultyLevel.Expert:
                 maxObject = 50;
                 totalTimer = 90;
                 ratioCountBot = 0.2f;       // 20% bots
-                ratioCountGoodFood = 0.25f;  // 25% good food
-                ratioCountBadFood = 0.25f;   // 25% bad food
-                ratioCountTrap = 0.3f;      // 30% traps
+                ratioCountGoodFood = 0.15f;  // 25% good food
+                ratioCountBadFood = 0.15f;   // 25% bad food
+                ratioCountTrap = 0.5f;      // 30% traps
                 break;
             case DifficultyLevel.Master:
                 maxObject = 80;
                 totalTimer = 130;
-                ratioCountBot = 0.3f;       // 30% bots
-                ratioCountGoodFood = 0.2f;  // 20% good food
-                ratioCountBadFood = 0.2f;   // 20% bad food
-                ratioCountTrap = 0.3f;      // 30% traps
+                ratioCountBot = 0.2f;       // 30% bots
+                ratioCountGoodFood = 0.1f;  // 20% good food
+                ratioCountBadFood = 0.1f;   // 20% bad food
+                ratioCountTrap = 0.6f;      // 30% traps
                 break;
         }
     }

@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other != null && other.gameObject.CompareTag("Things"))
         {
-            GameManager.Instance.ShowPopupEndgame(false);
+            GameManager.Instance.ShowCotinue();
         }
         if (other != null && other.gameObject.CompareTag("Clean") && other != stage)
         {

@@ -10,16 +10,16 @@ public class AchievementReward : MonoBehaviour
     Animation anim;
     float rewardValue;
     int level = 0;
+    int rewardInterval;
 
     private void Start()
     {
         anim = chestbutton.GetComponent<Animation>();
-
     }
 
     private void Update()
     {
-        if (rewardValue == 1)
+        if (rewardValue >= 1)
         {
             chestbutton.interactable = true;
             anim.Play();
@@ -27,6 +27,7 @@ public class AchievementReward : MonoBehaviour
         else
         {
             chestbutton.interactable = false;
+            anim.Stop();
         }
     }
     public void UpdateRewardBar()
@@ -34,7 +35,9 @@ public class AchievementReward : MonoBehaviour
         Debug.Log("Update reward bar");
         level = GameManager.Instance.Level;
         Debug.Log("Level: " + level);
-        rewardValue = (level % 5) / 5f;
+        if (level <= 5) rewardInterval = 5;
+        else rewardInterval = 10;    
+        rewardValue = (float) (level % rewardInterval) / rewardInterval;
         if (rewardValue == 0 && level != 0)
         {
             rewardValue = 1;

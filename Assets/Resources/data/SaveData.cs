@@ -28,6 +28,7 @@ public class SaveData
         PlayerPrefs.SetInt("Level", level);
         PlayerPrefs.SetInt("Money", money);
         PlayerPrefs.Save();
+        CanvasLv1.Instance.UpdateMoney(money);
     }
 
     public void SetLevelBonus(bool levelBonus)

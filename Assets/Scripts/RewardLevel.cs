@@ -13,7 +13,7 @@ public class RewardLevel : MonoBehaviour
     [SerializeField] Image flashImage;
     float flashDuration = 0.5f;
     float fadeDuration = 1f;
-
+    bool isFirstOpenGift = true;
 
     [Header("Gifts Popup:")]
     [SerializeField] GameObject GiftsPopup;
@@ -26,10 +26,8 @@ public class RewardLevel : MonoBehaviour
     {
         chestButton.onClick.AddListener(OpenGiftsPopup);
         giftsPopup.SetActive(false);
-    }
-
-    private void Update()
-    {
+        isFirstOpenGift = PlayerPrefs.GetInt("FirstOpenGift", 1) == 1;
+        Debug.Log("Is first open gift: " + isFirstOpenGift);
     }
 
     private void OpenGiftsPopup()
@@ -49,6 +47,7 @@ public class RewardLevel : MonoBehaviour
         // Show ad
         // Add reward to player
         AudioManager.Instance.PlaySound("UnlockGift");
+        PlayerPrefs.SetInt("FirstOpenGift", 0);
         FlashScreen();
         RandomGift();
         // Close the gift popup
@@ -102,12 +101,32 @@ public class RewardLevel : MonoBehaviour
     private void RandomGift()
     {
         if (gifts.Count == 0) return;
-        GiftScript selectedGift = RandomGiftsRatio();
 
+        // Chọn quà tặng ngẫu nhiên
+        GiftScript selectedGift = RandomGiftsRatio();
+        
 
         // Hiển thị quà tặng
         GiftsPopup.SetActive(true);
+
+        if (isFirstOpenGift)
+        {
+            selectedGift = gifts[0];
+            selectedGift.giftType = GiftScript.GiftType.Skin;
+            Money.SetActive(false);
+            Skin.SetActive(true);
+            int skinID = Random.Range(6, 7);
+            foreach (Character skin in selectedGift.skins)
+            {
+                if (skinID == skin.ID)
+                    SkinSprite.sprite = skin.CharacterIcon;
+            }
+            // Unlock skin
+            SkinsManager.instance.UnlockCharacter(skinID);
+            return;
+        }
         // Xử lý quà tặng theo GiftType
+
         switch (selectedGift.giftType)
         {
             case GiftScript.GiftType.Money:
@@ -115,13 +134,26 @@ public class RewardLevel : MonoBehaviour
                 Money.SetActive(true);
                 Skin.SetActive(false);
                 MoneyValue.text = selectedGift.value.ToString();
+                GameManager.Instance.money += selectedGift.value;
+                SaveData saveData = new SaveData();
+                saveData.Save();                
                 break;
             case GiftScript.GiftType.Skin:
                 // Thêm logic để unlock skin cho người chơi
                 Money.SetActive(false);
                 Skin.SetActive(true);
-                SkinSprite.sprite = selectedGift.SkinSprite;
-                int skinID = selectedGift.skinID;
+                int skinID = selectedGift.GetSkinID();
+                bool isOwned = SkinsManager.instance.CheckOwnedCharacter(skinID);
+                if (isOwned)
+                {
+                    selectedGift = gifts[1];
+                    goto case GiftScript.GiftType.Money;
+                }
+                foreach (Character skin in selectedGift.skins)
+                {
+                    if (skinID == skin.ID)
+                        SkinSprite.sprite = skin.CharacterIcon;
+                }
                 // Unlock skin
                 SkinsManager.instance.UnlockCharacter(skinID);
                 break;
@@ -151,6 +183,6 @@ public class RewardLevel : MonoBehaviour
                 return gift;
             }
         }
-        return gifts[5];
+        return gifts[1];
     }
 }
