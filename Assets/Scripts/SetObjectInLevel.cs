@@ -55,7 +55,7 @@ public class SetObjectInLevel : MonoBehaviour
     bool botIsSpawning = false;
     bool _levelBonus = false;
 
-    int i = 0;
+    int countSpawned = 0;
 
     public void SetupLevel(bool levelBonus)
     {
@@ -102,13 +102,15 @@ public class SetObjectInLevel : MonoBehaviour
 
     public GameObject SpawnObjects()
     {
+        int i = 0;
+        i = countSpawned;
         GameObject objectSpawned;
         if (i < maxObjectInLevel + 1f)
         {
             if (_levelBonus)
             {
                 objectSpawned = bonusPrefab[Random.Range(0, bonusPrefab.Count)];
-                i++;
+                countSpawned++;
                 return objectSpawned;
             }
             else if(botSpawned >= botCount && goodFoodSpawned >= goodFoodCount && badFoodSpawned >= badFoodCount && trapSpawned >= trapCount)
@@ -127,7 +129,7 @@ public class SetObjectInLevel : MonoBehaviour
                     {
                         objectSpawned = adsPointPrefab;
                         adsPointSpawned++;
-                        i++;
+                        countSpawned++;
                         return objectSpawned;
                     }
                     break;
@@ -138,7 +140,7 @@ public class SetObjectInLevel : MonoBehaviour
                         objectSpawned = botPrefab;
                         botIsSpawning = true;
                         botSpawned++;
-                        i++;
+                        countSpawned++;
                         return objectSpawned;
                     }
                     break;
@@ -149,7 +151,7 @@ public class SetObjectInLevel : MonoBehaviour
                         objectSpawned = SpawnObject(goodFoodPrefabs, goodFoodSpawned);
 
                         goodFoodSpawned++;
-                        i++;
+                        countSpawned++;
                         return objectSpawned;
                     }
                     break;
@@ -159,7 +161,7 @@ public class SetObjectInLevel : MonoBehaviour
                     {
                         objectSpawned = SpawnObject(badFoodPrefabs, badFoodSpawned);
                         badFoodSpawned++;
-                        i++;
+                        countSpawned++;
                         return objectSpawned;
                     }
                     break;
@@ -169,7 +171,7 @@ public class SetObjectInLevel : MonoBehaviour
                     {
                         objectSpawned = SpawnObject(trapPrefabs, trapSpawned);
                         trapSpawned++;
-                        i++;
+                        countSpawned++;
                         return objectSpawned;
                     }
                     break;
@@ -200,6 +202,14 @@ public class SetObjectInLevel : MonoBehaviour
         if (availableTypes[randomType] == "Bot" && botIsSpawning)
         {
             randomType = Random.Range(1, availableTypes.Count);
+        }
+        if (countSpawned == 0 && availableTypes[randomType] == "AdsPoint")
+        {
+            randomType = Random.Range(2, availableTypes.Count);
+        }
+        if (countSpawned == 3 && adsPointSpawned < adsPointCount)
+        {
+            return "AdsPoint";
         }
         return availableTypes[randomType];
     }

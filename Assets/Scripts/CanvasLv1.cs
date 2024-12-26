@@ -58,6 +58,12 @@ public class CanvasLv1 : MonoBehaviour
 
     [Header("Ads Popup:")]
     [SerializeField] private GameObject adsPopup;
+    [SerializeField] private GameObject CotinuePopp;
+
+    [Header("Lucky Spin:")]
+    [SerializeField] private GameObject luckySpinPop;
+    [Header("No Ads:")]
+    [SerializeField] private GameObject noAdsButton;
 
     private Coroutine currentCoroutine;
 
@@ -375,6 +381,32 @@ public class CanvasLv1 : MonoBehaviour
     {
         Time.timeScale = 1;
         adsPopup.SetActive(false);
+    }
+
+    public void ShowNoAdsButton()
+    {
+        noAdsButton.SetActive(true);
+    }
+    public void CloseNoAdsButton()
+    {
+        noAdsButton.SetActive(false);
+    }
+
+    public void ShowLuckySpinPop()
+    {
+        luckySpinPop.SetActive(true);
+        AudioManager.Instance.PlaySound("MenuOpen");
+    }
+    public void CloseLuckySpinPop()
+    {
+        luckySpinPop.SetActive(false);
+        AudioManager.Instance.PlaySound("MenuClose");
+    }
+
+    public void ShowContinuePop()
+    {
+        CotinuePopp.SetActive(true);
+        AudioManager.Instance.PlaySound("MenuOpen");
     }
 }
 

@@ -5,8 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GiftScript
 {
-    public int skinID;
-    public Sprite SkinSprite;
+    public List<Character> skins;
     public float ratio;
     public int value;
     public GiftType giftType;
@@ -14,5 +13,10 @@ public class GiftScript
     {
         Money,
         Skin,
+    }
+
+    public int GetSkinID()
+    {
+        return skins[Random.Range(0, skins.Count)].ID;
     }
 }

@@ -10,5 +10,6 @@ public class Character
     public Sprite CharacterIcon;
     public GameObject CharacterPrf;
     public int Price;
+    public int priceAds;
     public bool isOwned;
 }

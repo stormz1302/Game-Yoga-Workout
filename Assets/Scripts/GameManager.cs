@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public SkinnedMeshRenderer hands;
     private float currentBlendShapeValue = 60f;
     public Transform player;
+    Vector3 characterTrf;
 
     ScoreUI scoreUI;
 
@@ -101,7 +102,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-
     private void LoadModelInPlay()
     {
         GameObject character = Instantiate(Shop.instance.Skins[selectedSkinID].CharacterPrf);
@@ -109,6 +109,9 @@ public class GameManager : MonoBehaviour
         playerController.animator = character.GetComponent<Animator>();
         character.transform.SetParent(player);
         character.transform.SetSiblingIndex(0);
+        characterTrf = character.transform.position;
+        character.transform.position = player.position;
+        Debug.Log("LoadModelInPlay: " + characterTrf);
     }
     private void SetBlendShape(float value)
     {
@@ -265,6 +268,9 @@ public class GameManager : MonoBehaviour
             scoreUI.SetMaxScore(maxScore);
         canDrag = true;
         PlayerController playerController = FindObjectOfType<PlayerController>();
+        playerController.gameObject.transform.GetChild(0).transform.position = characterTrf;
+        Debug.Log(playerController.gameObject.transform.GetChild(0).name);
+        Debug.Log("LoadModelInPlay: " + characterTrf);
         playerController.animator.speed = 1f;
         playerController.enabled = true;
         animationFrameChecker.enabled = true;
@@ -367,5 +373,16 @@ public class GameManager : MonoBehaviour
             saveData.SetLevelBonus(levelBonus);
         }
         saveData.Save();
+    }
+
+    public void ShowCotinue()
+    {
+        endGame = (!endGame) ? true : endGame;
+        PlayerController playerController = FindObjectOfType<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.animator.speed = 0f;
+        }
+        CanvasLv1.Instance.ShowContinuePop();
     }
 }

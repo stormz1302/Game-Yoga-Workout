@@ -23,6 +23,10 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject SelectButton;
     [SerializeField] private RawImage characterIcon;
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text priceAdsText;
+    [SerializeField] private TMP_Text AdsText;
+    [SerializeField] private Image fieldAds;
+    int currentAdsPrice;
     public List<Character> Skins = new List<Character>();
     [HideInInspector] public int equipedSkinID;
     [SerializeField] private List<GameObject> skinButtons = new List<GameObject>();
@@ -51,6 +55,7 @@ public class Shop : MonoBehaviour
 
         if (scene.name == "Home")
         {
+            currentSkinID = -1;
             SpawnCharacter = GameObject.Find("CharacterSpwn").transform;
             if (Skins.Count != 0)
             {
@@ -145,6 +150,7 @@ public class Shop : MonoBehaviour
             Physics.SyncTransforms();
             currentModel.transform.localPosition = Vector3.zero;
             currentSkinID = skinID;
+            Debug.Log("CurrentSkinID: " + currentSkinID);
             AudioManager.Instance.PlaySound("SwicthSkin");
             checkOwnedSkin(skinID);
             //PlayerPrefs.SetInt("CurrentSkin", currentSkinID);
@@ -173,6 +179,10 @@ public class Shop : MonoBehaviour
             BuyAdsButton.SetActive(true);
             SelectButton.SetActive(false);
             PriceText.text = Skins[skinID].Price.ToString() + "$";
+            AdsText.text = "Buy with " + Skins[skinID].priceAds + " Ads";
+            currentAdsPrice = SkinsManager.instance.LoadCurrentAds(skinID);
+            priceAdsText.text = currentAdsPrice + "/" +Skins[skinID].priceAds.ToString();
+            fieldAds.fillAmount = (float)currentAdsPrice / Skins[skinID].priceAds;
         }
         else
         {

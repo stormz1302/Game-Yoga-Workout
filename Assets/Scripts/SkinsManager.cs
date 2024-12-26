@@ -6,6 +6,7 @@ public class SkinsManager : MonoBehaviour
 {
     private const string OwnedKey = "CharacterOwned_";  // Key cho trạng thái sở hữu
     private const string EquippedKey = "CharacterEquipped";  // Key cho trạng thái trang bị
+    private const string CurrentAdsKey = "CurrentAds_";
     public static SkinsManager instance;
     public int defaultSkinID = 9;
 
@@ -37,9 +38,7 @@ public class SkinsManager : MonoBehaviour
         foreach (var character in Shop.instance.Skins)
         {
             character.isOwned = PlayerPrefs.GetInt(OwnedKey + character.ID, 0) == 1;
-            
         }
-
         // Lấy trạng thái trang bị từ PlayerPrefs
         int equippedID = PlayerPrefs.GetInt(EquippedKey, defaultSkinID); // -1 nếu không có nhân vật nào được trang bị
         PlayerPrefs.SetInt(EquippedKey, equippedID);
@@ -47,10 +46,34 @@ public class SkinsManager : MonoBehaviour
         Shop.instance.LoadModel(equippedID);
     }
 
+    //gọi sau khi chạy quảng cáo
+    public void WatchAd(int skinID)
+    {
+        int currentAds = PlayerPrefs.GetInt(CurrentAdsKey + skinID, 0);
+        currentAds++;
+        PlayerPrefs.SetInt(CurrentAdsKey + skinID, currentAds);
+        Character skin = Shop.instance.Skins[skinID];
+        if (skin != null && currentAds >= skin.priceAds)
+        {
+            UnlockCharacter(skinID);
+        }
+    }
+
+    public bool CheckOwnedCharacter(int id)
+    {
+        return PlayerPrefs.GetInt(OwnedKey + id, 0) == 1;
+    }
+
+    public int LoadCurrentAds(int skinID)
+    {
+        return PlayerPrefs.GetInt(CurrentAdsKey + skinID, 0);
+    }
+
     public void EquipCharacter(int id)
     {
         PlayerPrefs.SetInt(EquippedKey, id);
     }
+
     public int GetEquippedCharacter()
     {
         return PlayerPrefs.GetInt(EquippedKey, defaultSkinID);
