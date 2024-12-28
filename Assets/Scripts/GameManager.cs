@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public MissionListSO MissionListSO;
     public BonusMission bonusMission;
     public List<GameObject> missions = new List<GameObject>();
+    public List<Mission> missionLevels = new List<Mission>();
     public int bonusMoney = 0;
     public int Level = 0;
     public int animIndex = 0;
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     private float currentBlendShapeValue = 60f;
     public Transform player;
     Vector3 characterTrf;
-
+    Quaternion characterRot;
     ScoreUI scoreUI;
 
     public bool canDrag;
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Money", 200000);
         //===================================================================================================
 
+        missionLevels = MissionListSO.missionLevels;
         animationFrameChecker = GetComponent<AnimationFrameChecker>();
         saveData = new SaveData();
         levelBonus = saveData.GetLevelBonus();
@@ -110,8 +112,9 @@ public class GameManager : MonoBehaviour
         character.transform.SetParent(player);
         character.transform.SetSiblingIndex(0);
         characterTrf = character.transform.position;
+        characterRot = character.transform.rotation;
         character.transform.position = player.position;
-        Debug.Log("LoadModelInPlay: " + characterTrf);
+        character.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
     private void SetBlendShape(float value)
     {
@@ -125,11 +128,12 @@ public class GameManager : MonoBehaviour
     private void LoadAnim()
     {
         animIndex = Level;
-        if (!levelBonus) 
+        if (!levelBonus)
         {
             if (Level <= 6)
             {
                 SetDifficultyLevel(DifficultyLevel.Beginner);
+                Debug.Log("Beginner");
                 animIndex = Level;
             }
             else if (6 < Level && Level <= 15)
@@ -152,7 +156,7 @@ public class GameManager : MonoBehaviour
             {
                 SetDifficultyLevel(DifficultyLevel.Master);
             }
-            missions = MissionListSO.missionLevels[animIndex].missions;
+            missions = missionLevels[animIndex].missions;
         }
         else
         {
@@ -166,9 +170,9 @@ public class GameManager : MonoBehaviour
     private void SetDifficultyLevel(DifficultyLevel difficultyLevel)
     {
         animIndex = Random.Range(0, 6);
-        MissionListSO.missionLevels[animIndex].difficultyLevel = difficultyLevel;
-        MissionListSO.missionLevels[animIndex].SetDifficulty();
-        maxObject = MissionListSO.missionLevels[animIndex].maxObject;
+        missionLevels[animIndex].difficultyLevel = difficultyLevel;
+        missionLevels[animIndex].SetDifficulty();
+        maxObject = missionLevels[animIndex].maxObject;
     }
 
     public void AddScore(bool good, int value)
@@ -177,6 +181,7 @@ public class GameManager : MonoBehaviour
         if (!levelBonus && good)
         {
             score += value;
+            Debug.Log("value: " + value);
             scoreUI.IncreaseScore(score);
             AddCombo(true);
             _score = Mathf.FloorToInt(maxScore * 0.6f);
@@ -248,17 +253,29 @@ public class GameManager : MonoBehaviour
     public void Ready()
     {
         LoadModelInPlay();
+        CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.OnCamera(0f, 1.3f, -2f);
+            cameraFollow.SetAim(0.5f, 0.3f);
+        }
         EndGame.enabled = true;
         animationFrameChecker.enabled = false;
+        SetObjectInLevel setObjectInLevel = FindObjectOfType<SetObjectInLevel>();
+        if (setObjectInLevel != null)
+        {
+            setObjectInLevel.SetupLevel(levelBonus);
+        }
         PlayerController playerController = FindObjectOfType<PlayerController>();
-        playerController.animator.speed = 0f;
-        playerController.enabled = false;
+        if (playerController != null)
+        {
+            Debug.Log("Ready");
+            playerController.animator.SetTrigger("idle");
+            playerController.enabled = false;
+            playerController.LoadScore();
+        }
         CanvasLv1.Instance.UpdateMoneyInPlay(bonusMoney);
         CanvasLv1.Instance.LoadLevelUI(levelBonus);
-        SetObjectInLevel setObjectInLevel = FindObjectOfType<SetObjectInLevel>();
-        setObjectInLevel.SetupLevel(levelBonus);
-        setObjectInLevel.AssignScoresToObjects();
-        playerController.LoadScore();
         
     }
     public void StartGame()
@@ -267,12 +284,20 @@ public class GameManager : MonoBehaviour
         if (scoreUI != null)
             scoreUI.SetMaxScore(maxScore);
         canDrag = true;
+        CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.OnCamera(0f, 2.5f, -4f);
+            cameraFollow.SetAim(0.5f, 0.5f);
+        }
         PlayerController playerController = FindObjectOfType<PlayerController>();
-        playerController.gameObject.transform.GetChild(0).transform.position = characterTrf;
-        Debug.Log(playerController.gameObject.transform.GetChild(0).name);
-        Debug.Log("LoadModelInPlay: " + characterTrf);
-        playerController.animator.speed = 1f;
-        playerController.enabled = true;
+        if (playerController != null)
+        {
+            playerController.gameObject.transform.GetChild(0).transform.position = characterTrf;
+            playerController.gameObject.transform.GetChild(0).transform.rotation = characterRot;
+            playerController.animator.speed = 1f;
+            playerController.enabled = true;
+        }
         animationFrameChecker.enabled = true;
         Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
         objectSpawner.StartSpawning();

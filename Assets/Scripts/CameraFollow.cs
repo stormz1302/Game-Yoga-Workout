@@ -9,12 +9,13 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 0.125f;
     CinemachineVirtualCamera vcam;
 
-    private void Start()
+    private void Awake()
     {
         vcam = gameObject.GetComponent<CinemachineVirtualCamera>();
         vcam.Follow = player;
         vcam.LookAt = player;
     }
+   
     //void LateUpdate()
     //{
     //    if (player == null)
@@ -36,9 +37,10 @@ public class CameraFollow : MonoBehaviour
         framingTransposer.m_TrackedObjectOffset = new Vector3(x, y, z);
     }
 
-    public void SetAim(float screenX)
+    public void SetAim(float screenX, float screenY)
     {
         var body = vcam.GetCinemachineComponent<CinemachineComposer>();
         body.m_ScreenX = screenX;
+        body.m_ScreenY = screenY;
     }
 }

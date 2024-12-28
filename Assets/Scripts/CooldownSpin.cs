@@ -1,41 +1,39 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Import TextMeshPro namespace
+using TMPro;
 
 public class CooldownSpin : MonoBehaviour
 {
     public Button freeButton;
     public Button adsButton;
-    public TMP_Text freeButtonTimerText; // Text to show countdown for FreeButton
-    public TMP_Text adsButtonTimerText;  // Text to show countdown for AdsButton
-    public TMP_Text freeButtonUsageText; // Text to show remaining usage for FreeButton
-    public TMP_Text adsButtonUsageText;  // Text to show remaining usage for AdsButton
+    public TMP_Text freeButtonTimerText;
+    public TMP_Text adsButtonTimerText;
+    public TMP_Text freeButtonUsageText;
+    public TMP_Text adsButtonUsageText;
 
     private DateTime freeButtonNextAvailableTime;
     private DateTime adsButtonNextAvailableTime;
 
-    private TimeSpan freeCooldown = TimeSpan.FromDays(1); // 1 day cooldown for FreeButton
-    private TimeSpan initialAdsCooldown = TimeSpan.FromMinutes(5);  // 5 minutes cooldown for AdsButton on first click
-    private TimeSpan regularAdsCooldown = TimeSpan.FromDays(1);  // 24 hours cooldown for AdsButton after the first click
+    private TimeSpan freeCooldown = TimeSpan.FromDays(1);
+    private TimeSpan initialAdsCooldown = TimeSpan.FromMinutes(5);
+    private TimeSpan regularAdsCooldown = TimeSpan.FromDays(1);
 
     private int freeButtonUsageCount = 0;
     private int adsButtonUsageCount = 0;
-    private const int freeButtonMaxUsage = 1; // Max usage per day for FreeButton
-    private const int adsButtonMaxUsage = 2;  // Max usage per day for AdsButton
+    private const int freeButtonMaxUsage = 1;
+    private const int adsButtonMaxUsage = 2;
 
     private const string FreeButtonTimeKey = "FreeButtonNextAvailableTime";
     private const string AdsButtonTimeKey = "AdsButtonNextAvailableTime";
     private const string FreeButtonUsageKey = "FreeButtonUsageCount";
     private const string AdsButtonUsageKey = "AdsButtonUsageCount";
-    private const string AdsButtonLastUsedTimeKey = "AdsButtonLastUsedTime"; // Track last used time for Ads button
+    private const string AdsButtonLastUsedDateKey = "AdsButtonLastUsedDate";
 
     void Start()
     {
-        // Load saved states
         LoadState();
 
-        // Initialize buttons and check their states
         freeButton.onClick.AddListener(OnFreeButtonClick);
         adsButton.onClick.AddListener(OnAdsButtonClick);
 
@@ -45,7 +43,6 @@ public class CooldownSpin : MonoBehaviour
 
     void Update()
     {
-        // Update button states and countdowns in real-time
         UpdateButtonStates();
         UpdateCountdownTexts();
         UpdateUsageTexts();
@@ -57,7 +54,7 @@ public class CooldownSpin : MonoBehaviour
         if (DateTime.Now >= freeButtonNextAvailableTime && freeButtonUsageCount < freeButtonMaxUsage)
         {
             Debug.Log("Free button clicked!");
-            freeButtonNextAvailableTime = DateTime.Now.Add(freeCooldown); // Set cooldown for 1 day
+            freeButtonNextAvailableTime = DateTime.Now.Add(freeCooldown);
             freeButtonUsageCount++;
             SaveState();
         }
@@ -75,25 +72,18 @@ public class CooldownSpin : MonoBehaviour
     {
         adsButtonTimerText.gameObject.SetActive(true);
 
-        // Check if 24 hours have passed since last use
-        if (DateTime.Now - GetAdsButtonLastUsedTime() >= TimeSpan.FromDays(1))
-        {
-            adsButtonUsageCount = 0; // Reset usage count after 24 hours
-        }
+        ResetAdsButtonIfNeeded(); // Reset usage count if the date has changed
 
         if (DateTime.Now >= adsButtonNextAvailableTime && adsButtonUsageCount < adsButtonMaxUsage)
         {
             Debug.Log("Ads button clicked!");
 
-            // Set cooldown based on the number of usages
             if (adsButtonUsageCount == 0)
             {
-                // First click: 5 minutes cooldown
                 adsButtonNextAvailableTime = DateTime.Now.Add(initialAdsCooldown);
             }
             else
             {
-                // Subsequent clicks: 24 hours cooldown
                 adsButtonNextAvailableTime = DateTime.Now.Add(regularAdsCooldown);
             }
 
@@ -112,16 +102,26 @@ public class CooldownSpin : MonoBehaviour
 
     void UpdateButtonStates()
     {
-        // Enable or disable FreeButton based on cooldown and usage count
+        // Kiểm tra và reset FreeButton nếu đã hết cooldown
+        if (DateTime.Now >= freeButtonNextAvailableTime && freeButtonUsageCount >= freeButtonMaxUsage)
+        {
+            freeButtonUsageCount = 0; // Reset số lần sử dụng
+            SaveState();
+        }
         freeButton.interactable = DateTime.Now >= freeButtonNextAvailableTime && freeButtonUsageCount < freeButtonMaxUsage;
 
-        // Enable or disable AdsButton based on cooldown and usage count
+        // Kiểm tra và reset AdsButton nếu đã hết cooldown hoặc ngày mới bắt đầu
+        ResetAdsButtonIfNeeded(); // Reset nếu ngày đã thay đổi
+        if (DateTime.Now >= adsButtonNextAvailableTime && adsButtonUsageCount >= adsButtonMaxUsage)
+        {
+            adsButtonUsageCount = 0; // Reset số lần sử dụng
+            SaveState();
+        }
         adsButton.interactable = DateTime.Now >= adsButtonNextAvailableTime && adsButtonUsageCount < adsButtonMaxUsage;
     }
 
     void UpdateCountdownTexts()
     {
-        // Update FreeButton timer text
         if (DateTime.Now < freeButtonNextAvailableTime)
         {
             TimeSpan remainingTime = freeButtonNextAvailableTime - DateTime.Now;
@@ -132,7 +132,6 @@ public class CooldownSpin : MonoBehaviour
             freeButtonTimerText.gameObject.SetActive(false);
         }
 
-        // Update AdsButton timer text
         if (DateTime.Now < adsButtonNextAvailableTime)
         {
             TimeSpan remainingTime = adsButtonNextAvailableTime - DateTime.Now;
@@ -146,7 +145,6 @@ public class CooldownSpin : MonoBehaviour
 
     void UpdateUsageTexts()
     {
-        // Update usage count texts
         freeButtonUsageText.text = $" {freeButtonMaxUsage - freeButtonUsageCount}/{freeButtonMaxUsage}";
         adsButtonUsageText.text = $" {adsButtonMaxUsage - adsButtonUsageCount}/{adsButtonMaxUsage}";
     }
@@ -165,7 +163,7 @@ public class CooldownSpin : MonoBehaviour
         PlayerPrefs.SetString(AdsButtonTimeKey, adsButtonNextAvailableTime.ToString());
         PlayerPrefs.SetInt(FreeButtonUsageKey, freeButtonUsageCount);
         PlayerPrefs.SetInt(AdsButtonUsageKey, adsButtonUsageCount);
-        PlayerPrefs.SetString(AdsButtonLastUsedTimeKey, DateTime.Now.ToString()); // Save last use time for Ads button
+        PlayerPrefs.SetString(AdsButtonLastUsedDateKey, DateTime.Now.ToString("yyyy-MM-dd"));
         PlayerPrefs.Save();
     }
 
@@ -193,16 +191,16 @@ public class CooldownSpin : MonoBehaviour
         adsButtonUsageCount = PlayerPrefs.GetInt(AdsButtonUsageKey, 0);
     }
 
-    DateTime GetAdsButtonLastUsedTime()
+    void ResetAdsButtonIfNeeded()
     {
-        // Get the last used time for Ads Button
-        if (PlayerPrefs.HasKey(AdsButtonLastUsedTimeKey))
+        string lastUsedDate = PlayerPrefs.GetString(AdsButtonLastUsedDateKey, DateTime.Now.ToString("yyyy-MM-dd"));
+        DateTime lastUsed = DateTime.Parse(lastUsedDate);
+
+        if (lastUsed.Date < DateTime.Now.Date)
         {
-            return DateTime.Parse(PlayerPrefs.GetString(AdsButtonLastUsedTimeKey));
-        }
-        else
-        {
-            return DateTime.Now; // Default to current time if not found
+            adsButtonUsageCount = 0;
+            adsButtonNextAvailableTime = DateTime.Now;
+            SaveState();
         }
     }
 }
