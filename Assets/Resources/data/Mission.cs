@@ -31,10 +31,10 @@ public class Mission
         switch (difficultyLevel)
         {
             case DifficultyLevel.Beginner:
-                maxObject = 15;
+                maxObject = 10;
                 totalTimer = 30;
-                ratioCountBot = 0.1f;       // 10% bots
-                ratioCountGoodFood = 0.3f;  // 30% good food
+                ratioCountBot = 0.2f;       // 15% bots
+                ratioCountGoodFood = 0.25f;  // 25% good food
                 ratioCountBadFood = 0.2f;   // 20% bad food
                 ratioCountTrap = 0.4f;     // 40% traps
                 break;

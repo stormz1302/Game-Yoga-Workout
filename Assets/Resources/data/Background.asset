@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Background
   m_EditorClassIdentifier: 
   backGrounds:
-  - {fileID: 21300000, guid: 08e3cb6be6ba3074aa1157a40a8ed90d, type: 3}
-  - {fileID: 21300000, guid: 403eaff982aa7554088a32d90a130a5e, type: 3}
-  - {fileID: 21300000, guid: 0517ec3bee703bc4f9a1bdc7830c7a73, type: 3}
-  - {fileID: 21300000, guid: ed0a38e3dffa5ac4ba3b16df54e5c982, type: 3}
+  - {fileID: 21300000, guid: e756bd3289f0f0b4e9f2b7c4b3271f7b, type: 3}
+  - {fileID: 21300000, guid: 70bf7abf0739d3c4a92358952b47c645, type: 3}
+  - {fileID: 21300000, guid: daea3f5478e5793459dd85f64ee97b21, type: 3}
+  - {fileID: 21300000, guid: a4aa60aed0c4fd146bb5c0308b55a762, type: 3}

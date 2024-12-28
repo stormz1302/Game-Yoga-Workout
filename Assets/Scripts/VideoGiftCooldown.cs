@@ -5,43 +5,26 @@ using UnityEngine.UI;
 
 public class VideoGiftCooldown : MonoBehaviour
 {
-    private int Timer = 0;
+    private int Timer = 0; // Số lần đã sử dụng trong ngày
     public Button videoGitsbutton;
     private DateTime cooldownEndTime; // Thời điểm kết thúc cooldown
     private bool isCooldownActive = false;
-    private const int MaxCooldownTime = 86400; // 24h (86400 giây)
+    private const int MaxDailyUsage = 3; // Số lần sử dụng tối đa mỗi ngày
+    private const int DailyResetHour = 0; // Giờ reset (0h mỗi ngày)
+    private const int CooldownTimePerUse = 300; // Cooldown 5 phút mỗi lần sử dụng
     [SerializeField] TMP_Text timeText;
 
     void Start()
     {
-        // Kiểm tra nếu đã có cooldown lưu trong PlayerPrefs
-        if (PlayerPrefs.HasKey("VideoGiftCooldownEndTime"))
-        {
-            string savedTime = PlayerPrefs.GetString("VideoGiftCooldownEndTime");
-            cooldownEndTime = DateTime.Parse(savedTime);
+        LoadState();
 
-            // Nếu cooldown vẫn còn hiệu lực
-            if (DateTime.Now < cooldownEndTime)
-            {
-                isCooldownActive = true;
-                ButtonCoolDown buttonCoolDown = FindObjectOfType<ButtonCoolDown>();
-                if (buttonCoolDown != null)
-                {
-                    TimeSpan remainingTime = cooldownEndTime - DateTime.Now;
-                    if (remainingTime.TotalSeconds > MaxCooldownTime)
-                    {
-                        ResetCooldown();
-                    }
-                    else
-                    {
-                        int cooldownTime = PlayerPrefs.GetInt("VideoGiftCooldownTime");
-                        buttonCoolDown.StartCooldown(videoGitsbutton, (int)remainingTime.TotalSeconds, cooldownTime);
-                    }
-                }
-            }
+        // Nếu cooldown vẫn đang hoạt động
+        if (isCooldownActive)
+        {
+            UpdateCooldownState();
         }
-        Timer = PlayerPrefs.GetInt("TimerVideoAds", 0);
-        timeText.text = (3 - Timer).ToString() + "/3";
+
+        UpdateUI();
     }
 
     void Update()
@@ -49,59 +32,111 @@ public class VideoGiftCooldown : MonoBehaviour
         if (isCooldownActive)
         {
             TimeSpan remainingTime = cooldownEndTime - DateTime.Now;
-            // Nếu cooldown đã kết thúc hoặc vượt quá thời gian tối đa
-            if (remainingTime <= TimeSpan.Zero || remainingTime.TotalSeconds > MaxCooldownTime)
+
+            // Kiểm tra nếu cooldown đã kết thúc
+            if (remainingTime <= TimeSpan.Zero)
             {
                 ResetCooldown();
                 videoGitsbutton.gameObject.GetComponent<Animation>().Play();
-            }else videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
+            }
+            else
+            {
+                videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
+            }
         }
     }
 
     public void SetCoolDownTime()
     {
         videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
-        Timer++;
-        int cooldownTime = 0;
 
-        switch (Timer)
+        if (Timer < MaxDailyUsage)
         {
-            case 1:
-                cooldownTime = 300; 
-                break;
-            case 2:
-                cooldownTime = 300; 
-                break;
-            case 3:
-                cooldownTime = 600; 
-                break;
+            Timer++;
+            cooldownEndTime = DateTime.Now.AddSeconds(CooldownTimePerUse); // Cooldown 5 phút cho mỗi lần sử dụng
+        }
+        else
+        {
+            cooldownEndTime = GetNextDailyResetTime(); // Cooldown đến ngày mới
         }
 
-        if (Timer > 3)
-        {
-            Timer = 0;
-            cooldownTime = MaxCooldownTime; // 3 giờ (10800 giây)
-        }
-        PlayerPrefs.SetInt("TimerVideoAds", Timer);
-        PlayerPrefs.SetInt("VideoGiftCooldownTime", cooldownTime);
-        // Tính thời gian kết thúc cooldown
-        cooldownEndTime = DateTime.Now.AddSeconds(cooldownTime);
         isCooldownActive = true;
-        timeText.text = (3 - Timer).ToString() + "/3";
-        PlayerPrefs.SetString("VideoGiftCooldownEndTime", cooldownEndTime.ToString());
-        PlayerPrefs.Save();
+        SaveState();
+        UpdateUI();
+
+        // Gọi hàm để bắt đầu cooldown (nếu cần)
         ButtonCoolDown buttonCoolDown = FindObjectOfType<ButtonCoolDown>();
         if (buttonCoolDown != null)
         {
-            buttonCoolDown.StartCooldown(videoGitsbutton, cooldownTime, cooldownTime);
+            int cooldownDuration = (int)(cooldownEndTime - DateTime.Now).TotalSeconds;
+            buttonCoolDown.StartCooldown(videoGitsbutton, cooldownDuration, cooldownDuration);
         }
     }
 
     private void ResetCooldown()
     {
         isCooldownActive = false;
-        PlayerPrefs.DeleteKey("VideoGiftCooldownEndTime");
         Timer = 0;
+        cooldownEndTime = DateTime.MinValue; // Đặt lại thời gian cooldown
+        SaveState();
+        UpdateUI();
+    }
+
+    private void UpdateCooldownState()
+    {
+        // Nếu đã qua ngày mới, reset số lần sử dụng
+        if (DateTime.Now.Date > cooldownEndTime.Date)
+        {
+            ResetCooldown();
+        }
+        else if (DateTime.Now >= cooldownEndTime)
+        {
+            isCooldownActive = false;
+        }
+    }
+
+    private DateTime GetNextDailyResetTime()
+    {
+        // Tính thời gian reset vào 0h ngày hôm sau
+        DateTime nextReset = DateTime.Now.Date.AddDays(1).AddHours(DailyResetHour);
+        return nextReset;
+    }
+
+    private void SaveState()
+    {
         PlayerPrefs.SetInt("TimerVideoAds", Timer);
+        PlayerPrefs.SetString("VideoGiftCooldownEndTime", cooldownEndTime.ToString());
+        PlayerPrefs.Save();
+    }
+
+    private void LoadState()
+    {
+        Timer = PlayerPrefs.GetInt("TimerVideoAds", 0);
+
+        if (PlayerPrefs.HasKey("VideoGiftCooldownEndTime"))
+        {
+            cooldownEndTime = DateTime.Parse(PlayerPrefs.GetString("VideoGiftCooldownEndTime"));
+
+            // Nếu qua ngày mới, reset
+            if (DateTime.Now.Date > cooldownEndTime.Date)
+            {
+                ResetCooldown();
+            }
+            else
+            {
+                isCooldownActive = DateTime.Now < cooldownEndTime;
+            }
+        }
+        else
+        {
+            cooldownEndTime = DateTime.MinValue;
+            isCooldownActive = false;
+        }
+    }
+
+    private void UpdateUI()
+    {
+        timeText.text = $"{MaxDailyUsage - Timer}/{MaxDailyUsage}";
+        videoGitsbutton.interactable = !isCooldownActive || Timer < MaxDailyUsage;
     }
 }

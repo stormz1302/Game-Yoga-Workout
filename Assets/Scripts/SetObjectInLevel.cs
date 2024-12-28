@@ -74,19 +74,19 @@ public class SetObjectInLevel : MonoBehaviour
             Level = GameManager.Instance.animIndex;
             goodFoodPrefabs = foodObjects.goodFoodPrefabs;
             badFoodPrefabs = foodObjects.badFoodPrefabs;
-            ratioCountBot = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountBot;
-            ratioCountGoodFood = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountGoodFood;
-            ratioCountBadFood = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountBadFood;
-            ratioCountTrap = GameManager.Instance.MissionListSO.missionLevels[Level].ratioCountTrap;
+            ratioCountBot = GameManager.Instance.missionLevels[Level].ratioCountBot;
+            ratioCountGoodFood = GameManager.Instance.missionLevels[Level].ratioCountGoodFood;
+            ratioCountBadFood = GameManager.Instance.missionLevels[Level].ratioCountBadFood;
+            ratioCountTrap = GameManager.Instance.missionLevels[Level].ratioCountTrap;
 
-            MAX_BOT_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_BOT_SCORE;
-            MAX_NOT_MATCHING_BOT_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_NOT_MATCHING_BOT_SCORE;
-            MAX_GOOD_FOOD_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_GOOD_FOOD_SCORE;
-            MAX_BAD_FOOD_PENALTY = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_BAD_FOOD_PENALTY;
-            MAX_TRAP_SCORE = GameManager.Instance.MissionListSO.missionLevels[Level].MAX_TRAP_SCORE;
+            MAX_BOT_SCORE = GameManager.Instance.missionLevels[Level].MAX_BOT_SCORE;
+            MAX_NOT_MATCHING_BOT_SCORE = GameManager.Instance.missionLevels[Level].MAX_NOT_MATCHING_BOT_SCORE;
+            MAX_GOOD_FOOD_SCORE = GameManager.Instance.missionLevels[Level].MAX_GOOD_FOOD_SCORE;
+            MAX_BAD_FOOD_PENALTY = GameManager.Instance.missionLevels[Level].MAX_BAD_FOOD_PENALTY;
+            MAX_TRAP_SCORE = GameManager.Instance.missionLevels[Level].MAX_TRAP_SCORE;
 
-            totalTimer = GameManager.Instance.MissionListSO.missionLevels[Level].totalTimer;
-            variation = GameManager.Instance.MissionListSO.missionLevels[Level].variation;
+            totalTimer = GameManager.Instance.missionLevels[Level].totalTimer;
+            variation = GameManager.Instance.missionLevels[Level].variation;
             InitializeSpawnCounts();
         }
     }
@@ -98,6 +98,7 @@ public class SetObjectInLevel : MonoBehaviour
         goodFoodCount = Mathf.RoundToInt(maxObjectInLevel * ratioCountGoodFood);
         badFoodCount = Mathf.RoundToInt(maxObjectInLevel * ratioCountBadFood);
         trapCount = Mathf.RoundToInt(maxObjectInLevel * ratioCountTrap);
+        Debug.Log("Bot: " + botCount + " GoodFood: " + goodFoodCount + " BadFood: " + badFoodCount + " Trap: " + trapCount);
     }
 
     public GameObject SpawnObjects()

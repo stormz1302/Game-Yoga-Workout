@@ -27,10 +27,10 @@ MonoBehaviour:
     - {fileID: 1791595112245488713, guid: 39326c69fac24f67bd128072c87ac5d1, type: 3}
     - {fileID: 1791595112245488741, guid: 3248b2d299ff46b08a40ad2d7e09c142, type: 3}
     maxObject: 10
-    ratioCountBot: 0.1
-    ratioCountGoodFood: 0.7
-    ratioCountBadFood: 0.1
-    ratioCountTrap: 0.1
+    ratioCountBot: 0.2
+    ratioCountGoodFood: 0.25
+    ratioCountBadFood: 0.2
+    ratioCountTrap: 0.4
     MAX_BOT_SCORE: 0.4
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
@@ -38,9 +38,7 @@ MonoBehaviour:
     MAX_TRAP_SCORE: 0.3
     difficultyLevel: 0
     totalTimer: 30
-    variation: 0.2
-    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
-    skybox: {fileID: 2100000, guid: 9ca22510633fbfd4399f1704cd9d5c72, type: 2}
+    variation: 0.25
   - missions:
     - {fileID: 1791595112245488682, guid: b25eae53591c43d2b8332eec97a4d750, type: 3}
     - {fileID: 1791595112245488739, guid: 9818fd864d7c40bc803b483762d694d4, type: 3}
@@ -53,10 +51,10 @@ MonoBehaviour:
     - {fileID: 1791595112245488694, guid: a15566a8083c4fefb2c6a79b122330f1, type: 3}
     - {fileID: 1791595112245488775, guid: 05bd38f136654d5e89ab548a2b20d86b, type: 3}
     maxObject: 10
-    ratioCountBot: 0.1
-    ratioCountGoodFood: 0.7
-    ratioCountBadFood: 0.1
-    ratioCountTrap: 0.1
+    ratioCountBot: 0.2
+    ratioCountGoodFood: 0.25
+    ratioCountBadFood: 0.2
+    ratioCountTrap: 0.4
     MAX_BOT_SCORE: 0.4
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
@@ -64,9 +62,7 @@ MonoBehaviour:
     MAX_TRAP_SCORE: 0.3
     difficultyLevel: 0
     totalTimer: 30
-    variation: 0.2
-    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
-    skybox: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
+    variation: 0.25
   - missions:
     - {fileID: 1791595112245488735, guid: b666bbfffc1b47ec848b3ef4f7c9e5d8, type: 3}
     - {fileID: 1791595112245488682, guid: b25eae53591c43d2b8332eec97a4d750, type: 3}
@@ -82,10 +78,10 @@ MonoBehaviour:
     - {fileID: 1791595112245488803, guid: 05fc7fb0a33d4253bb4fe86a94ea01ee, type: 3}
     - {fileID: 1791595112245488737, guid: 3801b90b3c4d4e4b8a0abda620cfe6b6, type: 3}
     maxObject: 10
-    ratioCountBot: 0.1
-    ratioCountGoodFood: 0.7
-    ratioCountBadFood: 0.1
-    ratioCountTrap: 0.1
+    ratioCountBot: 0.2
+    ratioCountGoodFood: 0.25
+    ratioCountBadFood: 0.2
+    ratioCountTrap: 0.4
     MAX_BOT_SCORE: 0.4
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
@@ -93,9 +89,7 @@ MonoBehaviour:
     MAX_TRAP_SCORE: 0.3
     difficultyLevel: 0
     totalTimer: 30
-    variation: 0.2
-    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
-    skybox: {fileID: 2100000, guid: 33ab377b49aa14f6fae6e5bac230a5d4, type: 2}
+    variation: 0.25
   - missions:
     - {fileID: 1791595112245488682, guid: b25eae53591c43d2b8332eec97a4d750, type: 3}
     - {fileID: 1791595112245488735, guid: b666bbfffc1b47ec848b3ef4f7c9e5d8, type: 3}
@@ -108,10 +102,10 @@ MonoBehaviour:
     - {fileID: 1791595112245488764, guid: 0e2e95d6717a480687c6cdba3f586c0e, type: 3}
     - {fileID: 1791595112245488698, guid: a52845de80d243099df3e3707f12bdda, type: 3}
     maxObject: 10
-    ratioCountBot: 0.1
-    ratioCountGoodFood: 0.7
-    ratioCountBadFood: 0.1
-    ratioCountTrap: 0.1
+    ratioCountBot: 0.2
+    ratioCountGoodFood: 0.25
+    ratioCountBadFood: 0.2
+    ratioCountTrap: 0.4
     MAX_BOT_SCORE: 0.4
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
@@ -119,9 +113,7 @@ MonoBehaviour:
     MAX_TRAP_SCORE: 0.3
     difficultyLevel: 0
     totalTimer: 30
-    variation: 0.2
-    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
-    skybox: {fileID: 2100000, guid: 123caa41e84e041d0bd65bb3ae888dd1, type: 2}
+    variation: 0.25
   - missions:
     - {fileID: 1791595112245488732, guid: fc3e91da4f2d44d3837bf9a257961852, type: 3}
     - {fileID: 1791595112245488666, guid: 9e2f10f7146847d4b6cceb6ee104031b, type: 3}
@@ -145,10 +137,10 @@ MonoBehaviour:
     - {fileID: 1791595112245488759, guid: 8a1f09d8446443048583aafdc2edf7d7, type: 3}
     - {fileID: 1791595112245488691, guid: dda32480718f49b39e234aeef9380765, type: 3}
     maxObject: 10
-    ratioCountBot: 0.1
-    ratioCountGoodFood: 0.7
-    ratioCountBadFood: 0.1
-    ratioCountTrap: 0.1
+    ratioCountBot: 0.2
+    ratioCountGoodFood: 0.25
+    ratioCountBadFood: 0.2
+    ratioCountTrap: 0.4
     MAX_BOT_SCORE: 0.4
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
@@ -156,9 +148,7 @@ MonoBehaviour:
     MAX_TRAP_SCORE: 0.3
     difficultyLevel: 0
     totalTimer: 30
-    variation: 0.2
-    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
-    skybox: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
+    variation: 0.25
   - missions:
     - {fileID: 1791595112245488682, guid: b25eae53591c43d2b8332eec97a4d750, type: 3}
     - {fileID: 1791595112245488735, guid: b666bbfffc1b47ec848b3ef4f7c9e5d8, type: 3}
@@ -175,10 +165,10 @@ MonoBehaviour:
     - {fileID: 1791595112245488694, guid: a15566a8083c4fefb2c6a79b122330f1, type: 3}
     - {fileID: 1791595112245488767, guid: 27a76cfc16874892afa1961711f3e2de, type: 3}
     maxObject: 10
-    ratioCountBot: 0.1
-    ratioCountGoodFood: 0.7
-    ratioCountBadFood: 0.1
-    ratioCountTrap: 0.1
+    ratioCountBot: 0.2
+    ratioCountGoodFood: 0.25
+    ratioCountBadFood: 0.2
+    ratioCountTrap: 0.4
     MAX_BOT_SCORE: 0.4
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
@@ -186,9 +176,7 @@ MonoBehaviour:
     MAX_TRAP_SCORE: 0.3
     difficultyLevel: 0
     totalTimer: 30
-    variation: 0.2
-    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
-    skybox: {fileID: 2100000, guid: d3823126980dd98479f7761e6d47338a, type: 2}
+    variation: 0.25
   - missions:
     - {fileID: 1791595112245488751, guid: 47ba897efcdd41d18a6d1e2f0da41486, type: 3}
     - {fileID: 1791595112245488807, guid: ca2c1f93709747c7b42f90455546814f, type: 3}
@@ -213,5 +201,3 @@ MonoBehaviour:
     difficultyLevel: 0
     totalTimer: 0
     variation: 0.2
-    roadMaterial: {fileID: 2100000, guid: bcd2a1af41f54b744888194c97aa080b, type: 2}
-    skybox: {fileID: 2100000, guid: b141c8e4f6387ef45b13a68b10c88b7f, type: 2}

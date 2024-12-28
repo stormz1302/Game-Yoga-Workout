@@ -156,6 +156,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.AddScore(true, goodFoodScorePerObject);
             AudioManager.Instance.PlaySound("GoodEffect");
             foodClean.SetActive(true);
+            foodClean.transform.position = other.transform.position;
             Invoke("Deactivate", 0.5f);
             other.transform.GetChild(0).gameObject.SetActive(false);
             stage = other;
@@ -165,6 +166,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.AddScore(false, badFoodPenaltyPerObject);
             AudioManager.Instance.PlaySound("BadEffect");
             BadEfect.SetActive(true);
+            BadEfect.transform.position = other.transform.position;
             Invoke("Deactivate", 0.5f);
             other.transform.GetChild(0).gameObject.SetActive(false);
             stage = other;
