@@ -14,7 +14,6 @@ Material:
   m_ValidKeywords:
   - MTOON_OUTLINE_COLOR_FIXED
   - MTOON_OUTLINE_WIDTH_WORLD
-  - _ALPHABLEND_ON
   - _ALPHATEST_ON
   - _NORMALMAP
   m_InvalidKeywords: []
@@ -33,6 +32,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5bb0d918249474544ba3f55c0805edce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 2800000, guid: e30faa9b6b9174d4f886bf86168158fb, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -41,8 +52,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 1d423118f3b53a24cb5c51ed3c92c193, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OutlineWidthTexture:
         m_Texture: {fileID: 2800000, guid: 38d8bb2a3f23d224bb3ab5c6823ffba9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ReceiveShadowTexture:
@@ -71,22 +94,30 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaToMask: 0
+    - _AlphaToMask: 1
     - _BlendMode: 1
     - _BumpScale: 1
     - _CullMode: 0
     - _Cutoff: 0.5
     - _DebugMode: 0
+    - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _IndirectLightIntensity: 0.100000024
     - _LightColorAttenuation: 0
     - _MToonVersion: 39
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
     - _OutlineColorMode: 0
     - _OutlineCullMode: 1
     - _OutlineLightingMix: 0
     - _OutlineScaledMaxDistance: 1
     - _OutlineWidth: 0.08
     - _OutlineWidthMode: 1
+    - _Parallax: 0.02
     - _ReceiveShadowRate: 1
     - _RimFresnelPower: 100
     - _RimLift: 0.1
@@ -94,7 +125,10 @@ Material:
     - _ShadeShift: -0.79999995
     - _ShadeToony: 0.90000004
     - _ShadingGradeRate: 1
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _UVSec: 0
     - _UvAnimRotation: 0
     - _UvAnimScrollX: 0
     - _UvAnimScrollY: 0

@@ -102,6 +102,7 @@ public class CooldownSpin : MonoBehaviour
 
     void UpdateButtonStates()
     {
+        ResetAdsButtonIfNeeded(); // Reset nếu ngày đã thay đổi
         // Kiểm tra và reset FreeButton nếu đã hết cooldown
         if (DateTime.Now >= freeButtonNextAvailableTime && freeButtonUsageCount >= freeButtonMaxUsage)
         {
@@ -111,7 +112,6 @@ public class CooldownSpin : MonoBehaviour
         freeButton.interactable = DateTime.Now >= freeButtonNextAvailableTime && freeButtonUsageCount < freeButtonMaxUsage;
 
         // Kiểm tra và reset AdsButton nếu đã hết cooldown hoặc ngày mới bắt đầu
-        ResetAdsButtonIfNeeded(); // Reset nếu ngày đã thay đổi
         if (DateTime.Now >= adsButtonNextAvailableTime && adsButtonUsageCount >= adsButtonMaxUsage)
         {
             adsButtonUsageCount = 0; // Reset số lần sử dụng
