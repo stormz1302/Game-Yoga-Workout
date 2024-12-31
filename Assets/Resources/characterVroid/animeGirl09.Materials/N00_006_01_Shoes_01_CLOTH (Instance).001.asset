@@ -14,7 +14,6 @@ Material:
   m_ValidKeywords:
   - MTOON_OUTLINE_COLOR_FIXED
   - MTOON_OUTLINE_WIDTH_WORLD
-  - _ALPHABLEND_ON
   - _ALPHATEST_ON
   - _NORMALMAP
   m_InvalidKeywords: []
@@ -71,7 +70,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaToMask: 0
+    - _AlphaToMask: 1
     - _BlendMode: 1
     - _BumpScale: 1
     - _CullMode: 0

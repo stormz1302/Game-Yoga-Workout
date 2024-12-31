@@ -34,6 +34,8 @@ public class CanvasLv1 : MonoBehaviour
     [Header("Pause:")]
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private Button soundButtonInPause;
+    [SerializeField] private Button musicButtonInPause;
 
     [Header("PlayScreen:")]
     [SerializeField] private TMP_Text bonusMoneyText;
@@ -159,12 +161,14 @@ public class CanvasLv1 : MonoBehaviour
             if (isOnSound)
             {
                 SoundButton.image.sprite = soundIcon[1];
+                soundButtonInPause.image.sprite = soundIcon[1];
                 isOnSound = false;
                 AudioManager.Instance.SetVolume("Sounds", false);
             }
             else
             {
                 SoundButton.image.sprite = soundIcon[0];
+                soundButtonInPause.image.sprite = soundIcon[0];
                 isOnSound = true;
                 AudioManager.Instance.SetVolume("Sounds", true);
             }
@@ -174,12 +178,14 @@ public class CanvasLv1 : MonoBehaviour
             if (isOnMusic)
             {
                 MusicButton.image.sprite = soundIcon[3];
+                musicButtonInPause.image.sprite = soundIcon[3];
                 isOnMusic = false;
                 AudioManager.Instance.SetVolume("Music", false);
             }
             else
             {
                 MusicButton.image.sprite = soundIcon[2];
+                musicButtonInPause.image.sprite = soundIcon[2];
                 isOnMusic = true;
                 AudioManager.Instance.SetVolume("Music", true);
             }
