@@ -199,5 +199,5 @@ MonoBehaviour:
     MAX_BAD_FOOD_PENALTY: 0.25
     MAX_TRAP_SCORE: 0.3
     difficultyLevel: 0
-    totalTimer: 0
+    totalTimer: 30
     variation: 0.2

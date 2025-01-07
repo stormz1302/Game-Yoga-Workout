@@ -12,6 +12,7 @@ public class VideoGiftCooldown : MonoBehaviour
     private const int MaxDailyUsage = 3; // Số lần sử dụng tối đa mỗi ngày
     private const int DailyResetHour = 0; // Giờ reset (0h mỗi ngày)
     private const int CooldownTimePerUse = 300; // Cooldown 5 phút mỗi lần sử dụng
+    private int coolDownTime;
     [SerializeField] TMP_Text timeText;
 
     void Start()
@@ -22,6 +23,12 @@ public class VideoGiftCooldown : MonoBehaviour
         if (isCooldownActive)
         {
             UpdateCooldownState();
+            ButtonCoolDown buttonCoolDown = FindObjectOfType<ButtonCoolDown>();
+            if (buttonCoolDown != null)
+            {
+                int cooldownDuration = (int)(cooldownEndTime - DateTime.Now).TotalSeconds;
+                buttonCoolDown.StartCooldown(videoGitsbutton, cooldownDuration, coolDownTime);
+            }
         }
 
         UpdateUI();
@@ -42,6 +49,7 @@ public class VideoGiftCooldown : MonoBehaviour
             else
             {
                 videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
+                
             }
         }
     }
@@ -50,16 +58,15 @@ public class VideoGiftCooldown : MonoBehaviour
     {
         videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
 
-        if (Timer < MaxDailyUsage)
+        if (Timer < MaxDailyUsage - 1)
         {
-            Timer++;
             cooldownEndTime = DateTime.Now.AddSeconds(CooldownTimePerUse); // Cooldown 5 phút cho mỗi lần sử dụng
         }
         else
         {
             cooldownEndTime = GetNextDailyResetTime(); // Cooldown đến ngày mới
         }
-
+        Timer++;
         isCooldownActive = true;
         SaveState();
         UpdateUI();
@@ -69,6 +76,7 @@ public class VideoGiftCooldown : MonoBehaviour
         if (buttonCoolDown != null)
         {
             int cooldownDuration = (int)(cooldownEndTime - DateTime.Now).TotalSeconds;
+            coolDownTime = cooldownDuration;
             buttonCoolDown.StartCooldown(videoGitsbutton, cooldownDuration, cooldownDuration);
         }
     }
@@ -106,13 +114,14 @@ public class VideoGiftCooldown : MonoBehaviour
     {
         PlayerPrefs.SetInt("TimerVideoAds", Timer);
         PlayerPrefs.SetString("VideoGiftCooldownEndTime", cooldownEndTime.ToString());
+        PlayerPrefs.SetInt("CoolDownTime", coolDownTime);
         PlayerPrefs.Save();
     }
 
     private void LoadState()
     {
         Timer = PlayerPrefs.GetInt("TimerVideoAds", 0);
-
+        coolDownTime = PlayerPrefs.GetInt("CoolDownTime", 0);
         if (PlayerPrefs.HasKey("VideoGiftCooldownEndTime"))
         {
             cooldownEndTime = DateTime.Parse(PlayerPrefs.GetString("VideoGiftCooldownEndTime"));

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using Samples.Purchasing.Core.BuyingConsumables;
 
 public class CanvasLv1 : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class CanvasLv1 : MonoBehaviour
     [SerializeField] private GameObject shopButton;
     [SerializeField] private GameObject shop;
     [HideInInspector] public bool shopOpening = false;
+    //[SerializeField] private GameObject CameraShop;
 
     [Header("Pause:")]
     [SerializeField] private GameObject pauseButton;
@@ -65,7 +67,8 @@ public class CanvasLv1 : MonoBehaviour
     [Header("Lucky Spin:")]
     [SerializeField] private GameObject luckySpinPop;
     [Header("No Ads:")]
-    [SerializeField] private GameObject noAdsButton;
+    [SerializeField] private GameObject noAdsPopp;
+    [SerializeField] private Button noAdsButton;
 
     private Coroutine currentCoroutine;
 
@@ -76,7 +79,7 @@ public class CanvasLv1 : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            
+
         }
         else
         {
@@ -100,6 +103,7 @@ public class CanvasLv1 : MonoBehaviour
         isOnMusic = true;
         isOnSound = true;
         endGamePopup.SetActive(false);
+        CheckRemoveAds();
         StartCoroutine(FadeIn());
     }
 
@@ -117,6 +121,7 @@ public class CanvasLv1 : MonoBehaviour
         else
         {
             levelText.text = "Level " + (level + 1).ToString();
+            rewardSlider.SetActive(true);
         }
     }
 
@@ -140,18 +145,20 @@ public class CanvasLv1 : MonoBehaviour
         scoreBar.SetActive(!lvelBonus);
         playButton.SetActive(false);
         AudioManager.Instance.PlaySound("PlayButton");
-        GameManager.Instance.StartGame(); 
+        GameManager.Instance.StartGame();
     }
 
     public void OpenSetting()
     {
         AudioManager.Instance.PlaySound("MenuOpen");
         setting.SetActive(true);
+        AdsController.instance.ShowMrecCentered();
     }
     public void CloseSetting()
     {
         AudioManager.Instance.PlaySound("MenuClose");
         setting.SetActive(false);
+        AdsController.instance.HideMrec();
     }
 
     public void OnClickSoundButton(bool Music)
@@ -197,6 +204,7 @@ public class CanvasLv1 : MonoBehaviour
         shopOpening = true;
         AudioManager.Instance.PlaySound("MenuOpen");
         shop.SetActive(true);
+        //CameraShop.SetActive(true);
         playButton.SetActive(false);
         settingButton.SetActive(false);
         playScreen.SetActive(false);
@@ -208,15 +216,17 @@ public class CanvasLv1 : MonoBehaviour
         AudioManager.Instance.PlaySound("MenuClose");
         shop.SetActive(false);
         playButton.SetActive(true);
+        //CameraShop.SetActive(false);
         settingButton.SetActive(true);
         SkinsManager.instance.LoadCharacterData();
         StartCoroutine(FadeIn());
-    }  
+        AdsController.instance.ShowInter();
+    }
 
     public void OnClickReady()
     {
         AudioManager.Instance.PlaySound("PlayButton");
-        
+
         GameManager.Instance.LoadPlayScene();
     }
 
@@ -225,19 +235,22 @@ public class CanvasLv1 : MonoBehaviour
         AudioManager.Instance.PlaySound("MenuOpen");
         GameManager.Instance.PauseGame();
         pauseScreen.SetActive(true);
+        AdsController.instance.ShowMrecCentered();
         pauseButton.SetActive(false);
     }
-    
+
     public void Continue()
     {
         AudioManager.Instance.PlaySound("MenuClose");
         GameManager.Instance.ContinueGame();
+        AdsController.instance.HideMrec();
         pauseScreen.SetActive(false);
         pauseButton.SetActive(true);
     }
 
     public void Home()
     {
+        AdsController.instance.HideMrec();
         AudioManager.Instance.PlaySound("MenuClose");
         pauseButton.SetActive(true);
         pauseScreen.SetActive(false);
@@ -320,6 +333,7 @@ public class CanvasLv1 : MonoBehaviour
 
     public void ShowPopup(int level, int rewardAmount, bool isWin)
     {
+        AdsController.instance.ShowMrecBottomCenter();
         endGamePopup.SetActive(true);
         if (isWin) levelState.text = "Level complete";
         else
@@ -337,7 +351,7 @@ public class CanvasLv1 : MonoBehaviour
     private IEnumerator UpdateBonusMoney(int targetAmount)
     {
         int currentAmount = 0;
-        float duration = 1.5f; 
+        float duration = 1.5f;
         float elapsed = 0;
 
         while (elapsed < duration)
@@ -380,22 +394,23 @@ public class CanvasLv1 : MonoBehaviour
 
     public void ShowAdsPopup()
     {
-        Time.timeScale = 0;
         adsPopup.SetActive(true);
+        AdsController.instance.ShowMrecBottomCenter();
     }
     public void CloseAdsPopup()
     {
         Time.timeScale = 1;
+        AdsController.instance.HideMrec();
         adsPopup.SetActive(false);
     }
 
-    public void ShowNoAdsButton()
+    public void ShowNoAdsPopp()
     {
-        noAdsButton.SetActive(true);
+        noAdsPopp.SetActive(true);
     }
-    public void CloseNoAdsButton()
+    public void CloseNoAdsPopp()
     {
-        noAdsButton.SetActive(false);
+        noAdsPopp.SetActive(false);
     }
 
     public void ShowLuckySpinPop()
@@ -413,6 +428,22 @@ public class CanvasLv1 : MonoBehaviour
     {
         CotinuePopp.SetActive(true);
         AudioManager.Instance.PlaySound("MenuOpen");
+        AdsController.instance.ShowMrecBottomCenter();
+    }
+
+    public void BuyRemoveAds()
+    {
+        ShopPurchase.instance.BuyRemoveAds();
+        CloseNoAdsPopp();
+        noAdsButton.interactable = false;
+    }
+
+    private void CheckRemoveAds()
+    {
+        if (DataManager.instance.saveData.removeAds)
+        {
+            noAdsButton.interactable = false;
+        }
     }
 }
 

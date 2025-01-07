@@ -45,11 +45,15 @@ public class RewardLevel : MonoBehaviour
     public void WatchAd()
     {
         // Show ad
+        AdsController.instance.ShowReward(() =>
+        {
+            AudioManager.Instance.PlaySound("UnlockGift");
+            PlayerPrefs.SetInt("FirstOpenGift", 0);
+            FlashScreen();
+            RandomGift();
+        }, "levelRewardedVideo");
         // Add reward to player
-        AudioManager.Instance.PlaySound("UnlockGift");
-        PlayerPrefs.SetInt("FirstOpenGift", 0);
-        FlashScreen();
-        RandomGift();
+
         // Close the gift popup
         //CloseGiftsPopup();
     }

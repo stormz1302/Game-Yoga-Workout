@@ -19,13 +19,13 @@ public class Mission
     public float MAX_GOOD_FOOD_SCORE = 0.5f;
     public float MAX_BAD_FOOD_PENALTY = 0.25f;
     public float MAX_TRAP_SCORE = 0.3f;
-    public DifficultyLevel difficultyLevel;  // Độ khó của level
+    //public DifficultyLevel difficultyLevel;  // Độ khó của level
     
     [Header("Time Settings")]
     public float totalTimer;
     public float variation = 0.25f;
 
-    public void SetDifficulty()
+    public void SetDifficulty(DifficultyLevel difficultyLevel)
     {
         variation = 0.25f;
         switch (difficultyLevel)

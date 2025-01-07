@@ -77,6 +77,8 @@ public class EndGame : MonoBehaviour
             if (endGameEffect.activeSelf) endGameEffect.SetActive(false);
             femaleAnimator = Female.GetComponent<Animator>();
             maleAnimator = Male.GetComponent<Animator>();
+            //show ads
+            AdsController.instance.ShowInter();
             Invoke("RunState", 1f);
             SetTransForm();
             StopSpawning();

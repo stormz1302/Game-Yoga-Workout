@@ -2,6 +2,7 @@
 using UnityEngine.Audio;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -60,12 +61,24 @@ public class AudioManager : MonoBehaviour
         // Gán mixer group cho các AudioSource
         audioSourceMusic.outputAudioMixerGroup = musicGroup;
         audioSourceSounds.outputAudioMixerGroup = soundGroup;
-    }
 
+        // Load cài đặt âm lượng
+        LoadVolumeSettings();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LoadVolumeSettings();
+    }
     public void Start()
     {
         PlayMusic("Music");
     }
+
     // Phát nhạc nền
     public void PlayMusic(string name)
     {
@@ -84,15 +97,15 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         audioSourceMusic.Stop();
+        audioMixer.SetFloat("Music", -80f);
     }
-
 
     // Phát hiệu ứng âm thanh
     public void PlaySound(string name)
     {
         if (soundDictionary.ContainsKey(name))
         {
-            if (audioSourceSounds.isPlaying )
+            if (audioSourceSounds.isPlaying)
             {
                 GameObject newAudioOb = Instantiate(audioOb, gameObject.transform);
                 AudioSource newAudioSource = newAudioOb.GetComponent<AudioSource>();
@@ -124,17 +137,39 @@ public class AudioManager : MonoBehaviour
         Destroy(audioObject);
     }
 
-
     // Dừng hiệu ứng âm thanh
     public void StopSound()
     {
         audioSourceSounds.Stop();
+        audioMixer.SetFloat("Sounds", -80f);
     }
 
-    // Chỉnh âm lượng qua Audio Mixer
+    // Chỉnh âm lượng qua Audio Mixer và lưu vào PlayerPrefs
     public void SetVolume(string parameter, bool isOn)
     {
         float volume = isOn ? 0f : -80f;
-        audioMixer.SetFloat(parameter, volume); 
+        audioMixer.SetFloat(parameter, volume);
+        SaveVolumeSetting(parameter, volume);
+    }
+
+    // Lưu cài đặt âm lượng
+    private void SaveVolumeSetting(string parameter, float volume)
+    {
+        PlayerPrefs.SetFloat(parameter, volume);
+        PlayerPrefs.Save();
+    }
+
+    // Tải cài đặt âm lượng
+    public void LoadVolumeSettings()
+    {
+        string[] parameters = { "Music", "Sounds" }; // Tên các tham số trong AudioMixer
+        foreach (var parameter in parameters)
+        {
+            float volume = PlayerPrefs.GetFloat(parameter, 0f);
+            audioMixer.SetFloat(parameter, volume);
+            Debug.Log($"Tải cài đặt âm lượng {parameter}: {volume}");
+        }
+        audioSourceMusic.Play();
+        audioSourceSounds.Play();
     }
 }

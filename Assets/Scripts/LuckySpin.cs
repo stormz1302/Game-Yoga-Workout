@@ -27,12 +27,14 @@ public class LuckySpin : MonoBehaviour
     public void watchAds()
     {
         // Show ad
-
-        //wheel spin
-        if (!isSpinning)
+        AdsController.instance.ShowReward(() =>
         {
-            StartCoroutine(SpinTheWheel());
-        }
+            //wheel spin
+            if (!isSpinning)
+            {
+                StartCoroutine(SpinTheWheel());
+            }
+        }, "Reward_Button_Click");
     }
 
     public void SpinWheel()

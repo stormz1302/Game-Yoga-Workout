@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public MissionListSO MissionListSO;
     public BonusMission bonusMission;
     public List<GameObject> missions = new List<GameObject>();
-    public List<Mission> missionLevels = new List<Mission>();
+    public Mission missionLevels ;
     public int bonusMoney = 0;
     public int Level = 0;
     public int animIndex = 0;
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<int> comboList = new List<int>();
     int comboIndex = 0;
     public static GameManager Instance;
+    bool openGame = false;
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
             
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
+        openGame = true;
     }
     private void OnDestroy()
     {
@@ -78,7 +80,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Money", 200000);
         //===================================================================================================
 
-        missionLevels = MissionListSO.missionLevels;
         animationFrameChecker = GetComponent<AnimationFrameChecker>();
         saveData = new SaveData();
         levelBonus = saveData.GetLevelBonus();
@@ -134,7 +135,6 @@ public class GameManager : MonoBehaviour
             {
                 SetDifficultyLevel(DifficultyLevel.Beginner);
                 Debug.Log("Beginner");
-                animIndex = Level;
             }
             else if (6 < Level && Level <= 15)
             {
@@ -156,13 +156,14 @@ public class GameManager : MonoBehaviour
             {
                 SetDifficultyLevel(DifficultyLevel.Master);
             }
-            missions = missionLevels[animIndex].missions;
+            missions = missionLevels.missions;
         }
         else
         {
             missions = bonusMission.missions;
             bonusCount = bonusMission.missionCount;
             bonusTime = bonusMission.missionTime;
+            animIndex = 1;
         }
         
     }
@@ -170,9 +171,10 @@ public class GameManager : MonoBehaviour
     private void SetDifficultyLevel(DifficultyLevel difficultyLevel)
     {
         animIndex = Random.Range(0, 6);
-        missionLevels[animIndex].difficultyLevel = difficultyLevel;
-        missionLevels[animIndex].SetDifficulty();
-        maxObject = missionLevels[animIndex].maxObject;
+        if(difficultyLevel == DifficultyLevel.Beginner) animIndex = Level;
+        missionLevels = MissionListSO.missionLevels[animIndex];
+        missionLevels.SetDifficulty(difficultyLevel);
+        maxObject = missionLevels.maxObject;
     }
 
     public void AddScore(bool good, int value)
@@ -224,6 +226,8 @@ public class GameManager : MonoBehaviour
 
     private void LoadHomeScene()
     {
+        if (!openGame) AdsController.instance.ShowInter();
+        openGame = false;
         EndGame = GetComponent<EndGame>();
         EndGame.enabled = false;
         animationFrameChecker.enabled = false;
@@ -237,8 +241,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadPlayScene()
     {
-        LoadingScreen loadingScreen = FindObjectOfType<LoadingScreen>();
-        loadingScreen.LoadScene("Level01");
+        LoadingScreen.Instance.LoadScene("Level01");
     }
 
     public void LoadEndScreen()
@@ -314,10 +317,12 @@ public class GameManager : MonoBehaviour
     public void home()
     {
         Time.timeScale = 1;
+        saveData.Save();
         Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
         objectSpawner.StopSpawning();
-        LoadingScreen loadingScreen = FindObjectOfType<LoadingScreen>();
-        loadingScreen.LoadScene("Home");
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.StopSound();
+        LoadingScreen.Instance.LoadScene("Home");
     } 
 
     public void ReStart()
@@ -325,8 +330,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
         objectSpawner.StopSpawning();
-        LoadingScreen loadingScreen = FindObjectOfType<LoadingScreen>();
-        loadingScreen.LoadScene("Level01");
+        LoadingScreen.Instance.LoadScene("Level01");
     }
 
     public void PauseGame()
@@ -347,12 +351,12 @@ public class GameManager : MonoBehaviour
         setObjectInLevel.SpawnedBot();
     }
 
-    public void AddMoney()
+    public void AddMoney(int moneyValue)
     {
-        Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
-        int value = objectSpawner.moneyValue;
-        if (comboIndex > 0) value += comboIndex;
-        bonusMoney += value;
+        //Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
+        //int value = objectSpawner.moneyValue;
+        if (comboIndex > 0) moneyValue += comboIndex;
+        bonusMoney += moneyValue;
         CanvasLv1.Instance.UpdateMoneyInPlay(bonusMoney);
     }
 
@@ -384,7 +388,8 @@ public class GameManager : MonoBehaviour
         CanvasLv1.Instance.ShowPopup(Level, bonusMoney, win);
         endGame = (!endGame) ? true : endGame;
         //Save level, bonus money
-        if (win && (Level - animIndex) < 1)
+        //if (win && (Level - animIndex) < 1)
+        if (win)
         {
             if (!levelBonus && (Level +1)% 5 == 0)
             {
@@ -392,17 +397,18 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("Level: " + Level);
                 Level++;
                 levelBonus = false;
             }
             saveData.SetLevelBonus(levelBonus);
         }
-        saveData.Save();
+        //saveData.Save();
     }
 
     public void ShowCotinue()
     {
-        endGame = (!endGame) ? true : endGame;
+        Time.timeScale = 0;
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {

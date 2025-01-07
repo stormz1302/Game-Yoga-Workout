@@ -9,6 +9,9 @@ public class SkinsManager : MonoBehaviour
     private const string CurrentAdsKey = "CurrentAds_";
     public static SkinsManager instance;
     public int defaultSkinID = 9;
+    bool isTrialAcitve = false;
+    int trialID = -1;
+    int equippedBeforeTrial = -1;
 
     private void Awake()
     {
@@ -49,14 +52,9 @@ public class SkinsManager : MonoBehaviour
     //gọi sau khi chạy quảng cáo
     public void WatchAd(int skinID)
     {
-        int currentAds = PlayerPrefs.GetInt(CurrentAdsKey + skinID, 0);
+        int currentAds = LoadCurrentAds(skinID);
         currentAds++;
         PlayerPrefs.SetInt(CurrentAdsKey + skinID, currentAds);
-        Character skin = Shop.instance.Skins[skinID];
-        if (skin != null && currentAds >= skin.priceAds)
-        {
-            UnlockCharacter(skinID);
-        }
     }
 
     public bool CheckOwnedCharacter(int id)
@@ -67,6 +65,11 @@ public class SkinsManager : MonoBehaviour
     public int LoadCurrentAds(int skinID)
     {
         return PlayerPrefs.GetInt(CurrentAdsKey + skinID, 0);
+    }
+
+    public void ResetCurrentAds(int skinID)
+    {
+        PlayerPrefs.SetInt(CurrentAdsKey + skinID, 0);
     }
 
     public void EquipCharacter(int id)
@@ -89,5 +92,30 @@ public class SkinsManager : MonoBehaviour
             character.isOwned = true;
             SaveSkinOwned();
         }
+    }
+
+    public void EquipTrialCharacter(int id)
+    {
+        ResetCurrentAds(id);
+        equippedBeforeTrial = GetEquippedCharacter();
+        EquipCharacter(id);
+        trialID = id;
+        isTrialAcitve = true;
+    }
+
+    public void EndTrial()
+    {
+        if (isTrialAcitve)
+        {
+            EquipCharacter(equippedBeforeTrial);
+            trialID = -1;
+            equippedBeforeTrial = -1;
+            isTrialAcitve = false;
+        }
+    }
+
+    public bool IsTrialActive()
+    {
+        return isTrialAcitve;
     }
 }

@@ -31,8 +31,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int badFoodPenaltyPerObject;
     [SerializeField] int notMatchingPenaltyPerObject;
 
+    private float lastShowTime = -25f;  // Lưu trữ thời gian gọi ShowCotinue() trước đó
+    private float coolDownTime = 25f;   // Thời gian cooldown, 25 giây
 
- 
     private void Awake()
     {
         GameManager.Instance.player = gameObject.transform;
@@ -142,14 +143,33 @@ public class PlayerController : MonoBehaviour
         }
         if (other != null && other.gameObject.CompareTag("Money") && other != stage)
         {
-            GameManager.Instance.AddMoney();
+            Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
+            int value = objectSpawner.moneyValue;
+            GameManager.Instance.AddMoney(value);
             AudioManager.Instance.PlaySound("MoneyPickup");
             PlayerHit(hitMoneyEfect, other);
             stage = other;
         }
-        else if (other != null && other.gameObject.CompareTag("Things"))
+        else if (other != null && other.gameObject.CompareTag("Things") && other != stage)
         {
-            GameManager.Instance.ShowCotinue();
+            float currentTime = Time.time;
+            stage = other;
+            //show ads inter
+            AdsController.instance.ShowInter();
+            // Kiểm tra xem đã đủ 25 giây kể từ lần gọi ShowCotinue trước đó chưa
+            if (currentTime - lastShowTime >= coolDownTime)
+            {
+                GameManager.Instance.ShowCotinue();
+                lastShowTime = currentTime; 
+            }else if (currentTime - lastShowTime <= 1.5f)
+            {
+                return;
+            }
+            else
+            {
+                // Nếu chưa đủ 25 giây, bạn có thể thông báo hoặc làm gì đó ở đây
+                GameManager.Instance.ShowPopupEndgame(false);
+            } 
         }
         if (other != null && other.gameObject.CompareTag("Clean") && other != stage)
         {

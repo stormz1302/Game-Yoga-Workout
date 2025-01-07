@@ -11,6 +11,7 @@ public class SkinView : MonoBehaviour
     public GameObject blockIcon;
     public bool isOwned;
     public int skinID;
+    public GameObject selectIcon;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class SkinView : MonoBehaviour
 
     private void Update()
     {
+        int skinIdEquiped = SkinsManager.instance.GetEquippedCharacter();
         isOwned = Shop.instance.SkinOwned(skinID);
         if (skinSprite != null && SkinIcon.sprite != skinSprite)
         {
@@ -51,7 +53,14 @@ public class SkinView : MonoBehaviour
         }
         bool isSelect = Shop.instance.CheckSkin(skinID);
         gameObject.GetComponent<Outline>().enabled = isSelect;
-        
+        if (skinIdEquiped == skinID)
+        {
+            selectIcon.SetActive(true);
+        }
+        else
+        {
+            selectIcon.SetActive(false);
+        }
     }
     //public void OnClick()
     //{

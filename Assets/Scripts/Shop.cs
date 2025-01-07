@@ -34,7 +34,7 @@ public class Shop : MonoBehaviour
     private int currentSkinID;
     int currentClickedID = -1;
     public float delayBeforeShow = 0.2f;
-
+    int lastLevelBeforTrail = 0;
 
     public static Shop instance;
 
@@ -52,7 +52,8 @@ public class Shop : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        int level = GameManager.Instance.Level;
+        CheckTrailSkin(level);
         if (scene.name == "Home")
         {
             currentSkinID = -1;
@@ -96,8 +97,43 @@ public class Shop : MonoBehaviour
             BuyButton.SetActive(false);
             BuyAdsButton.SetActive(false);
             SelectButton.SetActive(true);
-            LoadModel(currentSkinID);
+            checkOwnedSkin(currentSkinID);
             UpdateMoneyText();
+        }
+    }
+
+    public void WatchAds()
+    {
+        AdsController.instance.ShowReward(() =>
+         {
+             TrialWthWatchAds();
+         }, "Buy-Shin-Ads");
+    }
+    private void TrialWthWatchAds()
+    {
+        currentAdsPrice++;
+        SkinsManager.instance.WatchAd(currentSkinID);
+        if (currentAdsPrice >= Skins[currentSkinID].priceAds)
+        {
+            SkinsManager.instance.EquipTrialCharacter(currentSkinID);
+            AudioManager.Instance.PlaySound("BuySkin");
+            BuyButton.SetActive(false);
+            BuyAdsButton.SetActive(false);
+            SelectButton.SetActive(true);
+        }
+        checkOwnedSkin(currentSkinID);
+    }
+
+    private void CheckTrailSkin(int level)
+    {
+        bool isTrail = SkinsManager.instance.IsTrialActive();
+        if (isTrail)
+        {
+            if (level - lastLevelBeforTrail == 1)
+            {
+                SkinsManager.instance.EndTrial();
+            }
+            lastLevelBeforTrail = level;
         }
     }
 
@@ -168,6 +204,7 @@ public class Shop : MonoBehaviour
 
     private void checkOwnedSkin(int skinID)
     {
+        bool isTrail = SkinsManager.instance.IsTrialActive();
         if (currentClickedID != skinID)
         {
             //if (currentID != -1) skinButtons[currentID].GetComponent<Outline>().enabled = false;
@@ -179,7 +216,7 @@ public class Shop : MonoBehaviour
             BuyAdsButton.SetActive(true);
             SelectButton.SetActive(false);
             PriceText.text = Skins[skinID].Price.ToString() + "$";
-            AdsText.text = "Buy with " + Skins[skinID].priceAds + " Ads";
+            AdsText.text = "Trial skin with " + Skins[skinID].priceAds + " Ads";
             currentAdsPrice = SkinsManager.instance.LoadCurrentAds(skinID);
             priceAdsText.text = currentAdsPrice + "/" +Skins[skinID].priceAds.ToString();
             fieldAds.fillAmount = (float)currentAdsPrice / Skins[skinID].priceAds;
@@ -192,6 +229,12 @@ public class Shop : MonoBehaviour
             Debug.Log("Skin: " + skinID + " isEquiped: " + isEquiped);
             BuyButton.SetActive(false);
             BuyAdsButton.SetActive(false);
+        }
+        if (isTrail)
+        {
+            BuyButton.SetActive(false);
+            BuyAdsButton.SetActive(false);
+            SelectButton.SetActive(false);
         }
     }
 

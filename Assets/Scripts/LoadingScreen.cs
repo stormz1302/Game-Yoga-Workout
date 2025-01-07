@@ -9,10 +9,26 @@ public class LoadingScreen : MonoBehaviour
     public Image progressBar; 
     public List<Sprite> backGrounds = new List<Sprite>();
     public GameObject loadingScreen;
+    public static LoadingScreen Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
-        loadingScreen.SetActive(false);
+        loadingScreen.SetActive(true);
+        LoadScene("Home");
     }
     public void LoadScene(string sceneName)
     {

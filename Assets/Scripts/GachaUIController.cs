@@ -99,11 +99,16 @@ public class GachaUIController : MonoBehaviour
     public void StopSpinning()
     {
         //show ads
-
-        //dừng quay kim ngay lập tức
-        isSpinning = false; // Dừng quay kim ngay lập tức
-        currentTargetIndex = GetCurrentTargetIndex(); // Xác định chỉ số mục tiêu kim đang dừng tại
-        Debug.Log("Bạn nhận được phần thưởng tại vị trí: " + selectedPoints[currentTargetIndex]);
+        AdsController.instance.ShowReward(() =>
+        {
+            //dừng quay kim ngay lập tức
+            isSpinning = false; // Dừng quay kim ngay lập tức
+            currentTargetIndex = GetCurrentTargetIndex(); // Xác định chỉ số mục tiêu kim đang dừng tại
+            Debug.Log("Bạn nhận được phần thưởng tại vị trí: " + selectedPoints[currentTargetIndex]);
+            GameManager.Instance.bonusMoney *= selectedPoints[currentTargetIndex];
+            CanvasLv1.Instance.Home();
+        }, "Reward-Level-Completed");
+        
     }
 
     // Hàm lấy vị trí mục tiêu hiện tại của kim

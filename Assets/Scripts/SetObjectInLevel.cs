@@ -74,19 +74,19 @@ public class SetObjectInLevel : MonoBehaviour
             Level = GameManager.Instance.animIndex;
             goodFoodPrefabs = foodObjects.goodFoodPrefabs;
             badFoodPrefabs = foodObjects.badFoodPrefabs;
-            ratioCountBot = GameManager.Instance.missionLevels[Level].ratioCountBot;
-            ratioCountGoodFood = GameManager.Instance.missionLevels[Level].ratioCountGoodFood;
-            ratioCountBadFood = GameManager.Instance.missionLevels[Level].ratioCountBadFood;
-            ratioCountTrap = GameManager.Instance.missionLevels[Level].ratioCountTrap;
+            ratioCountBot = GameManager.Instance.missionLevels.ratioCountBot;
+            ratioCountGoodFood = GameManager.Instance.missionLevels.ratioCountGoodFood;
+            ratioCountBadFood = GameManager.Instance.missionLevels.ratioCountBadFood;
+            ratioCountTrap = GameManager.Instance.missionLevels.ratioCountTrap;
 
-            MAX_BOT_SCORE = GameManager.Instance.missionLevels[Level].MAX_BOT_SCORE;
-            MAX_NOT_MATCHING_BOT_SCORE = GameManager.Instance.missionLevels[Level].MAX_NOT_MATCHING_BOT_SCORE;
-            MAX_GOOD_FOOD_SCORE = GameManager.Instance.missionLevels[Level].MAX_GOOD_FOOD_SCORE;
-            MAX_BAD_FOOD_PENALTY = GameManager.Instance.missionLevels[Level].MAX_BAD_FOOD_PENALTY;
-            MAX_TRAP_SCORE = GameManager.Instance.missionLevels[Level].MAX_TRAP_SCORE;
+            MAX_BOT_SCORE = GameManager.Instance.missionLevels.MAX_BOT_SCORE;
+            MAX_NOT_MATCHING_BOT_SCORE = GameManager.Instance.missionLevels.MAX_NOT_MATCHING_BOT_SCORE;
+            MAX_GOOD_FOOD_SCORE = GameManager.Instance.missionLevels.MAX_GOOD_FOOD_SCORE;
+            MAX_BAD_FOOD_PENALTY = GameManager.Instance.missionLevels.MAX_BAD_FOOD_PENALTY;
+            MAX_TRAP_SCORE = GameManager.Instance.missionLevels.MAX_TRAP_SCORE;
 
-            totalTimer = GameManager.Instance.missionLevels[Level].totalTimer;
-            variation = GameManager.Instance.missionLevels[Level].variation;
+            totalTimer = GameManager.Instance.missionLevels.totalTimer;
+            variation = GameManager.Instance.missionLevels.variation;
             InitializeSpawnCounts();
         }
     }
