@@ -4,26 +4,47 @@ using UnityEngine;
 
 public class LoadBG : MonoBehaviour
 {
-    [SerializeField] List<Sprite> backGrounds = new List<Sprite>();
-    [SerializeField] GameObject backGround;
-    [SerializeField] int Level;
-    [SerializeField] Background background;
+    [SerializeField] List<GameObject> environments = new List<GameObject>();
+    [SerializeField] Material skyboxNight;
+    [SerializeField] Material skyboxDay;
+    public static LoadBG Instance;
 
-    void Start()
+    private void Awake()
     {
-        backGrounds = background.backGrounds;
-        Level = GameManager.Instance.Level;
-        LoadBGround(Level);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
-    private void LoadBGround(int level)
+    public void LoadMap(int mapIndex)
     {
-        int backGroundIndex = (level + 1) / 5;
-        if (backGroundIndex >= backGrounds.Count)
+        if (mapIndex < 0 || mapIndex >= environments.Count)
         {
-            backGroundIndex = Random.Range(0, backGrounds.Count);
+            mapIndex = Random.Range(0, environments.Count);
         }
-        backGround.GetComponent<SpriteRenderer>().sprite = backGrounds[backGroundIndex];
-        Debug.Log("Load BG: " + backGrounds[backGroundIndex]);
+        for (int i = 0; i < environments.Count; i++)
+        {
+            if (i != mapIndex)
+            {
+                environments[i].SetActive(false);
+            }
+        }
+        environments[mapIndex].SetActive(true);
+
+        if (mapIndex == 0 || mapIndex == 2)
+        {
+            Debug.Log("Night");
+            RenderSettings.skybox = skyboxNight;
+        }
+        else if (mapIndex == 1 || mapIndex == 3)
+        {
+            RenderSettings.skybox = skyboxDay;
+        }
     }
 }

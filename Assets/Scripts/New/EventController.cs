@@ -77,7 +77,7 @@ public class EventController : MonoBehaviour
             case Firebase.RemoteConfig.LastFetchStatus.Success:
                 Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.FetchAndActivateAsync();
 
-                Debug.LogError("======= fetch success:" + Firebase.RemoteConfig.FirebaseRemoteConfig.GetInstance(app).GetValue(remoteDefault[0].key).StringValue);
+                Debug.Log("======= fetch success:" + Firebase.RemoteConfig.FirebaseRemoteConfig.GetInstance(app).GetValue(remoteDefault[0].key).StringValue);
                 break;
             case Firebase.RemoteConfig.LastFetchStatus.Failure:
                 switch (info.LastFetchFailureReason)
@@ -109,7 +109,7 @@ public class EventController : MonoBehaviour
         }
         else if (fetchTask.IsCompleted)
         {
-            Debug.LogError("======= fetch complete:" + Firebase.RemoteConfig.FirebaseRemoteConfig.GetInstance(app).GetValue(remoteDefault[0].key).StringValue);
+            Debug.Log("======= fetch complete:" + Firebase.RemoteConfig.FirebaseRemoteConfig.GetInstance(app).GetValue(remoteDefault[0].key).StringValue);
         }
         DataParam.timeDelayShowAds = float.Parse(Firebase.RemoteConfig.FirebaseRemoteConfig.GetInstance(app).GetValue(remoteDefault[0].key).StringValue);
         DataParam.ShowOpenAds = Firebase.RemoteConfig.FirebaseRemoteConfig.GetInstance(app).GetValue(remoteDefault[1].key).StringValue == "0" ? false : true;

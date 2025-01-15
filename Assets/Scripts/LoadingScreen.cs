@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using GoogleMobileAds.Sample;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,7 +43,8 @@ public class LoadingScreen : MonoBehaviour
         loadingScreen.SetActive(true);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         operation.allowSceneActivation = false;
-
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.StopSound();
         float fakeProgress = 0f;
 
         while (!operation.isDone)
@@ -64,12 +66,18 @@ public class LoadingScreen : MonoBehaviour
             if (realProgress >= 0.9f && fakeProgress >= 1f)
             {
                 yield return new WaitForSeconds(0.5f);
+                // Chờ App Open Ad sẵn sàng
+                while (!AppOpenAdController.instance.IsAppOpenAdAvailable)
+                {
+                    Debug.Log("Waiting for App Open Ad to be ready...");
+                    yield return null; // Đợi cho đến khi quảng cáo sẵn sàng
+                }
                 operation.allowSceneActivation = true;
             }
 
             yield return null;
         }
-
+        AudioManager.Instance.LoadVolumeSettings();
         loadingScreen.SetActive(false);
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator; 
-    private List<string> animationName = new List<string>();
+    public List<string> animationName = new List<string>();
     public float dragThreshold = 500f; 
     private Vector3 startDragPosition;
     private bool isDragging = false;
@@ -38,18 +38,22 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.player = gameObject.transform;
         EndGame.Instance.Player = gameObject;
+        animationName = animatorController.animationName;
     }
     private void Start()
     {
         AnimationFrameChecker.Instance.playerAnimator = animator;
         NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.enabled = true;
-        animationName = animatorController.animationName;
         animIndex = GameManager.Instance.animIndex;
         animator.Play(animationName[animIndex]);
-
     }
 
+    public void LoadAnim()
+    {
+        animIndex = GameManager.Instance.animIndex;
+        animator.Play(animationName[animIndex]);
+    }   
 
     public void LoadScore()
     {
@@ -60,6 +64,9 @@ public class PlayerController : MonoBehaviour
         trapScorePerObject = setObjectInLevel.trapScorePerObject;
         badFoodPenaltyPerObject = setObjectInLevel.badFoodPenaltyPerObject;
         notMatchingPenaltyPerObject = setObjectInLevel.notMatchingPenaltyPerObject;
+
+        Debug.Log("Bot: " + botScorePerObject);
+        Debug.Log("Trap: " + trapScorePerObject);
     }
 
     void Update()
@@ -154,6 +161,7 @@ public class PlayerController : MonoBehaviour
         {
             float currentTime = Time.time;
             stage = other;
+            Handheld.Vibrate();
             //show ads inter
             AdsController.instance.ShowInter();
             // Kiểm tra xem đã đủ 25 giây kể từ lần gọi ShowCotinue trước đó chưa

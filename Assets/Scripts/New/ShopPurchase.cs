@@ -12,7 +12,7 @@ namespace Samples.Purchasing.Core.BuyingConsumables
 
         //Your products IDs. They should match the ids of your products in your store.
         //string diamondProductId1 = "com.DefaultCompany.YogaWorkout.4D";
-        string removeAdsProductId = "com.DefaultCompany.YogaWorkout.removeAds";
+        string removeAdsProductId;
         //string diamondProductId2;
         //string diamondProductId3;
         //string diamondProductId4;
@@ -31,6 +31,7 @@ namespace Samples.Purchasing.Core.BuyingConsumables
             {
                 Destroy(gameObject);
             }
+            removeAdsProductId = Application.identifier + ".removeAds";
         }
 
         void Start()

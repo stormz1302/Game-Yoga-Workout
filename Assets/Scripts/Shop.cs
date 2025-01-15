@@ -26,6 +26,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private TMP_Text priceAdsText;
     [SerializeField] private TMP_Text AdsText;
     [SerializeField] private Image fieldAds;
+    [SerializeField] private GameObject effectSwitchSkin;
+    public string effectSwitchSkinName;
     int currentAdsPrice;
     public List<Character> Skins = new List<Character>();
     [HideInInspector] public int equipedSkinID;
@@ -33,7 +35,7 @@ public class Shop : MonoBehaviour
     public GameObject currentModel;
     private int currentSkinID;
     int currentClickedID = -1;
-    public float delayBeforeShow = 0.2f;
+    public float delayBeforeShow = 0.3f;
     int lastLevelBeforTrail = 0;
 
     public static Shop instance;
@@ -56,6 +58,7 @@ public class Shop : MonoBehaviour
         CheckTrailSkin(level);
         if (scene.name == "Home")
         {
+            effectSwitchSkin = GameObject.Find(effectSwitchSkinName);
             currentSkinID = -1;
             SpawnCharacter = GameObject.Find("CharacterSpwn").transform;
             if (Skins.Count != 0)
@@ -178,6 +181,7 @@ public class Shop : MonoBehaviour
                 Destroy(currentModel);
 
             Character skin = Skins[skinID];
+            if (CanvasLv1.Instance.shopOpening) effectSwitchSkin.GetComponent<ParticleSystem>().Play();
             foreach (Transform child in SpawnCharacter)
             {
                 Destroy(child.gameObject);
@@ -196,10 +200,10 @@ public class Shop : MonoBehaviour
     IEnumerator LoadPrefabModel(Character skin)
     {
         currentModel = Instantiate(skin.CharacterPrf, SpawnCharacter);
-        characterIcon.gameObject.SetActive(false);
+        currentModel.SetActive(false);
         yield return null;
         yield return new WaitForSeconds(delayBeforeShow);
-        characterIcon.gameObject.SetActive(true);
+        currentModel.SetActive(true);
     }
 
     private void checkOwnedSkin(int skinID)

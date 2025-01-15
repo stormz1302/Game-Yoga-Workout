@@ -96,9 +96,9 @@ namespace GoogleMobileAds.Sample
             ID_TIER2 = ID_TIER_2_Android;
             ID_TIER3 = ID_TIER_3_Android;
 #else
-            ID_TIER1 = ID_TIER_1_IOS;
-            ID_TIER2 = ID_TIER_2_IOS;
-            ID_TIER3 = ID_TIER_3_IOS;
+            //ID_TIER1 = ID_TIER_1_IOS;
+            //ID_TIER2 = ID_TIER_2_IOS;
+            //ID_TIER3 = ID_TIER_3_IOS;
 #endif
 
             MobileAds.Initialize((InitializationStatus initStatus) =>

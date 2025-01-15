@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "83381951222",
+    "project_id": "yoga-master-f95c5",
+    "storage_bucket": "yoga-master-f95c5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83381951222:android:4ee1e9f62fe08f24532ad7",
+        "android_client_info": {
+          "package_name": "com.yoga.workout.master"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-1nU6uKqX1WBiB4_vOsnQXoqg7DPfkSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

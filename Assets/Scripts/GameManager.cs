@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GoogleMobileAds.Sample;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int maxScore;
     public int maxObject;
     public MissionListSO MissionListSO;
+    public MissionListSO MissionListSOBegin;
     public BonusMission bonusMission;
     public List<GameObject> missions = new List<GameObject>();
     public Mission missionLevels ;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     bool levelBonus = false;
     public int bonusCount;
     public float bonusTime;
+    List<string> animName = new List<string>();
 
     [Header("Main")]
     public int money;
@@ -79,7 +82,8 @@ public class GameManager : MonoBehaviour
         if (money <= 100000)
             PlayerPrefs.SetInt("Money", 200000);
         //===================================================================================================
-
+        AdsController.instance.StartCoroutineBanner();
+        AppOpenAdController.instance.ShowAppOpenFirstLoadingFinish();
         animationFrameChecker = GetComponent<AnimationFrameChecker>();
         saveData = new SaveData();
         levelBonus = saveData.GetLevelBonus();
@@ -92,7 +96,7 @@ public class GameManager : MonoBehaviour
             saveData.LoadMoney();
             CanvasLv1.Instance.ReadyScreen();
             //UpdateScore(0);
-            
+            animName = FindObjectOfType<PlayerController>().animationName;
             LoadAnim();
             Ready();
         }
@@ -114,10 +118,12 @@ public class GameManager : MonoBehaviour
         character.transform.SetSiblingIndex(0);
         characterTrf = character.transform.position;
         characterRot = character.transform.rotation;
-        character.transform.position = player.position;
-        character.transform.rotation = Quaternion.Euler(0, 180, 0);
+        character.GetComponent<Animator>().Play(animName[animIndex],0);
+        //character.transform.position = player.position;
+        //character.transform.rotation = Quaternion.Euler(0, 0, 0);
+
     }
-    private void SetBlendShape(float value)
+    public void SetBlendShape(float value)
     {
         if (body != null) body.SetBlendShapeWeight(0, value);
         if (dress != null) dress.SetBlendShapeWeight(0, value);
@@ -129,34 +135,45 @@ public class GameManager : MonoBehaviour
     private void LoadAnim()
     {
         animIndex = Level;
+        int level = Level + 1;
         if (!levelBonus)
         {
-            if (Level <= 6)
+            if (level <= 5)
             {
                 SetDifficultyLevel(DifficultyLevel.Beginner);
-                Debug.Log("Beginner");
+                missions = MissionListSOBegin.missionLevels[animIndex].missionsHome;
+                LoadBG.Instance.LoadMap(0);
             }
-            else if (6 < Level && Level <= 15)
+            else if (5 < level && level <= 15)
             {
                 SetDifficultyLevel(DifficultyLevel.Novice);
+                missions = missionLevels.missionsIce;
+                LoadBG.Instance.LoadMap(1);
             }
-            else if (15 < Level && Level <= 25)
+            else if (15 < level && level <= 25)
             {
                 SetDifficultyLevel(DifficultyLevel.Intermediate);
+                missions = missionLevels.missionsHLW;
+                LoadBG.Instance.LoadMap(2);
             }
-            else if (25 < Level && Level <= 40)
+            else if (25 < level && level <= 35)
             {
                 SetDifficultyLevel(DifficultyLevel.Advanced);
+                missions = missionLevels.missionsJapan;
+                LoadBG.Instance.LoadMap(3);
             }
-            else if (40 < Level && Level <= 60)
+            else if (35 < level && level <= 45)
             {
                 SetDifficultyLevel(DifficultyLevel.Expert);
+                missions = missionLevels.missionsHome;
+                LoadBG.Instance.LoadMap(0);
             }
-            else if (60 < Level)
+            else if (45 < level)
             {
                 SetDifficultyLevel(DifficultyLevel.Master);
+                missions = RandomMissions();
+                LoadBG.Instance.LoadMap(4);
             }
-            missions = missionLevels.missions;
         }
         else
         {
@@ -170,11 +187,30 @@ public class GameManager : MonoBehaviour
 
     private void SetDifficultyLevel(DifficultyLevel difficultyLevel)
     {
-        animIndex = Random.Range(0, 6);
+        animIndex = Random.Range(0, 5);
         if(difficultyLevel == DifficultyLevel.Beginner) animIndex = Level;
         missionLevels = MissionListSO.missionLevels[animIndex];
         missionLevels.SetDifficulty(difficultyLevel);
         maxObject = missionLevels.maxObject;
+        //missions = missionLevels.missions;
+    }
+
+    private List<GameObject> RandomMissions()
+    {
+        int type = Random.Range(0, 4);
+        switch (type)
+        {
+            case 0:
+                return missionLevels.missionsHome;
+            case 1:
+                return missionLevels.missionsIce;
+            case 2:
+                return missionLevels.missionsHLW;
+            case 3:
+                return missionLevels.missionsJapan;
+            default:
+                return missionLevels.missionsHome;
+        }
     }
 
     public void AddScore(bool good, int value)
@@ -241,6 +277,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadPlayScene()
     {
+        Time.timeScale = 1;
+        saveData.Save();
         LoadingScreen.Instance.LoadScene("Level01");
     }
 
@@ -255,12 +293,13 @@ public class GameManager : MonoBehaviour
     
     public void Ready()
     {
+        score = 0;
         LoadModelInPlay();
         CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
         if (cameraFollow != null)
         {
-            cameraFollow.OnCamera(0f, 1.3f, -2f);
-            cameraFollow.SetAim(0.5f, 0.3f);
+            cameraFollow.OnCamera(0f, 2.5f, -4f);
+            cameraFollow.SetAim(0.5f, 0.5f);
         }
         EndGame.enabled = true;
         animationFrameChecker.enabled = false;
@@ -273,13 +312,13 @@ public class GameManager : MonoBehaviour
         if (playerController != null)
         {
             Debug.Log("Ready");
-            playerController.animator.SetTrigger("idle");
-            playerController.enabled = false;
+            //playerController.LoadAnim();
             playerController.LoadScore();
+            playerController.enabled = false;
         }
         CanvasLv1.Instance.UpdateMoneyInPlay(bonusMoney);
         CanvasLv1.Instance.LoadLevelUI(levelBonus);
-        
+        CanvasLv1.Instance.UpdateLevel(Level, levelBonus);
     }
     public void StartGame()
     {
@@ -287,12 +326,7 @@ public class GameManager : MonoBehaviour
         if (scoreUI != null)
             scoreUI.SetMaxScore(maxScore);
         canDrag = true;
-        CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
-        if (cameraFollow != null)
-        {
-            cameraFollow.OnCamera(0f, 2.5f, -4f);
-            cameraFollow.SetAim(0.5f, 0.5f);
-        }
+        //SetBlendShape(currentBlendShapeValue);
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {
@@ -311,7 +345,6 @@ public class GameManager : MonoBehaviour
             currentBlendShapeValue = 0f;
             score = maxScore;
         }
-        SetBlendShape(currentBlendShapeValue);
     }
 
     public void home()
@@ -416,4 +449,6 @@ public class GameManager : MonoBehaviour
         }
         CanvasLv1.Instance.ShowContinuePop();
     }
+
+
 }

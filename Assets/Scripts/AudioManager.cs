@@ -65,6 +65,7 @@ public class AudioManager : MonoBehaviour
         // Load cài đặt âm lượng
         LoadVolumeSettings();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Application.targetFrameRate = -60;
     }
     private void OnDestroy()
     {
@@ -77,6 +78,16 @@ public class AudioManager : MonoBehaviour
     public void Start()
     {
         PlayMusic("Music");
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            // Giới hạn FPS, ví dụ: 90
+            Application.targetFrameRate = 90;
+        }
+        else
+        {
+            // Không giới hạn FPS trên các nền tảng khác
+            Application.targetFrameRate = -1;
+        }
     }
 
     // Phát nhạc nền
@@ -167,7 +178,7 @@ public class AudioManager : MonoBehaviour
         {
             float volume = PlayerPrefs.GetFloat(parameter, 0f);
             audioMixer.SetFloat(parameter, volume);
-            Debug.Log($"Tải cài đặt âm lượng {parameter}: {volume}");
+            //Debug.Log($"Tải cài đặt âm lượng {parameter}: {volume}");
         }
         audioSourceMusic.Play();
         audioSourceSounds.Play();

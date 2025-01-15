@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -58,7 +57,7 @@ public class CanvasLv1 : MonoBehaviour
     [SerializeField] private TMP_Text levelState;
     //[SerializeField] private Button nextLevel;
     //[SerializeField] private Button Ads;
-    [SerializeField] private Button homeButton;
+    [SerializeField] private TMP_Text buttonNextText;
 
     [Header("Ads Popup:")]
     [SerializeField] private GameObject adsPopup;
@@ -105,6 +104,7 @@ public class CanvasLv1 : MonoBehaviour
         endGamePopup.SetActive(false);
         CheckRemoveAds();
         StartCoroutine(FadeIn());
+        UpdateAudioUI();
     }
 
     public void LoadLevelUI(bool levelBonus)
@@ -120,6 +120,7 @@ public class CanvasLv1 : MonoBehaviour
         }
         else
         {
+            Debug.Log("Level: " + level);
             levelText.text = "Level " + (level + 1).ToString();
             rewardSlider.SetActive(true);
         }
@@ -196,6 +197,32 @@ public class CanvasLv1 : MonoBehaviour
                 isOnMusic = true;
                 AudioManager.Instance.SetVolume("Music", true);
             }
+        }
+    }
+
+    private void UpdateAudioUI()
+    {
+        isOnMusic = PlayerPrefs.GetFloat("Music", 0f) == 0f;
+        isOnSound = PlayerPrefs.GetFloat("Sounds", 0f) == 0f;
+        if (isOnMusic)
+        {
+            MusicButton.image.sprite = soundIcon[2];
+            musicButtonInPause.image.sprite = soundIcon[2];
+        }
+        else
+        {
+            MusicButton.image.sprite = soundIcon[3];
+            musicButtonInPause.image.sprite = soundIcon[3];
+        }
+        if (isOnSound)
+        {
+            SoundButton.image.sprite = soundIcon[0];
+            soundButtonInPause.image.sprite = soundIcon[0];
+        }
+        else
+        {
+            SoundButton.image.sprite = soundIcon[1];
+            soundButtonInPause.image.sprite = soundIcon[1];
         }
     }
 
@@ -335,10 +362,15 @@ public class CanvasLv1 : MonoBehaviour
     {
         AdsController.instance.ShowMrecBottomCenter();
         endGamePopup.SetActive(true);
-        if (isWin) levelState.text = "Level complete";
+        if (isWin)
+        {
+            levelState.text = "Level complete";
+            buttonNextText.text = "Next";
+        }
         else
         {
             levelState.text = "Level failed";
+            buttonNextText.text = "Retry";
             //nextLevel.gameObject.SetActive(false);
         }
         levelEndGameText.text = "Level " + (level + 1f).ToString();
@@ -394,6 +426,7 @@ public class CanvasLv1 : MonoBehaviour
 
     public void ShowAdsPopup()
     {
+        Time.timeScale = 0;
         adsPopup.SetActive(true);
         AdsController.instance.ShowMrecBottomCenter();
     }

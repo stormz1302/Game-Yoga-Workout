@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,31 +9,57 @@ public class ContinueOutLine : MonoBehaviour
     [SerializeField] Image OutLine;
     [SerializeField] float CooldownTime;
     [SerializeField] Button continueButton;
+    [SerializeField] GameObject skipButton;
     bool isContinue = false;
 
     private void Start()
     {
         isContinue = false;
-        StartCoroutine(StartCooldown());
         continueButton.onClick.AddListener(ContinueButtonClicked);
+        skipButton.GetComponent<Button>().onClick.AddListener(OnClickShipButton);
     }
+
+    private void OnEnable()
+    {
+        isContinue = false;
+        OutLine.fillAmount = 1f;
+        continueButton.gameObject.GetComponent<Animation>().Play();
+        Animator animator = skipButton.GetComponent<Animator>();
+        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+    }
+    private void Update()
+    {
+        bool isWatching = AdsController.instance.Showing_applovin_ads;
+        if (!isWatching)
+        {
+            Time.timeScale = 0;
+            StartCoroutine(StartCooldown());
+        }
+    }
+
     IEnumerator StartCooldown()
     {
-        float time = CooldownTime;
-        while (time > 0)
+        float startTime = Time.realtimeSinceStartup; 
+        float endTime = startTime + CooldownTime;  
+        OutLine.fillAmount = 1f;
+        while (Time.realtimeSinceStartup < endTime)
         {
+            // Nếu isContinue được kích hoạt, thoát khỏi coroutine
             if (isContinue)
             {
-                StopCoroutine(StartCooldown());
+                yield break; 
             }
-            time -= Time.unscaledDeltaTime;
-            OutLine.fillAmount = time / CooldownTime;
-            yield return null;
+            // Tính thời gian còn lại dựa trên thời gian thực
+            float remainingTime = endTime - Time.realtimeSinceStartup;
+            // Cập nhật UI hiển thị tiến trình cooldown
+            OutLine.fillAmount = remainingTime / CooldownTime;
+            yield return null; // Đợi frame tiếp theo
         }
-        Time.timeScale = 1;
+        Time.timeScale = 1; 
         GameManager.Instance.ShowPopupEndgame(false);
         gameObject.SetActive(false);
     }
+
 
     public void ContinueButtonClicked()
     {
@@ -44,5 +70,13 @@ public class ContinueOutLine : MonoBehaviour
             gameObject.SetActive(false);
             Time.timeScale = 1;
         }, "Continue-Game-After-Die");
+    }
+
+    private void OnClickShipButton()
+    {
+        isContinue = true;
+        gameObject.SetActive(false);
+        Time.timeScale = 1;
+        GameManager.Instance.ShowPopupEndgame(false);
     }
 }

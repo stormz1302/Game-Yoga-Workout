@@ -43,10 +43,16 @@ public class AchievementReward : MonoBehaviour
         level = GameManager.Instance.Level;
         Debug.Log("Level: " + level);
 
-        if (level <= 5) rewardInterval = 5;
-        else rewardInterval = 10;
-
-        rewardValue = (float)((level - 5) % rewardInterval) / rewardInterval;
+        if (level <= 5)
+        {
+            rewardInterval = 5;
+            rewardValue = (float)level / 5;
+        }
+        else
+        {
+            rewardInterval = 10;
+            rewardValue = (float)((level - 5) % rewardInterval) / rewardInterval;
+        }
 
         if (rewardValue == 0 && level != 0)
         {

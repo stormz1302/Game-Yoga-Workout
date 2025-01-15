@@ -118,4 +118,9 @@ public class SkinsManager : MonoBehaviour
     {
         return isTrialAcitve;
     }
+
+    void OnApplicationQuit()
+    {
+        EndTrial();
+    }
 }

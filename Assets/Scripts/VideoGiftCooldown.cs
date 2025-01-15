@@ -12,14 +12,13 @@ public class VideoGiftCooldown : MonoBehaviour
     private const int MaxDailyUsage = 3; // Số lần sử dụng tối đa mỗi ngày
     private const int DailyResetHour = 0; // Giờ reset (0h mỗi ngày)
     private const int CooldownTimePerUse = 300; // Cooldown 5 phút mỗi lần sử dụng
-    private int coolDownTime;
     [SerializeField] TMP_Text timeText;
 
     void Start()
     {
         LoadState();
 
-        // Nếu cooldown vẫn đang hoạt động
+        // Kiểm tra trạng thái cooldown
         if (isCooldownActive)
         {
             UpdateCooldownState();
@@ -27,7 +26,7 @@ public class VideoGiftCooldown : MonoBehaviour
             if (buttonCoolDown != null)
             {
                 int cooldownDuration = (int)(cooldownEndTime - DateTime.Now).TotalSeconds;
-                buttonCoolDown.StartCooldown(videoGitsbutton, cooldownDuration, coolDownTime);
+                buttonCoolDown.StartCooldown(videoGitsbutton, cooldownDuration, CooldownTimePerUse);
             }
         }
 
@@ -36,100 +35,100 @@ public class VideoGiftCooldown : MonoBehaviour
 
     void Update()
     {
+        // Cập nhật trạng thái cooldown
         if (isCooldownActive)
         {
             TimeSpan remainingTime = cooldownEndTime - DateTime.Now;
 
-            // Kiểm tra nếu cooldown đã kết thúc
             if (remainingTime <= TimeSpan.Zero)
             {
-                ResetCooldown();
+                // Cooldown đã kết thúc nhưng không reset Timer
+                isCooldownActive = false;
                 videoGitsbutton.gameObject.GetComponent<Animation>().Play();
-            }
-            else
-            {
-                videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
-                
+                SaveState();
             }
         }
+
+        // Cập nhật nếu qua ngày mới (reset vào 0h hôm sau)
+        if (DateTime.Now >= GetNextDailyResetTime())
+        {
+            ResetDailyUsage();
+        }
+
+        UpdateUI();
     }
 
     public void SetCoolDownTime()
     {
+        // Khi nhấn nút, đặt thời gian cooldown
         videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
+        if (Timer < MaxDailyUsage)
+        {
+            cooldownEndTime = DateTime.Now.AddSeconds(CooldownTimePerUse);
+            Timer++;
+            isCooldownActive = true;
+            SaveState();
 
-        if (Timer < MaxDailyUsage - 1)
-        {
-            cooldownEndTime = DateTime.Now.AddSeconds(CooldownTimePerUse); // Cooldown 5 phút cho mỗi lần sử dụng
-        }
-        else
-        {
-            cooldownEndTime = GetNextDailyResetTime(); // Cooldown đến ngày mới
-        }
-        Timer++;
-        isCooldownActive = true;
-        SaveState();
-        UpdateUI();
-
-        // Gọi hàm để bắt đầu cooldown (nếu cần)
-        ButtonCoolDown buttonCoolDown = FindObjectOfType<ButtonCoolDown>();
-        if (buttonCoolDown != null)
-        {
-            int cooldownDuration = (int)(cooldownEndTime - DateTime.Now).TotalSeconds;
-            coolDownTime = cooldownDuration;
-            buttonCoolDown.StartCooldown(videoGitsbutton, cooldownDuration, cooldownDuration);
+            // Gọi hàm để bắt đầu cooldown
+            ButtonCoolDown buttonCoolDown = FindObjectOfType<ButtonCoolDown>();
+            if (buttonCoolDown != null)
+            {
+                int cooldownDuration = (int)(cooldownEndTime - DateTime.Now).TotalSeconds;
+                buttonCoolDown.StartCooldown(videoGitsbutton, cooldownDuration, CooldownTimePerUse);
+            }
         }
     }
 
-    private void ResetCooldown()
+    private void ResetDailyUsage()
     {
-        isCooldownActive = false;
+        // Reset số lần sử dụng vào lúc 0h ngày mới
         Timer = 0;
-        cooldownEndTime = DateTime.MinValue; // Đặt lại thời gian cooldown
+        isCooldownActive = false;
+        cooldownEndTime = DateTime.MinValue;
         SaveState();
-        UpdateUI();
-    }
-
-    private void UpdateCooldownState()
-    {
-        // Nếu đã qua ngày mới, reset số lần sử dụng
-        if (DateTime.Now.Date > cooldownEndTime.Date)
-        {
-            ResetCooldown();
-        }
-        else if (DateTime.Now >= cooldownEndTime)
-        {
-            isCooldownActive = false;
-        }
     }
 
     private DateTime GetNextDailyResetTime()
     {
-        // Tính thời gian reset vào 0h ngày hôm sau
+        // Trả về thời điểm reset tiếp theo (0h hôm sau)
         DateTime nextReset = DateTime.Now.Date.AddDays(1).AddHours(DailyResetHour);
         return nextReset;
+    }
+
+    private void UpdateCooldownState()
+    {
+        // Nếu cooldown vẫn hoạt động
+        if (DateTime.Now >= cooldownEndTime)
+        {
+            isCooldownActive = false;
+        }
+
+        // Nếu qua ngày mới, reset vào 0h hôm sau
+        if (DateTime.Now >= GetNextDailyResetTime())
+        {
+            ResetDailyUsage();
+        }
     }
 
     private void SaveState()
     {
         PlayerPrefs.SetInt("TimerVideoAds", Timer);
         PlayerPrefs.SetString("VideoGiftCooldownEndTime", cooldownEndTime.ToString());
-        PlayerPrefs.SetInt("CoolDownTime", coolDownTime);
         PlayerPrefs.Save();
     }
 
     private void LoadState()
     {
         Timer = PlayerPrefs.GetInt("TimerVideoAds", 0);
-        coolDownTime = PlayerPrefs.GetInt("CoolDownTime", 0);
+
         if (PlayerPrefs.HasKey("VideoGiftCooldownEndTime"))
         {
             cooldownEndTime = DateTime.Parse(PlayerPrefs.GetString("VideoGiftCooldownEndTime"));
 
-            // Nếu qua ngày mới, reset
-            if (DateTime.Now.Date > cooldownEndTime.Date)
+            // Nếu đã qua ngày mới, reset vào 0h hôm sau
+            if (DateTime.Now >= GetNextDailyResetTime())
             {
-                ResetCooldown();
+                ResetDailyUsage();
             }
             else
             {
@@ -146,6 +145,6 @@ public class VideoGiftCooldown : MonoBehaviour
     private void UpdateUI()
     {
         timeText.text = $"{MaxDailyUsage - Timer}/{MaxDailyUsage}";
-        videoGitsbutton.interactable = !isCooldownActive || Timer < MaxDailyUsage;
+        videoGitsbutton.interactable = !isCooldownActive && Timer < MaxDailyUsage;
     }
 }

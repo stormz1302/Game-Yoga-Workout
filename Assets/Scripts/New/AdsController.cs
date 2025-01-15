@@ -24,7 +24,7 @@ public class AdsController : MonoBehaviour
     public string interIdIOS;
     public string videoIdIOS;
     public string mrecIdIOS;
-
+    
 
     string bannerId;
     string interId;
@@ -65,7 +65,7 @@ public class AdsController : MonoBehaviour
          
 #endif
             Init();
-            Invoke("ShowBanner", 2f);
+            StartCoroutine(ShowBannerInLoad());
         }
     }
     private void Awake()
@@ -197,7 +197,7 @@ public class AdsController : MonoBehaviour
             // Set background or background color for banners to be fully functional
             MaxSdk.SetBannerBackgroundColor(bannerId, colorBanner);
 #endif
-        MaxSdk.SetBannerWidth(bannerId, 750);
+        //MaxSdk.SetBannerWidth(bannerId, 750);
     }
 
     private void Banner_OnAdLoadedEvent(string arg1, MaxSdkBase.AdInfo arg2)
@@ -232,6 +232,17 @@ public class AdsController : MonoBehaviour
         }
 
     }
+    public void StartCoroutineBanner()
+    {
+        StartCoroutine(ShowBannerInLoad());
+    }
+    IEnumerator ShowBannerInLoad(){
+        while (!bannerOK)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        ShowBanner();
+    }
     public void HideBanner()
     {
         Debug.Log("=== hide banner");
@@ -264,7 +275,7 @@ public class AdsController : MonoBehaviour
 
     private void Interstitial_OnAdLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo)
     {
-        Debug.LogError($"Quảng cáo interstitial tải không thành công. Lỗi: {errorInfo.Message}");
+        Debug.Log($"Quảng cáo interstitial tải không thành công. Lỗi: {errorInfo.Message}");
 
         // Cơ chế thử lại: Yêu cầu tải lại quảng cáo sau 5 giây
         Invoke(nameof(RequestInter), 5f);
@@ -285,7 +296,7 @@ public class AdsController : MonoBehaviour
         audioManager.StopSound();
         Time.timeScale = 0;
 
-        Debug.LogError("Quảng cáo interstitial đã được hiển thị.");
+        Debug.Log("Quảng cáo interstitial đã được hiển thị.");
     }
 
     private void Interstitial_OnAdHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
@@ -297,7 +308,7 @@ public class AdsController : MonoBehaviour
         DataParam.beginShowInter = System.DateTime.Now;
         Showing_applovin_ads = false;
 
-        Debug.LogError("Quảng cáo interstitial đã đóng.");
+        Debug.Log("Quảng cáo interstitial đã đóng.");
     }
 
     private void Interstitial_OnAdClickedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
@@ -308,7 +319,7 @@ public class AdsController : MonoBehaviour
 
     private void Interstitial_OnAdDisplayFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo, MaxSdkBase.AdInfo adInfo)
     {
-        Debug.LogError($"Quảng cáo interstitial không thể hiển thị. Lỗi: {errorInfo.Message}");
+        Debug.Log($"Quảng cáo interstitial không thể hiển thị. Lỗi: {errorInfo.Message}");
         // Bạn có thể xử lý lại hoặc thêm logic dự phòng ở đây
     }
 
@@ -353,6 +364,7 @@ public class AdsController : MonoBehaviour
         if ((DataParam.lastShowInter - DataParam.beginShowInter).TotalSeconds > DataParam.timeDelayShowAds)
         {
             CheckToShowInter();
+            AudioManager.Instance.PlaySound("ShowAds");
         }
         else
         {
@@ -440,6 +452,7 @@ public class AdsController : MonoBehaviour
     {
         if (MaxSdk.IsRewardedAdReady(videoId))
         {
+            AudioManager.Instance.PlaySound("ShowAds");
             acreward = _ac;
             doneWatchAds = false;
             nameEventVideo = name;
