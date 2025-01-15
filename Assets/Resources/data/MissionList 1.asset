@@ -26,13 +26,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488788, guid: 6d76b0e9ce3a457c801f92b6c8739e07, type: 3}
     - {fileID: 1791595112245488815, guid: 42196b8cd79c4599bff1e805f73a5220, type: 3}
     - {fileID: 1791595112245488757, guid: 695032197a2441889ff81d7181948671, type: 3}
-    - {fileID: 1791595112245488770, guid: d5aa92d5def44487b7481c514a948f59, type: 3}
-    - {fileID: 1791595112245488721, guid: 8448a2b2344e4aa989087b2afec5ee92, type: 3}
-    - {fileID: 1791595112245488779, guid: baa77500801d43a0933dc75379681dc2, type: 3}
-    - {fileID: 1791595112245488681, guid: a27ac0b4824144e38ec92a74a4a917ca, type: 3}
-    - {fileID: 1791595112245488793, guid: 0d2a0d5ce26f4d528ff8bb089fe88161, type: 3}
-    - {fileID: 1791595112245488711, guid: afca560ab5c84834a24d22a9a3d09a8f, type: 3}
-    - {fileID: 1791595112245488783, guid: d69d35fd692547ebab087e37de2989eb, type: 3}
     missionsIce:
     - {fileID: 1791595112245488780, guid: 40f5e4ed41164663b40e3e1a81349f82, type: 3}
     - {fileID: 1791595112245488731, guid: 782fcae9dbf34669822229612883a859, type: 3}
@@ -102,7 +95,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488690, guid: d6c6b693595243018239fb205f9876ba, type: 3}
     - {fileID: 1791595112245488732, guid: fc3e91da4f2d44d3837bf9a257961852, type: 3}
     - {fileID: 1791595112245488754, guid: e14e2ccbe26949d6b258e6af86e46dd3, type: 3}
-    - {fileID: 1791595112245488737, guid: 3801b90b3c4d4e4b8a0abda620cfe6b6, type: 3}
     - {fileID: 1791595112245488794, guid: 5e6e3ba9007a4a26a3c324127eecc05a, type: 3}
     - {fileID: 1791595112245488736, guid: 137e247cb95a49a48ee22dbe8d723060, type: 3}
     - {fileID: 1791595112245488795, guid: 9a2ce15c7ac448df9086d591fdfc9961, type: 3}
@@ -114,7 +106,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488709, guid: cf28f1937da84ada87fe65f75db35949, type: 3}
     - {fileID: 1791595112245488718, guid: 2f1dad8800634006be36a9d41b16e197, type: 3}
     - {fileID: 1791595112245488714, guid: 0b3e2d2aee2746e498c874c4c86d5895, type: 3}
-    - {fileID: 1791595112245488815, guid: 42196b8cd79c4599bff1e805f73a5220, type: 3}
     - {fileID: 1791595112245488757, guid: 695032197a2441889ff81d7181948671, type: 3}
     missionsIce:
     - {fileID: 1791595112245488780, guid: 40f5e4ed41164663b40e3e1a81349f82, type: 3}
@@ -155,9 +146,7 @@ MonoBehaviour:
     - {fileID: 1791595112245488775, guid: 05bd38f136654d5e89ab548a2b20d86b, type: 3}
     - {fileID: 1791595112245488772, guid: c6378c2a047b45589042a3951c6c1e95, type: 3}
     missionsJapan:
-    - {fileID: 1791595112245488782, guid: b0cf5d2b675f498e83851b96b4c87b7b, type: 3}
     - {fileID: 1791595112245488680, guid: b2e17707a3b7404bbb0e7a1065dff2bf, type: 3}
-    - {fileID: 1791595112245488782, guid: b0cf5d2b675f498e83851b96b4c87b7b, type: 3}
     - {fileID: 1791595112245488692, guid: d8c2f0739ae84aeeadd7bda345727daf, type: 3}
     - {fileID: 1791595112245488760, guid: 6b3e5d1665464ef5b3f885784528b457, type: 3}
     - {fileID: 1791595112245488817, guid: 66d3e2669d644c0db3c22d9e69c5d203, type: 3}
@@ -169,6 +158,7 @@ MonoBehaviour:
     - {fileID: 1791595112245488814, guid: b8cc4a0005444d1a95cce9cce371917d, type: 3}
     - {fileID: 1791595112245488667, guid: 6c2d4eaec7664f63a8ab8f401ed5f686, type: 3}
     - {fileID: 1791595112245488738, guid: c9661965eda34dc39243638d51fae8a1, type: 3}
+    - {fileID: 1791595112245488746, guid: 503f5be910b149a98844c63aaa160ac1, type: 3}
     maxObject: 10
     ratioCountBot: 0.2
     ratioCountGoodFood: 0.25
@@ -185,10 +175,8 @@ MonoBehaviour:
     - {fileID: 1791595112245488690, guid: d6c6b693595243018239fb205f9876ba, type: 3}
     - {fileID: 1791595112245488732, guid: fc3e91da4f2d44d3837bf9a257961852, type: 3}
     - {fileID: 1791595112245488666, guid: 9e2f10f7146847d4b6cceb6ee104031b, type: 3}
-    - {fileID: 1791595112245488737, guid: 3801b90b3c4d4e4b8a0abda620cfe6b6, type: 3}
     - {fileID: 1791595112245488794, guid: 5e6e3ba9007a4a26a3c324127eecc05a, type: 3}
     - {fileID: 1791595112245488736, guid: 137e247cb95a49a48ee22dbe8d723060, type: 3}
-    - {fileID: 1791595112245488747, guid: c61377b886344bfd812e2ba0908d83e8, type: 3}
     - {fileID: 1791595112245488795, guid: 9a2ce15c7ac448df9086d591fdfc9961, type: 3}
     - {fileID: 1791595112245488776, guid: 932d890ca33f43b1ad176f7cf4f3df61, type: 3}
     - {fileID: 1791595112245488677, guid: b98bfacea2a442c5b124a4949f14b78a, type: 3}
@@ -197,7 +185,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488788, guid: 6d76b0e9ce3a457c801f92b6c8739e07, type: 3}
     - {fileID: 1791595112245488709, guid: cf28f1937da84ada87fe65f75db35949, type: 3}
     - {fileID: 1791595112245488815, guid: 42196b8cd79c4599bff1e805f73a5220, type: 3}
-    - {fileID: 1791595112245488785, guid: b7c2fdeba5cc43ee8847b7dd2a8f5d26, type: 3}
     - {fileID: 1791595112245488759, guid: 8a1f09d8446443048583aafdc2edf7d7, type: 3}
     - {fileID: 1791595112245488691, guid: dda32480718f49b39e234aeef9380765, type: 3}
     missionsIce:
@@ -397,7 +384,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488690, guid: d6c6b693595243018239fb205f9876ba, type: 3}
     - {fileID: 1791595112245488732, guid: fc3e91da4f2d44d3837bf9a257961852, type: 3}
     - {fileID: 1791595112245488666, guid: 9e2f10f7146847d4b6cceb6ee104031b, type: 3}
-    - {fileID: 1791595112245488754, guid: e14e2ccbe26949d6b258e6af86e46dd3, type: 3}
     - {fileID: 1791595112245488737, guid: 3801b90b3c4d4e4b8a0abda620cfe6b6, type: 3}
     - {fileID: 1791595112245488736, guid: 137e247cb95a49a48ee22dbe8d723060, type: 3}
     - {fileID: 1791595112245488747, guid: c61377b886344bfd812e2ba0908d83e8, type: 3}
@@ -445,7 +431,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488682, guid: b25eae53591c43d2b8332eec97a4d750, type: 3}
     - {fileID: 1791595112245488735, guid: b666bbfffc1b47ec848b3ef4f7c9e5d8, type: 3}
     - {fileID: 1791595112245488801, guid: c9fdabde0f9d458c93f2a49681b3e563, type: 3}
-    - {fileID: 1791595112245488687, guid: 4974fe47c16249beb9285a3cccdcc874, type: 3}
     - {fileID: 1791595112245488807, guid: ca2c1f93709747c7b42f90455546814f, type: 3}
     - {fileID: 1791595112245488751, guid: 47ba897efcdd41d18a6d1e2f0da41486, type: 3}
     - {fileID: 1791595112245488808, guid: 37e7a9debd5f4edd8925dc738ec76205, type: 3}

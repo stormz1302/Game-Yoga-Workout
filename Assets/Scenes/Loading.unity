@@ -944,7 +944,7 @@ MonoBehaviour:
   - name: GoodEffect
     clip: {fileID: 8300000, guid: 5a0d417f4dc913a419405dea0946ecd5, type: 3}
   - name: MoneyPickup
-    clip: {fileID: 8300000, guid: 50468f1abb12a0e47a1ef400bb602171, type: 3}
+    clip: {fileID: 8300000, guid: 6fb6e5d9e78f36448971c2405843566e, type: 3}
   - name: Transform
     clip: {fileID: 8300000, guid: 23a16c609d3969e48bd85e5789087c5b, type: 3}
   - name: MenuOpen
@@ -956,7 +956,7 @@ MonoBehaviour:
   - name: BadEffect
     clip: {fileID: 8300000, guid: 4aa5019ac4498d2449da234af27bfdbf, type: 3}
   - name: SwicthSkin
-    clip: {fileID: 8300000, guid: af1856b26a35423ca397ac71a93b8d5a, type: 3}
+    clip: {fileID: 8300000, guid: e07299d3f5615a642a90d0cf192508ff, type: 3}
   - name: BuySkin
     clip: {fileID: 8300000, guid: 4875d9ba501c7c942977d3ec473bafd3, type: 3}
   - name: Kick
@@ -971,9 +971,17 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c2706f247ae04fc4a8674076f36806a7, type: 3}
   - name: ShowAds
     clip: {fileID: 8300000, guid: 30a301468bbf38d4da2b915763ecc958, type: 3}
+  - name: Level-pass
+    clip: {fileID: 8300000, guid: 90064bad7839dc04eb1d02e000da5f00, type: 3}
   musicTracks:
   - name: Music
     clip: {fileID: 8300000, guid: 6a035bf8e24484fa4b7c94d1347d999c, type: 3}
+  - name: Music-1
+    clip: {fileID: 8300000, guid: 7dc37b5e64b1ca043baeb27369c6d134, type: 3}
+  - name: Music-2
+    clip: {fileID: 8300000, guid: 383136630830a374bbc57de3af558784, type: 3}
+  - name: Music-3
+    clip: {fileID: 8300000, guid: 51751767922d211429a8abea38842426, type: 3}
   audioSourceMusic: {fileID: 1577447622}
   audioSourceSounds: {fileID: 1102530275}
   audioOb: {fileID: 1188910384497142593, guid: 8793e553b78a9e4419c7f57a7aacb5ce, type: 3}

@@ -9506,6 +9506,7 @@ MonoBehaviour:
   canDrag: 0
   combo: 0
   comboList: 03000000060000000a0000000f00000014000000
+  setIndex: 2
 --- !u!114 &918577831
 MonoBehaviour:
   m_ObjectHideFlags: 0

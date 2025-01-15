@@ -18943,7 +18943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   animationName: []
-  dragThreshold: 450
+  dragThreshold: 430
   hitMoneyEfect: {fileID: 1856541233}
   foodClean: {fileID: 643580148}
   GoodEfect: {fileID: 123216531}

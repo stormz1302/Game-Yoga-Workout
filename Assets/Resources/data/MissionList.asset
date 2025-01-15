@@ -33,7 +33,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488793, guid: 0d2a0d5ce26f4d528ff8bb089fe88161, type: 3}
     - {fileID: 1791595112245488711, guid: afca560ab5c84834a24d22a9a3d09a8f, type: 3}
     - {fileID: 1791595112245488783, guid: d69d35fd692547ebab087e37de2989eb, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -42,11 +41,8 @@ MonoBehaviour:
     - {fileID: 1791595112245488780, guid: 40f5e4ed41164663b40e3e1a81349f82, type: 3}
     - {fileID: 1791595112245488731, guid: 782fcae9dbf34669822229612883a859, type: 3}
     - {fileID: 1791595112245488771, guid: ec43cf4a1c9348c9b8043c344b54d726, type: 3}
-    - {fileID: 1791595112245488774, guid: 6c506c14b79845f9997b483fc249a83c, type: 3}
-    - {fileID: 1791595112245488769, guid: 722dafb977214ddbb5e9f9a32cf06e6a, type: 3}
     - {fileID: 1791595112245488764, guid: 0e2e95d6717a480687c6cdba3f586c0e, type: 3}
     - {fileID: 1791595112245488673, guid: 49812cdca44a4c94bf6c5f9b9fb15ef8, type: 3}
-    - {fileID: 1791595112245488703, guid: dfbef2ee3d08490b844496f7323385ea, type: 3}
     - {fileID: 1791595112245488710, guid: ac88cb2c80094144840dc5f047c1fc3b, type: 3}
     - {fileID: 1791595112245488728, guid: 4da54a478d0046fdb4c9a962c2a46cdd, type: 3}
     - {fileID: 1791595112245488702, guid: ec85eccbef3a4a929e140e7c14f2217b, type: 3}
@@ -58,7 +54,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488722, guid: 7801332be6fd4f97af6b571a54ba94b0, type: 3}
     - {fileID: 1791595112245488809, guid: 0be252e99d3b47c4bca95e411062dd50, type: 3}
     - {fileID: 1791595112245488748, guid: 96d49aeadb974f6ea12530f09ccfe095, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -78,11 +73,9 @@ MonoBehaviour:
     - {fileID: 1791595112245488713, guid: 39326c69fac24f67bd128072c87ac5d1, type: 3}
     - {fileID: 1791595112245488689, guid: 69fce48e6ee146d68c247e435063fbec, type: 3}
     - {fileID: 1791595112245488768, guid: 02684a38641840b7b055d6fdaf35e044, type: 3}
-    - {fileID: 1791595112245488767, guid: 27a76cfc16874892afa1961711f3e2de, type: 3}
     - {fileID: 1791595112245488775, guid: 05bd38f136654d5e89ab548a2b20d86b, type: 3}
     - {fileID: 1791595112245488772, guid: c6378c2a047b45589042a3951c6c1e95, type: 3}
     - {fileID: 1791595112245488802, guid: 8843e12ea0df4725bc9ed04f4fccb1a0, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -101,22 +94,21 @@ MonoBehaviour:
     - {fileID: 1791595112245488814, guid: b8cc4a0005444d1a95cce9cce371917d, type: 3}
     - {fileID: 1791595112245488667, guid: 6c2d4eaec7664f63a8ab8f401ed5f686, type: 3}
     - {fileID: 1791595112245488738, guid: c9661965eda34dc39243638d51fae8a1, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
     - {fileID: 503503964738263284, guid: de6ab3988a2ea66468ccbcd560963afd, type: 3}
-    maxObject: 15
-    ratioCountBot: 0.2
+    maxObject: 30
+    ratioCountBot: 0.3
     ratioCountGoodFood: 0
     ratioCountBadFood: 0
-    ratioCountTrap: 0.8
-    MAX_BOT_SCORE: 0.4
+    ratioCountTrap: 0.7
+    MAX_BOT_SCORE: 0.3
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
     MAX_BAD_FOOD_PENALTY: 0.25
-    MAX_TRAP_SCORE: 0.6
-    totalTimer: 25
+    MAX_TRAP_SCORE: 0.8
+    totalTimer: 45
     variation: 0.25
   - missionsHome:
     - {fileID: 1791595112245488690, guid: d6c6b693595243018239fb205f9876ba, type: 3}
@@ -136,7 +128,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488714, guid: 0b3e2d2aee2746e498c874c4c86d5895, type: 3}
     - {fileID: 1791595112245488815, guid: 42196b8cd79c4599bff1e805f73a5220, type: 3}
     - {fileID: 1791595112245488757, guid: 695032197a2441889ff81d7181948671, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -161,7 +152,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488684, guid: d9cf16bbf0f5458db4a197fa2c703c06, type: 3}
     - {fileID: 1791595112245488722, guid: 7801332be6fd4f97af6b571a54ba94b0, type: 3}
     - {fileID: 1791595112245488744, guid: 8c00594090ce4b7f94e41ebefe8cc258, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -184,15 +174,12 @@ MonoBehaviour:
     - {fileID: 1791595112245488768, guid: 02684a38641840b7b055d6fdaf35e044, type: 3}
     - {fileID: 1791595112245488775, guid: 05bd38f136654d5e89ab548a2b20d86b, type: 3}
     - {fileID: 1791595112245488772, guid: c6378c2a047b45589042a3951c6c1e95, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
     - {fileID: 503503964738263284, guid: de6ab3988a2ea66468ccbcd560963afd, type: 3}
     missionsJapan:
-    - {fileID: 1791595112245488782, guid: b0cf5d2b675f498e83851b96b4c87b7b, type: 3}
     - {fileID: 1791595112245488680, guid: b2e17707a3b7404bbb0e7a1065dff2bf, type: 3}
-    - {fileID: 1791595112245488782, guid: b0cf5d2b675f498e83851b96b4c87b7b, type: 3}
     - {fileID: 1791595112245488692, guid: d8c2f0739ae84aeeadd7bda345727daf, type: 3}
     - {fileID: 1791595112245488760, guid: 6b3e5d1665464ef5b3f885784528b457, type: 3}
     - {fileID: 1791595112245488817, guid: 66d3e2669d644c0db3c22d9e69c5d203, type: 3}
@@ -204,22 +191,21 @@ MonoBehaviour:
     - {fileID: 1791595112245488814, guid: b8cc4a0005444d1a95cce9cce371917d, type: 3}
     - {fileID: 1791595112245488667, guid: 6c2d4eaec7664f63a8ab8f401ed5f686, type: 3}
     - {fileID: 1791595112245488738, guid: c9661965eda34dc39243638d51fae8a1, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
     - {fileID: 503503964738263284, guid: de6ab3988a2ea66468ccbcd560963afd, type: 3}
-    maxObject: 10
-    ratioCountBot: 0.2
-    ratioCountGoodFood: 0.25
-    ratioCountBadFood: 0.2
-    ratioCountTrap: 0.4
-    MAX_BOT_SCORE: 0.4
+    maxObject: 30
+    ratioCountBot: 0.3
+    ratioCountGoodFood: 0
+    ratioCountBadFood: 0
+    ratioCountTrap: 0.7
+    MAX_BOT_SCORE: 0.3
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
     MAX_BAD_FOOD_PENALTY: 0.25
-    MAX_TRAP_SCORE: 0.6
-    totalTimer: 30
+    MAX_TRAP_SCORE: 0.8
+    totalTimer: 45
     variation: 0.25
   - missionsHome:
     - {fileID: 1791595112245488690, guid: d6c6b693595243018239fb205f9876ba, type: 3}
@@ -240,7 +226,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488785, guid: b7c2fdeba5cc43ee8847b7dd2a8f5d26, type: 3}
     - {fileID: 1791595112245488759, guid: 8a1f09d8446443048583aafdc2edf7d7, type: 3}
     - {fileID: 1791595112245488691, guid: dda32480718f49b39e234aeef9380765, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -265,7 +250,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488684, guid: d9cf16bbf0f5458db4a197fa2c703c06, type: 3}
     - {fileID: 1791595112245488744, guid: 8c00594090ce4b7f94e41ebefe8cc258, type: 3}
     - {fileID: 1791595112245488675, guid: 5579f87e3a9d455088b0b81e034e88b6, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -289,7 +273,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488772, guid: c6378c2a047b45589042a3951c6c1e95, type: 3}
     - {fileID: 1791595112245488768, guid: 02684a38641840b7b055d6fdaf35e044, type: 3}
     - {fileID: 1791595112245488775, guid: 05bd38f136654d5e89ab548a2b20d86b, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -314,22 +297,21 @@ MonoBehaviour:
     - {fileID: 1791595112245488814, guid: b8cc4a0005444d1a95cce9cce371917d, type: 3}
     - {fileID: 1791595112245488667, guid: 6c2d4eaec7664f63a8ab8f401ed5f686, type: 3}
     - {fileID: 1791595112245488665, guid: e90698964afa4784944f69e09d7e62c6, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
     - {fileID: 503503964738263284, guid: de6ab3988a2ea66468ccbcd560963afd, type: 3}
-    maxObject: 10
-    ratioCountBot: 0.2
-    ratioCountGoodFood: 0.25
-    ratioCountBadFood: 0.2
-    ratioCountTrap: 0.4
-    MAX_BOT_SCORE: 0.4
+    maxObject: 25
+    ratioCountBot: 0.3
+    ratioCountGoodFood: 0
+    ratioCountBadFood: 0
+    ratioCountTrap: 0.7
+    MAX_BOT_SCORE: 0.3
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
     MAX_BAD_FOOD_PENALTY: 0.25
-    MAX_TRAP_SCORE: 0.6
-    totalTimer: 30
+    MAX_TRAP_SCORE: 0.8
+    totalTimer: 38
     variation: 0.25
   - missionsHome:
     - {fileID: 1791595112245488690, guid: d6c6b693595243018239fb205f9876ba, type: 3}
@@ -352,7 +334,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488741, guid: 3248b2d299ff46b08a40ad2d7e09c142, type: 3}
     - {fileID: 1791595112245488759, guid: 8a1f09d8446443048583aafdc2edf7d7, type: 3}
     - {fileID: 1791595112245488691, guid: dda32480718f49b39e234aeef9380765, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -378,7 +359,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488787, guid: d4d9b5737ea949d19b4d95433dd4d2ad, type: 3}
     - {fileID: 1791595112245488684, guid: d9cf16bbf0f5458db4a197fa2c703c06, type: 3}
     - {fileID: 1791595112245488722, guid: 7801332be6fd4f97af6b571a54ba94b0, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -407,7 +387,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488772, guid: c6378c2a047b45589042a3951c6c1e95, type: 3}
     - {fileID: 1791595112245488802, guid: 8843e12ea0df4725bc9ed04f4fccb1a0, type: 3}
     - {fileID: 1791595112245488733, guid: b3231d6167914332a20c93cdc98fe8ba, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -431,22 +410,21 @@ MonoBehaviour:
     - {fileID: 1791595112245488667, guid: 6c2d4eaec7664f63a8ab8f401ed5f686, type: 3}
     - {fileID: 1791595112245488738, guid: c9661965eda34dc39243638d51fae8a1, type: 3}
     - {fileID: 1791595112245488665, guid: e90698964afa4784944f69e09d7e62c6, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
     - {fileID: 503503964738263284, guid: de6ab3988a2ea66468ccbcd560963afd, type: 3}
-    maxObject: 20
-    ratioCountBot: 0.15
-    ratioCountGoodFood: 0.25
-    ratioCountBadFood: 0.2
-    ratioCountTrap: 0.4
-    MAX_BOT_SCORE: 0.4
+    maxObject: 25
+    ratioCountBot: 0.3
+    ratioCountGoodFood: 0
+    ratioCountBadFood: 0
+    ratioCountTrap: 0.7
+    MAX_BOT_SCORE: 0.3
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
     MAX_BAD_FOOD_PENALTY: 0.25
-    MAX_TRAP_SCORE: 0.6
-    totalTimer: 30
+    MAX_TRAP_SCORE: 0.8
+    totalTimer: 38
     variation: 0.25
   - missionsHome:
     - {fileID: 1791595112245488690, guid: d6c6b693595243018239fb205f9876ba, type: 3}
@@ -469,7 +447,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488757, guid: 695032197a2441889ff81d7181948671, type: 3}
     - {fileID: 1791595112245488759, guid: 8a1f09d8446443048583aafdc2edf7d7, type: 3}
     - {fileID: 1791595112245488691, guid: dda32480718f49b39e234aeef9380765, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -496,7 +473,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488722, guid: 7801332be6fd4f97af6b571a54ba94b0, type: 3}
     - {fileID: 1791595112245488762, guid: bb697508605f4c0390f19a3aa9fa08ff, type: 3}
     - {fileID: 1791595112245488819, guid: c5cb375455094d1d9d9fa241c18bd6dd, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -523,7 +499,6 @@ MonoBehaviour:
     - {fileID: 1791595112245488768, guid: 02684a38641840b7b055d6fdaf35e044, type: 3}
     - {fileID: 1791595112245488767, guid: 27a76cfc16874892afa1961711f3e2de, type: 3}
     - {fileID: 1791595112245488772, guid: c6378c2a047b45589042a3951c6c1e95, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
@@ -548,20 +523,19 @@ MonoBehaviour:
     - {fileID: 1791595112245488667, guid: 6c2d4eaec7664f63a8ab8f401ed5f686, type: 3}
     - {fileID: 1791595112245488665, guid: e90698964afa4784944f69e09d7e62c6, type: 3}
     - {fileID: 1791595112245488738, guid: c9661965eda34dc39243638d51fae8a1, type: 3}
-    - {fileID: 2410937317486274390, guid: 790c54c5ee4b4e94395e2a9c611efa27, type: 3}
     - {fileID: 4031057579529970072, guid: 96c171505528a6c4a85c253f8269abbc, type: 3}
     - {fileID: 7790009363285690271, guid: e0fe4fa792598c04f9b0a790632abb01, type: 3}
     - {fileID: 2056559360000771119, guid: 80bee9b00cf8f254eb67cf9e3870d126, type: 3}
     - {fileID: 503503964738263284, guid: de6ab3988a2ea66468ccbcd560963afd, type: 3}
-    maxObject: 20
+    maxObject: 25
     ratioCountBot: 0.3
     ratioCountGoodFood: 0
     ratioCountBadFood: 0
     ratioCountTrap: 0.7
-    MAX_BOT_SCORE: 0.4
+    MAX_BOT_SCORE: 0.3
     MAX_NOT_MATCHING_BOT_SCORE: 0.3
     MAX_GOOD_FOOD_SCORE: 0.5
     MAX_BAD_FOOD_PENALTY: 0.25
-    MAX_TRAP_SCORE: 0.6
-    totalTimer: 30
+    MAX_TRAP_SCORE: 0.8
+    totalTimer: 38
     variation: 0.25

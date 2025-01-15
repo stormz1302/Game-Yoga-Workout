@@ -21,7 +21,7 @@ public class Mission
     public float MAX_NOT_MATCHING_BOT_SCORE = 0.3f;
     public float MAX_GOOD_FOOD_SCORE = 0.3f;
     public float MAX_BAD_FOOD_PENALTY = 0.25f;
-    public float MAX_TRAP_SCORE = 0.6f;
+    public float MAX_TRAP_SCORE = 0.8f;
     //public DifficultyLevel difficultyLevel;  // Độ khó của level
     
     [Header("Time Settings")]
@@ -34,12 +34,12 @@ public class Mission
         switch (difficultyLevel)
         {
             case DifficultyLevel.Beginner:
-                maxObject = 15;
-                totalTimer = 25;
-                ratioCountBot = 0.2f;       // 15% bots
+                maxObject = 10;
+                totalTimer = 20;
+                ratioCountBot = 0.3f;       // 15% bots
                 ratioCountGoodFood = 0f;  // 25% good food
                 ratioCountBadFood = 0f;   // 20% bad food
-                ratioCountTrap = 0.8f;     // 40% traps
+                ratioCountTrap = 0.7f;     // 40% traps
                 break;
 
             case DifficultyLevel.Novice:

@@ -39,7 +39,7 @@ public class VideoGiftCooldown : MonoBehaviour
         if (isCooldownActive)
         {
             TimeSpan remainingTime = cooldownEndTime - DateTime.Now;
-
+            videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
             if (remainingTime <= TimeSpan.Zero)
             {
                 // Cooldown đã kết thúc nhưng không reset Timer

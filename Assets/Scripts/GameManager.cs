@@ -184,10 +184,11 @@ public class GameManager : MonoBehaviour
         }
         
     }
-
+    public int setIndex;
     private void SetDifficultyLevel(DifficultyLevel difficultyLevel)
     {
-        animIndex = Random.Range(0, 5);
+        //animIndex = Random.Range(0, 5);
+        animIndex = setIndex;
         if(difficultyLevel == DifficultyLevel.Beginner) animIndex = Level;
         missionLevels = MissionListSO.missionLevels[animIndex];
         missionLevels.SetDifficulty(difficultyLevel);
