@@ -116,18 +116,19 @@ public class GameManager : MonoBehaviour
     private void SaveReward()
     {
         bool rewardReady;
+        rewardReady = PlayerPrefs.GetInt("RewardReady", 0) == 1;
         if (Level <= 5 && Level % 5 == 0 && Level != 0)
         {
             rewardReady = true;
         }
-        else if (Level > 5 && (Level -5) % 10 == 0)
+        if (Level > 5 && (Level -5) % 10 == 0)
         {
             rewardReady = true;
         }
-        else
-        {
-            rewardReady = false;
-        }
+        //else
+        //{
+        //    rewardReady = false;
+        //}
         PlayerPrefs.SetInt("RewardReady", rewardReady ? 1 : 0);
     }
 

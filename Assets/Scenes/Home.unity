@@ -26,12 +26,12 @@ RenderSettings:
   m_AmbientIntensity: 0.6
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 67950864b84c5db4f9eee7ca51c85571, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
-  m_SpotCookie: {fileID: 2800000, guid: b9d479250e7ac0547a32dc79c6ced1de, type: 3}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
@@ -3580,7 +3580,7 @@ MonoBehaviour:
   - Wow
   - Perfect
   fadeDuration: 0.5
-  displayDuration: 1.5
+  displayDuration: 1
   endGamePopup: {fileID: 662005828}
   bonusMoneyRewardText: {fileID: 1220728602}
   levelEndGameText: {fileID: 213235746}
@@ -42186,7 +42186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1bafc7aca6a15ce4a92553883cdf5612, type: 2}
+  - {fileID: 2100000, guid: 9f305e56708e458408f1cc23f9412106, type: 2}
   - {fileID: -6478536213147159724, guid: 708c01a8025ddd141bf8aec005d0e3f9, type: 3}
   - {fileID: 4874126678125670354, guid: 708c01a8025ddd141bf8aec005d0e3f9, type: 3}
   m_StaticBatchInfo:
@@ -43416,7 +43416,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7061556, y: -0.036665812, z: 0.036665812, w: 0.70615554}
   m_LocalPosition: {x: -0.46692848, y: 4.6595974, z: 0.18237686}
-  m_LocalScale: {x: 11.541203, y: 181.5525, z: 445.19485}
+  m_LocalScale: {x: 10, y: 180, z: 440}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450651819856221}
