@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     EndGame EndGame;
     [SerializeField] int combo = 0;
     [SerializeField] List<int> comboList = new List<int>();
+    [SerializeField] List<string> musicName = new List<string>();
     int comboIndex = 0;
     public static GameManager Instance;
     bool openGame = false;
@@ -78,11 +79,12 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         //==========Set full money (test shop)===============================================================
-        money = PlayerPrefs.GetInt("Money");
-        if (money <= 100000)
-            PlayerPrefs.SetInt("Money", 200000);
+        //money = PlayerPrefs.GetInt("Money");
+        //if (money <= 100000)
+        //    PlayerPrefs.SetInt("Money", 200000);
         //===================================================================================================
-        AdsController.instance.StartCoroutineBanner();
+
+        //AdsController.instance.StartCoroutineBanner();
         AppOpenAdController.instance.ShowAppOpenFirstLoadingFinish();
         animationFrameChecker = GetComponent<AnimationFrameChecker>();
         saveData = new SaveData();
@@ -95,6 +97,7 @@ public class GameManager : MonoBehaviour
             _score = 0;
             saveData.LoadMoney();
             CanvasLv1.Instance.ReadyScreen();
+            CanvasLv1.Instance.PauseButtonActive();
             //UpdateScore(0);
             animName = FindObjectOfType<PlayerController>().animationName;
             LoadAnim();
@@ -104,9 +107,28 @@ public class GameManager : MonoBehaviour
         {
             LoadHomeScene();
         }
+        SaveReward();
         AchievementReward achievementReward = FindObjectOfType<AchievementReward>();
         if (achievementReward != null) achievementReward.UpdateRewardBar();
 
+    }
+
+    private void SaveReward()
+    {
+        bool rewardReady;
+        if (Level <= 5 && Level % 5 == 0 && Level != 0)
+        {
+            rewardReady = true;
+        }
+        else if (Level > 5 && (Level -5) % 10 == 0)
+        {
+            rewardReady = true;
+        }
+        else
+        {
+            rewardReady = false;
+        }
+        PlayerPrefs.SetInt("RewardReady", rewardReady ? 1 : 0);
     }
 
     private void LoadModelInPlay()
@@ -184,12 +206,17 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    public int setIndex;
+    //public int setIndex;
     private void SetDifficultyLevel(DifficultyLevel difficultyLevel)
     {
-        //animIndex = Random.Range(0, 5);
-        animIndex = setIndex;
-        if(difficultyLevel == DifficultyLevel.Beginner) animIndex = Level;
+        int animeRandom = Random.Range(0, 5);
+        while (animIndex == animeRandom)
+        {
+            animeRandom = Random.Range(0, 5);
+        }
+        animIndex = animeRandom;
+        //animIndex = setIndex;
+        if (difficultyLevel == DifficultyLevel.Beginner) animIndex = Level;
         missionLevels = MissionListSO.missionLevels[animIndex];
         missionLevels.SetDifficulty(difficultyLevel);
         maxObject = missionLevels.maxObject;
@@ -228,8 +255,8 @@ public class GameManager : MonoBehaviour
             {
                 if (_score > 0)
                 {
-                    PlayerController playerController = FindObjectOfType<PlayerController>();
-                    if (playerController != null) playerController.GoodEffect();
+                    //PlayerController playerController = FindObjectOfType<PlayerController>();
+                    //if (playerController != null) playerController.GoodEffect();
                     AudioManager.Instance.PlaySound("Transform");
                     currentBlendShapeValue = Mathf.Clamp(currentBlendShapeValue - 50f, 0f, 100f);
                 }
@@ -263,7 +290,9 @@ public class GameManager : MonoBehaviour
 
     private void LoadHomeScene()
     {
+        AudioManager.Instance.PlayMusic(musicName[Random.Range(0, musicName.Count)]);
         if (!openGame) AdsController.instance.ShowInter();
+        Time.timeScale = 1;
         openGame = false;
         EndGame = GetComponent<EndGame>();
         EndGame.enabled = false;
@@ -296,6 +325,7 @@ public class GameManager : MonoBehaviour
     {
         score = 0;
         LoadModelInPlay();
+        AudioManager.Instance.PlayMusicRandom();
         CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
         if (cameraFollow != null)
         {
@@ -327,6 +357,7 @@ public class GameManager : MonoBehaviour
         if (scoreUI != null)
             scoreUI.SetMaxScore(maxScore);
         canDrag = true;
+        
         //SetBlendShape(currentBlendShapeValue);
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
@@ -334,6 +365,7 @@ public class GameManager : MonoBehaviour
             playerController.gameObject.transform.GetChild(0).transform.position = characterTrf;
             playerController.gameObject.transform.GetChild(0).transform.rotation = characterRot;
             playerController.animator.speed = 1f;
+            playerController.StartDragging();
             playerController.enabled = true;
         }
         animationFrameChecker.enabled = true;
@@ -350,7 +382,7 @@ public class GameManager : MonoBehaviour
 
     public void home()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         saveData.Save();
         Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
         objectSpawner.StopSpawning();
@@ -361,7 +393,7 @@ public class GameManager : MonoBehaviour
 
     public void ReStart()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         Objectspawner objectSpawner = FindObjectOfType<Objectspawner>();
         objectSpawner.StopSpawning();
         LoadingScreen.Instance.LoadScene("Level01");
@@ -410,7 +442,7 @@ public class GameManager : MonoBehaviour
                 comboIndex++;
                 if (comboIndex >= comboList.Count)
                 {
-                    comboIndex = comboList.Count - 1;
+                    comboIndex = Random.Range(1, comboList.Count);
                     combo = comboList[comboIndex - 1];
                 }
             }
@@ -419,6 +451,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowPopupEndgame(bool win)
     {
+        AdsController.instance.ShowInter();
         CanvasLv1.Instance.ShowPopup(Level, bonusMoney, win);
         endGame = (!endGame) ? true : endGame;
         //Save level, bonus money
@@ -443,6 +476,7 @@ public class GameManager : MonoBehaviour
     public void ShowCotinue()
     {
         Time.timeScale = 0;
+        canDrag = false;
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {

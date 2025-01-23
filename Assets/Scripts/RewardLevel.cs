@@ -27,7 +27,6 @@ public class RewardLevel : MonoBehaviour
         chestButton.onClick.AddListener(OpenGiftsPopup);
         giftsPopup.SetActive(false);
         isFirstOpenGift = PlayerPrefs.GetInt("FirstOpenGift", 1) == 1;
-        Debug.Log("Is first open gift: " + isFirstOpenGift);
     }
 
     private void OpenGiftsPopup()
@@ -162,7 +161,6 @@ public class RewardLevel : MonoBehaviour
                 SkinsManager.instance.UnlockCharacter(skinID);
                 break;
             default:
-                Debug.Log("Unknown gift type.");
                 break;
         }
     }

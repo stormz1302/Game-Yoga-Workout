@@ -11,7 +11,7 @@ public class AchievementReward : MonoBehaviour
     float rewardValue;
     int level = 0;
     int rewardInterval;
-    bool rewardReady = true;
+    bool rewardReady = false;
     private const string RewardValueKey = "RewardValue";
     private const string RewardReady = "RewardReady";
     private void Start()
@@ -24,7 +24,7 @@ public class AchievementReward : MonoBehaviour
 
     private void Update()
     {
-        if (rewardValue >= 1)
+        if (rewardReady)
         {
             chestbutton.interactable = true;
             anim.Play();
@@ -39,10 +39,7 @@ public class AchievementReward : MonoBehaviour
     public void UpdateRewardBar()
     {
         LoadRewardState();
-        Debug.Log("Update reward bar");
         level = GameManager.Instance.Level;
-        Debug.Log("Level: " + level);
-
         if (level <= 5)
         {
             rewardInterval = 5;
@@ -58,13 +55,10 @@ public class AchievementReward : MonoBehaviour
         {
             rewardValue = 1;
         }
-        if (rewardValue >= 1 && !rewardReady)
+        if (rewardValue >= 1 && !rewardReady && level != 0)
         {
-            rewardBar.value = PlayerPrefs.GetFloat(RewardValueKey, 0.001f);
             rewardReady = true;
-            return;
         }
-        Debug.Log("Reward value: " + rewardValue);
         rewardBar.value = rewardValue;
 
         // Save the current state
@@ -78,8 +72,8 @@ public class AchievementReward : MonoBehaviour
 
     public void ResetReward()
     {
-        rewardValue = 0.001f;
-        rewardBar.value = rewardValue;
+        //rewardValue = 0.001f;
+        //rewardBar.value = rewardValue;
         rewardReady = false;
         // Save the reset state
         SaveRewardState();
@@ -91,7 +85,6 @@ public class AchievementReward : MonoBehaviour
         PlayerPrefs.SetFloat(RewardValueKey, rewardValue);
         PlayerPrefs.SetInt(RewardReady, rewardReady ? 1 : 0);
         PlayerPrefs.Save();  // Don't forget to save the preferences
-        Debug.Log("Reward state saved");
     }
 
     private void LoadRewardState()
@@ -100,9 +93,8 @@ public class AchievementReward : MonoBehaviour
         if (PlayerPrefs.HasKey(RewardValueKey) && PlayerPrefs.HasKey(RewardReady))
         {
             rewardValue = PlayerPrefs.GetFloat(RewardValueKey);
-            rewardReady = PlayerPrefs.GetInt(RewardReady) == 1;
+            rewardReady = PlayerPrefs.GetInt(RewardReady, 0) == 1;
             rewardBar.value = rewardValue;
-            Debug.Log("Reward state loaded");
         }
         else
         {
@@ -110,7 +102,6 @@ public class AchievementReward : MonoBehaviour
             rewardValue = 0;
             level = 0;
             rewardBar.value = rewardValue;
-            Debug.Log("No saved reward state found, using default values");
         }
     }
 }

@@ -20,8 +20,9 @@ public class CharacterLoad : MonoBehaviour
         if (pants != null) GameManager.Instance.pants = pants;
         if (shoes != null) GameManager.Instance.shoes = shoes;
         if (hands != null) GameManager.Instance.hands = hands;
-
-        if (scene.name == "Level01")
+        SaveData saveData = new SaveData();
+        bool levelBunus = saveData.GetLevelBonus();
+        if (scene.name == "Level01" && !levelBunus)
         {
             GameManager.Instance.SetBlendShape(100);
         }

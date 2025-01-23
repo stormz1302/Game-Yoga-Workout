@@ -16,7 +16,7 @@ public class RotateModel : MonoBehaviour
     {
         dragZone = Shop.instance.character;
     }
-
+    
     private void Update()
     {
         shopOpening = CanvasLv1.Instance.shopOpening;

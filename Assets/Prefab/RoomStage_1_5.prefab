@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245486116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.144, y: 0, z: 0}
+  m_LocalPosition: {x: 1.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14656,7 +14656,7 @@ Transform:
   m_GameObject: {fileID: 1791595112245487604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.144, y: 0, z: 0}
+  m_LocalPosition: {x: -1.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24425,6 +24425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791595112295823166}
   - component: {fileID: 1791595113319236350}
+  - component: {fileID: 3289087312306409999}
   m_Layer: 0
   m_Name: RoomStage_1_5
   m_TagString: Stage
@@ -24475,3 +24476,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!114 &3289087312306409999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791595112245488794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff97187ad71bf1d40aded2fca6616086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 1791595112245487604}
+  - {fileID: 1791595112245486116}

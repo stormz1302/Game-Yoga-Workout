@@ -212,6 +212,11 @@ public class SetObjectInLevel : MonoBehaviour
         {
             return "AdsPoint";
         }
+        if (availableTypes == null)
+        {
+            return null;
+        }
+
         return availableTypes[randomType];
     }
 

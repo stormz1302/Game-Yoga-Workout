@@ -239,7 +239,7 @@ public class AdsController : MonoBehaviour
     IEnumerator ShowBannerInLoad(){
         while (!bannerOK)
         {
-            yield return new WaitForSeconds(1f);
+            yield return null;
         }
         ShowBanner();
     }

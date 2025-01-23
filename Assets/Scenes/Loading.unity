@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: b8fe49211f7c41a46b485dc00f784ec9
+  m_OcclusionCullingData: {fileID: 36300000, guid: 8cfb8560bc972774bb8cf3686e8375d3, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -372,9 +372,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseTestDevice: 1
   testDeviceIds: BUWWRSFIWKJ7OBG6
-  ID_TIER_1_Android: ca-app-pub-3940256099942544/9257395921
-  ID_TIER_2_Android: ca-app-pub-3940256099942544/9214589741
-  ID_TIER_3_Android: ca-app-pub-3940256099942544/6300978111
+  ID_TIER_1_Android: ca-app-pub-1667805177474426/8037512974
+  ID_TIER_2_Android: ca-app-pub-1667805177474426/6469312253
+  ID_TIER_3_Android: ca-app-pub-1667805177474426/4781089391
 --- !u!4 &954325854
 Transform:
   m_ObjectHideFlags: 0
@@ -654,8 +654,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loading....
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7aa392bfa79454ff5977b4fa16adf56f, type: 2}
-  m_sharedMaterial: {fileID: -1165624868746093024, guid: 7aa392bfa79454ff5977b4fa16adf56f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -846,8 +846,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 1665798000}
-  backGrounds:
-  - {fileID: 21300000, guid: 3fafb952bb4521c49989d206f78def2d, type: 3}
   loadingScreen: {fileID: 552007683}
 --- !u!114 &1189196505
 MonoBehaviour:
@@ -963,8 +961,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: af1856b26a35423ca397ac71a93b8d5a, type: 3}
   - name: Cheers
     clip: {fileID: 8300000, guid: 1b0e36161d5575840b32cd22d6fcb916, type: 3}
-  - name: Combo
-    clip: {fileID: 8300000, guid: 858b8b6a19b4e8840a537ebbeee63f2d, type: 3}
   - name: UnlockGift
     clip: {fileID: 8300000, guid: 4875d9ba501c7c942977d3ec473bafd3, type: 3}
   - name: SpinEnd
@@ -973,15 +969,35 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 30a301468bbf38d4da2b915763ecc958, type: 3}
   - name: Level-pass
     clip: {fileID: 8300000, guid: 90064bad7839dc04eb1d02e000da5f00, type: 3}
+  - name: Hit
+    clip: {fileID: 8300000, guid: af1856b26a35423ca397ac71a93b8d5a, type: 3}
+  - name: EndGame
+    clip: {fileID: 8300000, guid: 156f6cf25201ff545b5d7ba54f229747, type: 3}
+  - name: Nice
+    clip: {fileID: 8300000, guid: 03df66c011dbbf24984f69ddfebaebd3, type: 3}
+  - name: Wow
+    clip: {fileID: 8300000, guid: 4bcf1f94e5f12f544ae5f4433729b3e3, type: 3}
+  - name: Good
+    clip: {fileID: 8300000, guid: 5f8a782d45e3b9848afac3434cf82035, type: 3}
+  - name: Great
+    clip: {fileID: 8300000, guid: 849be4e0a32beda43a7873b6beb9618c, type: 3}
+  - name: Perfect
+    clip: {fileID: 8300000, guid: f75be266c2b4e7b4ca80199fce424d13, type: 3}
   musicTracks:
   - name: Music
     clip: {fileID: 8300000, guid: 6a035bf8e24484fa4b7c94d1347d999c, type: 3}
+  - name: Music1
+    clip: {fileID: 8300000, guid: f5c3d3340afbd482d81f164f99fb47f8, type: 3}
   - name: Music-1
     clip: {fileID: 8300000, guid: 7dc37b5e64b1ca043baeb27369c6d134, type: 3}
   - name: Music-2
     clip: {fileID: 8300000, guid: 383136630830a374bbc57de3af558784, type: 3}
   - name: Music-3
     clip: {fileID: 8300000, guid: 51751767922d211429a8abea38842426, type: 3}
+  - name: Music-4
+    clip: {fileID: 8300000, guid: 8f325943e930a184fa0e665ab51b6ff2, type: 3}
+  - name: Music-5
+    clip: {fileID: 8300000, guid: 3bb13ea74b597694fa9fb0fcebbf7673, type: 3}
   audioSourceMusic: {fileID: 1577447622}
   audioSourceSounds: {fileID: 1102530275}
   audioOb: {fileID: 1188910384497142593, guid: 8793e553b78a9e4419c7f57a7aacb5ce, type: 3}
@@ -1208,10 +1224,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DevKeyAndroid: vNi7sXyTsTA9oDvnm4eXwcx7ErlWimmpbAK9GtLm4M6IZt5MFNTei0g215XMI4mqDGy5B6ZRu9KTuRThSsgvct
   DevKeyIOS: 
-  bannerIdAndroid: 234c13e546caee7b
-  interIdAndroid: 1b4e6d2a7e9841d1
-  videoIdAndroid: 148c8c5c11f25666
-  mrecIdAndroid: 8e38ef1d8df930cf
+  bannerIdAndroid: d60a16a0a2b7fe88
+  interIdAndroid: 388ec8cdf02487d0
+  videoIdAndroid: 27ab69c55c447996
+  mrecIdAndroid: b5359626d81a62da
   bannerIdIOS: 
   interIdIOS: 
   videoIdIOS: 

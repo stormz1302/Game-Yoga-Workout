@@ -39,20 +39,25 @@ public class VideoGiftCooldown : MonoBehaviour
         if (isCooldownActive)
         {
             TimeSpan remainingTime = cooldownEndTime - DateTime.Now;
-            videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
             if (remainingTime <= TimeSpan.Zero)
             {
                 // Cooldown đã kết thúc nhưng không reset Timer
                 isCooldownActive = false;
-                videoGitsbutton.gameObject.GetComponent<Animation>().Play();
                 SaveState();
             }
         }
 
         // Cập nhật nếu qua ngày mới (reset vào 0h hôm sau)
-        if (DateTime.Now >= GetNextDailyResetTime())
+        DateTime lastReset = GetLastDailyResetTime();
+        if (PlayerPrefs.HasKey("LastResetTime"))
         {
-            ResetDailyUsage();
+            DateTime savedResetTime = DateTime.Parse(PlayerPrefs.GetString("LastResetTime"));
+            if (savedResetTime < lastReset)
+            {
+                ResetDailyUsage();
+                PlayerPrefs.SetString("LastResetTime", lastReset.ToString());
+                PlayerPrefs.Save();
+            }
         }
 
         UpdateUI();
@@ -61,7 +66,6 @@ public class VideoGiftCooldown : MonoBehaviour
     public void SetCoolDownTime()
     {
         // Khi nhấn nút, đặt thời gian cooldown
-        videoGitsbutton.gameObject.GetComponent<Animation>().Stop();
         if (Timer < MaxDailyUsage)
         {
             cooldownEndTime = DateTime.Now.AddSeconds(CooldownTimePerUse);
@@ -88,11 +92,18 @@ public class VideoGiftCooldown : MonoBehaviour
         SaveState();
     }
 
-    private DateTime GetNextDailyResetTime()
+    private DateTime GetLastDailyResetTime()
     {
-        // Trả về thời điểm reset tiếp theo (0h hôm sau)
-        DateTime nextReset = DateTime.Now.Date.AddDays(1).AddHours(DailyResetHour);
-        return nextReset;
+        // Tính thời điểm reset gần nhất
+        DateTime lastReset = DateTime.Now.Date.AddHours(DailyResetHour);
+
+        // Nếu thời gian hiện tại nhỏ hơn thời điểm reset hôm nay, lấy reset hôm qua
+        if (DateTime.Now < lastReset)
+        {
+            lastReset = lastReset.AddDays(-1);
+        }
+
+        return lastReset;
     }
 
     private void UpdateCooldownState()
@@ -103,10 +114,18 @@ public class VideoGiftCooldown : MonoBehaviour
             isCooldownActive = false;
         }
 
-        // Nếu qua ngày mới, reset vào 0h hôm sau
-        if (DateTime.Now >= GetNextDailyResetTime())
+        // Kiểm tra nếu qua ngày mới
+        DateTime lastReset = GetLastDailyResetTime();
+        if (PlayerPrefs.HasKey("LastResetTime"))
         {
-            ResetDailyUsage();
+            DateTime savedResetTime = DateTime.Parse(PlayerPrefs.GetString("LastResetTime"));
+
+            if (savedResetTime < lastReset)
+            {
+                ResetDailyUsage();
+                PlayerPrefs.SetString("LastResetTime", lastReset.ToString());
+                PlayerPrefs.Save();
+            }
         }
     }
 
@@ -114,6 +133,7 @@ public class VideoGiftCooldown : MonoBehaviour
     {
         PlayerPrefs.SetInt("TimerVideoAds", Timer);
         PlayerPrefs.SetString("VideoGiftCooldownEndTime", cooldownEndTime.ToString());
+        PlayerPrefs.SetString("LastResetTime", GetLastDailyResetTime().ToString());
         PlayerPrefs.Save();
     }
 
@@ -124,22 +144,29 @@ public class VideoGiftCooldown : MonoBehaviour
         if (PlayerPrefs.HasKey("VideoGiftCooldownEndTime"))
         {
             cooldownEndTime = DateTime.Parse(PlayerPrefs.GetString("VideoGiftCooldownEndTime"));
-
-            // Nếu đã qua ngày mới, reset vào 0h hôm sau
-            if (DateTime.Now >= GetNextDailyResetTime())
-            {
-                ResetDailyUsage();
-            }
-            else
-            {
-                isCooldownActive = DateTime.Now < cooldownEndTime;
-            }
         }
         else
         {
             cooldownEndTime = DateTime.MinValue;
-            isCooldownActive = false;
         }
+
+        // Kiểm tra nếu qua nhiều ngày không mở app
+        DateTime lastReset = GetLastDailyResetTime();
+        if (PlayerPrefs.HasKey("LastResetTime"))
+        {
+            DateTime savedResetTime = DateTime.Parse(PlayerPrefs.GetString("LastResetTime"));
+
+            if (savedResetTime < lastReset)
+            {
+                ResetDailyUsage();
+            }
+        }
+        else
+        {
+            ResetDailyUsage();
+        }
+
+        isCooldownActive = DateTime.Now < cooldownEndTime;
     }
 
     private void UpdateUI()

@@ -78,38 +78,44 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                startDragPosition = Input.mousePosition;
-                isDragging = true;
+                // Kiểm tra xem con trỏ chuột có nằm trong nửa dưới màn hình không
+                if (Input.mousePosition.y <= Screen.height / 2)
+                {
+                    startDragPosition = Input.mousePosition;
+                    isDragging = true;
+                }
             }
-
 
             if (Input.GetMouseButton(0) && isDragging)
             {
                 Vector3 currentDragPosition = Input.mousePosition;
                 float dragDistance = currentDragPosition.x - startDragPosition.x;
 
-
                 float dragProgress = Mathf.Clamp(currentProgress + (dragDistance / dragThreshold), 0f, 1f);
 
-
                 animator.Play(animationName[animIndex], 0, dragProgress);
-                //animator.CrossFade(animationName[LevelIndex], 0.0f, 0, dragProgress);
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                Vector3 currentDragPosition = Input.mousePosition;
-                float dragDistance = currentDragPosition.x - startDragPosition.x;
-                currentProgress = Mathf.Clamp(currentProgress + (dragDistance / dragThreshold), 0f, 1f);
+                if (isDragging)
+                {
+                    Vector3 currentDragPosition = Input.mousePosition;
+                    float dragDistance = currentDragPosition.x - startDragPosition.x;
+                    currentProgress = Mathf.Clamp(currentProgress + (dragDistance / dragThreshold), 0f, 1f);
 
-                isDragging = false;
+                    isDragging = false;
+                }
             }
         }
 
-        
     }
 
-    
+    public void StartDragging()
+    {
+        startDragPosition = Input.mousePosition;
+        isDragging = true;
+    }
 
     //private void SetTranform()
     //{
@@ -160,10 +166,12 @@ public class PlayerController : MonoBehaviour
         else if (other != null && other.gameObject.CompareTag("Things") && other != stage)
         {
             float currentTime = Time.time;
+            AudioManager.Instance.PlaySound("Hit");
+            canDrag = false;
             stage = other;
             Handheld.Vibrate();
             //show ads inter
-            AdsController.instance.ShowInter();
+            //AdsController.instance.ShowInter();
             // Kiểm tra xem đã đủ 25 giây kể từ lần gọi ShowCotinue trước đó chưa
             if (currentTime - lastShowTime >= coolDownTime)
             {
@@ -218,6 +226,7 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.AddScore(true, trapScorePerObject);
             AudioManager.Instance.PlaySound("GoodEffect");
+            GoodEffect();
             Destroy(other.gameObject);
             stage = other;
         }

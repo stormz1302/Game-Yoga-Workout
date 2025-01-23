@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
     public Image progressBar; 
-    public List<Sprite> backGrounds = new List<Sprite>();
     public GameObject loadingScreen;
     public static LoadingScreen Instance;
 
@@ -33,8 +32,6 @@ public class LoadingScreen : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
-        Image loadingBG = loadingScreen.GetComponent<Image>();
-        loadingBG.sprite = backGrounds[Random.Range(0, backGrounds.Count)];
         StartCoroutine(LoadSceneAsync(sceneName));
     }
 
@@ -53,11 +50,11 @@ public class LoadingScreen : MonoBehaviour
 
             if (fakeProgress < realProgress)
             {
-                fakeProgress += Time.deltaTime * 0.5f; 
+                fakeProgress += Time.unscaledDeltaTime * 0.5f; 
             }
             else
             {
-                fakeProgress += Time.deltaTime * 0.3f;
+                fakeProgress += Time.unscaledDeltaTime * 0.3f;
             }
 
             float displayedProgress = Mathf.Min(fakeProgress, realProgress);
@@ -65,12 +62,13 @@ public class LoadingScreen : MonoBehaviour
 
             if (realProgress >= 0.9f && fakeProgress >= 1f)
             {
-                yield return new WaitForSeconds(0.5f);
-                // Chờ App Open Ad sẵn sàng
-                while (!AppOpenAdController.instance.IsAppOpenAdAvailable)
+                yield return new WaitForSecondsRealtime(0.5f);
+                // Chờ App Open Ad sẵn sàng 
+                float timeOut = 0f;
+                while (!AppOpenAdController.instance.IsAppOpenAdAvailable && timeOut < 3f)
                 {
-                    Debug.Log("Waiting for App Open Ad to be ready...");
-                    yield return null; // Đợi cho đến khi quảng cáo sẵn sàng
+                    timeOut += Time.unscaledDeltaTime;
+                    yield return null;
                 }
                 operation.allowSceneActivation = true;
             }

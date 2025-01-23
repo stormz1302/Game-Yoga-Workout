@@ -47,6 +47,7 @@ public class CanvasLv1 : MonoBehaviour
 
     [Header("ComboPopupUI:")]
     [SerializeField] private List<GameObject> comboPopupUI;
+    [SerializeField] private List<string> comboVoiceName;
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private float displayDuration = 1.5f;
 
@@ -231,6 +232,7 @@ public class CanvasLv1 : MonoBehaviour
         shopOpening = true;
         AudioManager.Instance.PlaySound("MenuOpen");
         shop.SetActive(true);
+        Shop.instance.UpdateMoneyText();
         //CameraShop.SetActive(true);
         playButton.SetActive(false);
         settingButton.SetActive(false);
@@ -253,7 +255,7 @@ public class CanvasLv1 : MonoBehaviour
     public void OnClickReady()
     {
         AudioManager.Instance.PlaySound("PlayButton");
-
+        AdsController.instance.HideMrec();
         GameManager.Instance.LoadPlayScene();
     }
 
@@ -307,14 +309,12 @@ public class CanvasLv1 : MonoBehaviour
     {
         if (comboIndex < 0 || comboIndex >= comboPopupUI.Count)
         {
-            Debug.LogWarning("Invalid combo index!");
             return;
         }
         GameObject popup = comboPopupUI[comboIndex];
 
         if (popup == null)
         {
-            Debug.LogWarning("Popup at this index is missing!");
             return;
         }
 
@@ -322,7 +322,7 @@ public class CanvasLv1 : MonoBehaviour
         {
             StopCoroutine(currentCoroutine);
         }
-        AudioManager.Instance.PlaySound("Combo");
+        AudioManager.Instance.PlaySound(comboVoiceName[comboIndex]);
         currentCoroutine = StartCoroutine(ShowPopupEffect(popup));
     }
 
@@ -361,6 +361,7 @@ public class CanvasLv1 : MonoBehaviour
     public void ShowPopup(int level, int rewardAmount, bool isWin)
     {
         AdsController.instance.ShowMrecBottomCenter();
+        AudioManager.Instance.PlaySound("EndGame");
         endGamePopup.SetActive(true);
         if (isWin)
         {
@@ -401,11 +402,15 @@ public class CanvasLv1 : MonoBehaviour
         pauseButton.SetActive(false);
     }
 
+    public void PauseButtonActive()
+    {
+        pauseButton.SetActive(true);
+    }
+
     private IEnumerator FadeIn()
     {
         if (fadeImage == null)
         {
-            Debug.LogError("fadeImage null.");
             yield break;
         }
         fadeImage.gameObject.SetActive(true);

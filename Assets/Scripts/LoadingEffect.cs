@@ -20,7 +20,7 @@ public class LoadingEffect : MonoBehaviour
         {
             dotCount = (dotCount + 1) % 4; // Xoay vòng từ 0 đến 3
             loadingText.text = baseText + new string('.', dotCount); // Cập nhật dấu chấm
-            yield return new WaitForSeconds(0.5f); // Chờ 0.5 giây trước khi lặp
+            yield return new WaitForSecondsRealtime(0.5f); // Chờ 0.5 giây
         }
     }
 }

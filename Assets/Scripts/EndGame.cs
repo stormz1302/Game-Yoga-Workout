@@ -19,7 +19,8 @@ public class EndGame : MonoBehaviour
     [SerializeField] float maxHight = 40.6f;
     public GameObject finishBG;
     public GameObject[] male_Emojis;
-    public GameObject[] female_Emojis;  
+    public GameObject[] female_Emojis;
+    public GameObject emojiHeart;
     public float pushForce = 10f;     
 
     [SerializeField] bool endGame = false;
@@ -78,7 +79,6 @@ public class EndGame : MonoBehaviour
             femaleAnimator = Female.GetComponent<Animator>();
             maleAnimator = Male.GetComponent<Animator>();
             //show ads
-            AdsController.instance.ShowInter();
             Invoke("RunState", 1f);
             SetTransForm();
             StopSpawning();
@@ -170,7 +170,9 @@ public class EndGame : MonoBehaviour
         {
             femaleAnimator.SetTrigger("kiss"); 
             maleAnimator.SetTrigger("kiss");
+            emojiHeart.SetActive(true);
             yield return new WaitForSeconds(6f);
+            emojiHeart.SetActive(false);
             femaleAnimator.applyRootMotion = true;
             femaleAnimator.SetTrigger("Dance");
         }
@@ -192,6 +194,7 @@ public class EndGame : MonoBehaviour
         if (isWin) moneyEffect.SetActive(true);
         yield return new WaitForSeconds(3f);
         // enable Popup end game(win)
+        //AdsController.instance.ShowInter();
         GameManager.Instance.ShowPopupEndgame(true);
     }
 

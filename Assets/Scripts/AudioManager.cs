@@ -77,7 +77,7 @@ public class AudioManager : MonoBehaviour
     }
     public void Start()
     {
-        PlayMusic("Music");
+        //PlayMusic("Music");
         if (Application.platform == RuntimePlatform.Android)
         {
             // Giới hạn FPS, ví dụ: 90
@@ -182,5 +182,11 @@ public class AudioManager : MonoBehaviour
         }
         audioSourceMusic.Play();
         audioSourceSounds.Play();
+    }
+
+    public void PlayMusicRandom()
+    {
+        int randomIndex = Random.Range(2, musicTracks.Count);
+        PlayMusic(musicTracks[randomIndex].name);
     }
 }

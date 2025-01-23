@@ -81,7 +81,7 @@ public class Shop : MonoBehaviour
         UpdateMoneyText();
     }
     
-    void UpdateMoneyText()
+    public void UpdateMoneyText()
     {
         moneyText.text = GameManager.Instance.money.ToString("N0");
     }
@@ -190,7 +190,6 @@ public class Shop : MonoBehaviour
             Physics.SyncTransforms();
             currentModel.transform.localPosition = Vector3.zero;
             currentSkinID = skinID;
-            Debug.Log("CurrentSkinID: " + currentSkinID);
             AudioManager.Instance.PlaySound("SwicthSkin");
             checkOwnedSkin(skinID);
             //PlayerPrefs.SetInt("CurrentSkin", currentSkinID);
@@ -230,7 +229,6 @@ public class Shop : MonoBehaviour
             int equipSkinID = SkinsManager.instance.GetEquippedCharacter();
             bool isEquiped = equipSkinID == skinID;
             SelectButton.SetActive(!isEquiped);
-            Debug.Log("Skin: " + skinID + " isEquiped: " + isEquiped);
             BuyButton.SetActive(false);
             BuyAdsButton.SetActive(false);
         }

@@ -69,6 +69,7 @@ public class ContinueOutLine : MonoBehaviour
             AdsController.instance.HideMrec();
             gameObject.SetActive(false);
             Time.timeScale = 1;
+            GameManager.Instance.canDrag = true;
         }, "Continue-Game-After-Die");
     }
 
@@ -77,6 +78,7 @@ public class ContinueOutLine : MonoBehaviour
         isContinue = true;
         gameObject.SetActive(false);
         Time.timeScale = 1;
+        //AdsController.instance.ShowInter();
         GameManager.Instance.ShowPopupEndgame(false);
     }
 }

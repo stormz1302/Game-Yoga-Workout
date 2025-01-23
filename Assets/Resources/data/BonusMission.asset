@@ -22,5 +22,5 @@ MonoBehaviour:
   - {fileID: 1791595112245488708, guid: 739c69278a8f474da4ffb227ea7f27a2, type: 3}
   - {fileID: 1791595112245488789, guid: b44f87ac27fd4ecba25641cd73694acb, type: 3}
   - {fileID: 1791595112245488820, guid: d677aeade82540b884c9407c1f35f2d9, type: 3}
-  missionCount: 20
-  missionTime: 50
+  missionCount: 15
+  missionTime: 30
