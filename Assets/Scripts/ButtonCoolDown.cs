@@ -54,6 +54,12 @@ public class ButtonCoolDown : MonoBehaviour
 
     private void ResetButton()
     {
+        targetButton = GetComponent<Button>();
+        if (targetButton == null)
+        {
+            Debug.LogError("ButtonCoolDown: targetButton is null");
+            return;
+        }
         targetButton.interactable = true;
         if (targetImage != null)
         {

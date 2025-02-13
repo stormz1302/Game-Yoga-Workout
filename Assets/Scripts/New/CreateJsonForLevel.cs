@@ -8,7 +8,7 @@ using static CreateLevel;
 [System.Serializable]
 public class CreateLevel
 {
-    public string version = "v01";
+    public string version = "v03";
     public List<InfoCreateLevel> info = new List<InfoCreateLevel>();
     [System.Serializable]
     public class InfoCreateLevel
